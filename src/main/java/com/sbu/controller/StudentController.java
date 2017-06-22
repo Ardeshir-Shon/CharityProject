@@ -19,7 +19,7 @@ public class StudentController {
 
     @RequestMapping(value = "/submit", method = RequestMethod.GET)
     public String student() {
-        return "student";
+        return "inbox";
     }
 
     @RequestMapping(value = "/addStudent", method = {RequestMethod.GET, RequestMethod.POST})
