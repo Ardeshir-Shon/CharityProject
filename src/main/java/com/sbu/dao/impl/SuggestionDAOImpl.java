@@ -1,12 +1,14 @@
 package com.sbu.dao.impl;
 
 import com.sbu.dao.SuggestionDAO;
+import com.sbu.dao.model.HelperEntity;
 import com.sbu.dao.model.SuggestionEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 /**
@@ -36,6 +38,11 @@ public class SuggestionDAOImpl implements SuggestionDAO {
     @Override
     @Transactional
     public List<SuggestionEntity> getByName(String name) {
-        return null;
+
+        TypedQuery<SuggestionEntity> q =
+                entityManager.createQuery("SELECT *  FROM  SuggestionEntity  WHERE name = " + name, SuggestionEntity.class);
+
+        List<SuggestionEntity> suggestionEntity = q.getResultList();
+        return suggestionEntity;
     }
 }
