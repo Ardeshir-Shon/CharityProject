@@ -30,6 +30,7 @@ public class MessageDAOImpl implements MessageDAO {
     @Transactional
     public Boolean insertMessage(MessageEntity message) {
         entityManager.persist(message);
+        System.out.println("");
         return null;
     }
 }
