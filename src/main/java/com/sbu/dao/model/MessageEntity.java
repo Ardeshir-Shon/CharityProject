@@ -8,8 +8,8 @@ import javax.persistence.*;
  * Created by Mammad on 6/21/2017.
  */
 @Entity
-@Table(name = "message")
-public class message {
+@Table(name = "MESSAGE")
+public class MessageEntity {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -28,10 +28,13 @@ public class message {
     @Column( length=50)
     private String Email;
 
-    public message(String name, String subject, String text) {
+    public MessageEntity(String name, String subject, String text) {
         this.name = name;
         this.subject = subject;
         this.text = text;
+    }
+
+    public MessageEntity() {
     }
 
 
