@@ -2,6 +2,7 @@ package com.sbu.dao.impl;
 
 import com.sbu.dao.MessageDAO;
 import com.sbu.dao.model.MessageEntity;
+import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -28,9 +29,7 @@ public class MessageDAOImpl implements MessageDAO {
 
     @Override
     @Transactional
-    public Boolean insertMessage(MessageEntity message) {
+    public void insertMessage(MessageEntity message) {
         entityManager.persist(message);
-        System.out.println("");
-        return null;
     }
 }

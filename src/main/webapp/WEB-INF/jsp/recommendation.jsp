@@ -46,9 +46,6 @@
 
 
         }
-        function sendmessage() {
-            document.getElementById("sendmsg").innerHTML = "sdhjfvkjhw";
-        }
 
     </script>
     <style>
@@ -190,24 +187,24 @@
                         <div class="form-group">
                             <label class="control-label col-sm-2" >نام مددجو:</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" placeholder="نام مددجو را وارد کنید">
+                                <input type="text" name="needyFirstName" class="form-control" placeholder="نام مددجو را وارد کنید">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2" >نام خانوادگی مددجو:</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" placeholder="نام خانوادگی مددجو را وارد کنید">
+                                <input type="text" name="needyLastName" class="form-control" placeholder="نام خانوادگی مددجو را وارد کنید">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2" >شماره‌ی دانشجویی مددجو:</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" placeholder="در صورت اطلاع شماره‌ی دانشجویی مددجو را وارد کنید">
+                                <input type="text" name="needyStudentNumber" class="form-control" placeholder="در صورت اطلاع شماره‌ی دانشجویی مددجو را وارد کنید">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2">جنسیت:</label>
-                            <select class="form-control col-sm-2" style="margin-right: 13px;" selected="none" >
+                            <select name="needyGender" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" >
                                 <option disabled selected value>-- انتخاب کنید --</option>
                                 <option>خانم</option>
                                 <option>آقا</option>
@@ -215,7 +212,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2">ورودی دانشگاه:</label>
-                            <select class="form-control col-sm-2" style="margin-right: 13px;" selected="none" >
+                            <select name="needyEntryYear" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" >
                                 <option disabled selected value>-- انتخاب کنید --</option>
                                 <option>۹۶</option>
                                 <option>۹۵</option>
@@ -229,7 +226,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2">دانشکده:</label>
-                            <select class="form-control col-sm-2" style="margin-right: 13px;" selected="none" id="selector" onchange="shower();">
+                            <select name="needyFacultyName" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" id="selector" onchange="shower();">
                                 <option disabled selected value>-- انتخاب کنید --</option>
                                 <option>مهندسی برق و کامپیوتر</option>
                                 <option>روانشناسی</option>
@@ -252,7 +249,7 @@
                         <div class="form-group" id="other_faculty" style="display: none;">
                             <label class="control-label col-sm-2" >نام دانشکده:</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" placeholder="نام دانشکده را وارد کنید">
+                                <input type="text" name="otherFacultyName" class="form-control" placeholder="نام دانشکده را وارد کنید">
                             </div>
                         </div>
                         <div class="form-group">
