@@ -20,8 +20,18 @@
             </tr>
             <tr>
                 <td>Age</td>
+                <%
+                    if (request.getAttribute("age")!=null){
+                %>
                 <td>${age}</td>
+                <%
+                }else{
+                %>
+                <td>Age Unknown!</td>
+                <% } %>
+
             </tr>
+
             <tr>
                 <td>ID</td>
                 <td>${id}</td>

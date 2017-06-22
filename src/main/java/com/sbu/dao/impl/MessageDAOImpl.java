@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  * Created by user on 6/22/2017.
@@ -14,7 +15,7 @@ import javax.persistence.EntityManager;
 @Repository
 public class MessageDAOImpl implements MessageDAO {
 
-    @Autowired
+    @PersistenceContext
     EntityManager entityManager;
 
     @Override
