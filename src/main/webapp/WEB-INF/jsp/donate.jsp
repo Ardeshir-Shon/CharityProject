@@ -114,7 +114,7 @@
                 <div style="min-height: 60px;"></div>
                 <div id="collapseOne" class="accordion-body collapse in">
                     <div class="accordion-inner">
-                        <form::form class="form-horizontal col-sm-offset-1" method="post">
+                        <form:form class="form-horizontal col-sm-offset-1" method="post">
                             <div class="form-group">
                                 <label class="control-label col-sm-2">مبلغ اهدایی(تومان):</label>
                                 <div class="radio col-sm-1">
@@ -145,7 +145,7 @@
                                     <!-- <div class="g-recaptcha" data-sitekey="6LdbBBsUAAAAAE2H11rzHeFOhrbkjnh9JIZG_HcY"></div> -->
                                 </div>
                             </div>
-                        </form::form>
+                        </form:form>
                     </div>
                 </div>
             </div>
@@ -202,5 +202,6 @@
             <p style="font-size: 16px; font-family: Gulf-semibold;">حقوق قانونی وب‌سایت</p><p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
         </div>
     </div>
+</div>
 </body>
 </html>
