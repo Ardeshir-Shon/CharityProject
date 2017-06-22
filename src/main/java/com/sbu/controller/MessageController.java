@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Created by user on 6/21/2017.
  */
 @Controller
-@RequestMapping(value = "/message")
+@RequestMapping(value = "/inbox")
 public class MessageController {
 
     @Autowired
@@ -27,16 +27,18 @@ public class MessageController {
         return "inbox";
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value="/message" , method = RequestMethod.POST)
     public String controlMessage(Model model, @ModelAttribute("messageModel")MessageModel messageModel){
 
         MessageEntity messageEntity=new MessageEntity();
         if (messageModel.getName() !=null && messageModel.getTitle() != null && messageModel.getBody() != null){
+
             messageEntity.setName(messageModel.getName());
             messageEntity.setSubject(messageModel.getTitle());
             messageEntity.setText(messageModel.getBody());
         }
         else{// fill necessary incorrect
+            model.addAttribute("test","hereeeeeeee");
             model.addAttribute("state",new Boolean(false));
             return "inbox";
         }
@@ -53,6 +55,7 @@ public class MessageController {
                 return "inbox";
             }
         }
+
         model.addAttribute("state",new Boolean(true));
         messageService.insertMessage(messageEntity);
         return "inbox";

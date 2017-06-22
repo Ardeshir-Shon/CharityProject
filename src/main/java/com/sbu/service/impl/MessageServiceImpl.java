@@ -21,7 +21,7 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public Boolean insertMessage(MessageEntity message) {
-        return messageDAO.insertMessage(message);
+    public void insertMessage(MessageEntity message) {
+        messageDAO.insertMessage(message);
     }
 }

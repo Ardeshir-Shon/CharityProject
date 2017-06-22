@@ -48,7 +48,7 @@
 
         }
         function sendmessage() {
-            document.getElementById("sendmsg").innerHTML = "sdhjfvkjhw";
+            document.getElementById("sendmsg").innerHTML = "ثبت شد!";
         }
 
     </script>
@@ -147,7 +147,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2">متن پیام:</label>
             <div class="col-sm-5">
-                <textarea class="form-control" name="description" rows="6" id="comment"></textarea>
+                <textarea class="form-control" name="body" rows="6" id="comment"></textarea>
             </div>
         </div>
         <div class="form-group">
@@ -184,7 +184,14 @@
             </div>
         </div>
     </form:form>
-
+    <% if (request.getAttribute("state") != null && (Boolean)request.getAttribute("state"))
+    {
+    %>
+    <p>${state} message is submited!</p>
+    <%}else if(request.getAttribute("state") != null && !(Boolean)request.getAttribute("state")) { %>
+    <p>${state} review your inputs</p>
+    <%}%>
+    ${test}
 </div>
 <div class="container">
     <div class="row"

@@ -28,16 +28,8 @@ public class MessageDAOImpl implements MessageDAO {
     }
 
     @Override
-    public Boolean insertMessage(MessageEntity message) {
-        try {
-            entityManager.getTransaction().begin();
-            entityManager.persist(message);
-            entityManager.getTransaction().commit();
-            return true;
-        }
-        catch (Exception e){
-            entityManager.getTransaction().rollback();
-            return false;
-        }
+    @Transactional
+    public void insertMessage(MessageEntity message) {
+        entityManager.persist(message);
     }
 }
