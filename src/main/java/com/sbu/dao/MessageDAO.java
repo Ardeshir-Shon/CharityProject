@@ -7,8 +7,7 @@ import com.sbu.dao.model.MessageEntity;
  */
 public interface MessageDAO {
 
-    public String getMessagebyId(Long id);
-    public String getMessagebyAuthorName(String name);
+    public MessageEntity getMessagebyId(Long id);
     public Boolean insertMessage(MessageEntity message);
 
 }

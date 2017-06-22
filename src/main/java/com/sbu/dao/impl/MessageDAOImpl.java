@@ -5,8 +5,10 @@ import com.sbu.dao.model.MessageEntity;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  * Created by user on 6/22/2017.
@@ -14,21 +16,20 @@ import javax.persistence.EntityManager;
 @Repository
 public class MessageDAOImpl implements MessageDAO {
 
-    @Autowired
-    EntityManager entityManager;
+    @PersistenceContext
+    public EntityManager entityManager;
 
     @Override
-    public String getMessagebyId(Long id) {
-        return null;
+    @Transactional
+    public MessageEntity getMessagebyId(Long id) {
+        MessageEntity messageEntity=(MessageEntity) entityManager.find(MessageEntity.class,id);
+        return messageEntity;
     }
 
     @Override
-    public String getMessagebyAuthorName(String name) {
-        return null;
-    }
-
-    @Override
+    @Transactional
     public Boolean insertMessage(MessageEntity message) {
+        entityManager.persist(message);
         return null;
     }
 }

@@ -23,8 +23,8 @@ public class MessageEntity {
     private String text;
 
     private boolean tendency;
-    @Column( length=50)
-    private String phone_number;
+    @Column(length=50 )
+    private String phoneNumber;
     @Column( length=50)
     private String Email;
 
@@ -76,11 +76,11 @@ public class MessageEntity {
     }
 
     public String getPhone_number() {
-        return phone_number;
+        return phoneNumber;
     }
 
     public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+        this.phoneNumber = phone_number;
     }
 
     public String getEmail() {
