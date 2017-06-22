@@ -7,7 +7,7 @@ import com.sbu.dao.model.NeedyStudentEntity;
  */
 public interface NeedyStudentDAO {
 
-    public Boolean setNeedyStudent(NeedyStudentEntity needyStudentEntity);
+    public Boolean insertNeedyStudent(NeedyStudentEntity needyStudentEntity);
 
     public NeedyStudentEntity getByStudentId(String student_Id);
     public NeedyStudentEntity getByPhoneNumber(String phoneNumber);
