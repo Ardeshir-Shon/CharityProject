@@ -21,17 +21,9 @@ public class IntoductionDAOImpl implements IntroductionDAO {
     public EntityManager entityManager;
 
     @Override
-    public Boolean insertIntroduction(IntroductionEntity introductionEntity) {
-        try {
-            entityManager.getTransaction().begin();
+    @Transactional
+    public void insertIntroduction(IntroductionEntity introductionEntity) {
             entityManager.persist(introductionEntity);
-            entityManager.getTransaction().commit();
-            return true;
-        }
-        catch(Exception e){
-            entityManager.getTransaction().rollback();
-            return false;
-        }
 
     }
 

@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface IntroductionDAO {
 
-    public Boolean insertIntroduction(IntroductionEntity introductionEntity);
+    public void insertIntroduction(IntroductionEntity introductionEntity);
 
     //public List<IntroductionEntity> getByRecommenderName(String name,String family);
     public List<IntroductionEntity> getByRecommenderPhoneNumber(String phoneNumber);

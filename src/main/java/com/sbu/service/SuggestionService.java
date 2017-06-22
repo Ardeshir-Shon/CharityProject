@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface SuggestionService {
 
-    public Boolean insertSuggestion(SuggestionEntity suggestionEntity);
+    public void insertSuggestion(SuggestionEntity suggestionEntity);
 
     public List<SuggestionEntity> getByName(SuggestionEntity suggestionEntity);
 

@@ -18,17 +18,10 @@ public class DonateDAOImpl implements DonateDAO{
     public EntityManager entityManager;
 
     @Override
-    public Boolean insertDonate(String costOfPay) {
-        try {
-            entityManager.getTransaction().begin();
+    @Transactional
+    public void insertDonate(String costOfPay) {
             entityManager.persist(costOfPay);
-            entityManager.getTransaction().commit();
-            return true;
-        }
-        catch(Exception e){
-            entityManager.getTransaction().rollback();
-            return false;
-        }
+
 
     }
 }

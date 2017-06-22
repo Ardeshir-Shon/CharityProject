@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface SuggestionDAO {
 
-    public Boolean insertSuggestion(SuggestionEntity suggestionEntity);
+    public void insertSuggestion(SuggestionEntity suggestionEntity);
 
     public List<SuggestionEntity>  getByName(String name);
     //public List<SuggestionEntity>  getBySubject(String subject);

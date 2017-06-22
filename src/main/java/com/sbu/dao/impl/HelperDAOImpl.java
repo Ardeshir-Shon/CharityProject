@@ -21,18 +21,11 @@ public class HelperDAOImpl implements HelperDAO {
     public EntityManager entityManager;
 
     @Override
-    public Boolean insertPeriodicHelp(HelperEntity helperEntity) {
+    @Transactional
+    public void insertPeriodicHelp(HelperEntity helperEntity) {
 
-        try {
-            entityManager.getTransaction().begin();
             entityManager.persist(helperEntity);
-            entityManager.getTransaction().commit();
-            return true;
-        }
-        catch(Exception e){
-            entityManager.getTransaction().rollback();
-            return false;
-        }
+
 
     }
 

@@ -5,5 +5,5 @@ package com.sbu.dao;
  */
 public interface DiscardDAO {
 
-    public Boolean dicardHelper(String id);
+    public void dicardHelper(String id);
 }

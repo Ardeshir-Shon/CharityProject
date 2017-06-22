@@ -14,8 +14,8 @@ public class NeedyStudentServiceImpl implements NeedyStudentService{
     NeedyStudentDAO needyStudentDAO;
 
     @Override
-    public Boolean insertNeedyStudent(NeedyStudentEntity needyStudentEntity) {
-        return needyStudentDAO.insertNeedyStudent(needyStudentEntity);
+    public void insertNeedyStudent(NeedyStudentEntity needyStudentEntity) {
+        needyStudentDAO.insertNeedyStudent(needyStudentEntity);
     }
 
     @Override

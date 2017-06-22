@@ -8,5 +8,5 @@ import com.sbu.dao.model.ActiveMemberEntity;
 public interface ActiveMemberDAO {
 
         public ActiveMemberEntity getActiveMemberEntity(String id);
-        public Boolean insertActiveMemberEntity(ActiveMemberEntity activeMemberEntity);
+        public void insertActiveMemberEntity(ActiveMemberEntity activeMemberEntity);
 }

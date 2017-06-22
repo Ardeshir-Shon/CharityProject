@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface IntroductionService {
 
-    public Boolean insertIntroduction(IntroductionEntity introductionEntity);
+    public void insertIntroduction(IntroductionEntity introductionEntity);
 
     public List<IntroductionEntity> getByRecommenderPhoneNumber(IntroductionEntity introductionEntity);
     public IntroductionEntity getByNeedyName(IntroductionEntity introductionEntity);

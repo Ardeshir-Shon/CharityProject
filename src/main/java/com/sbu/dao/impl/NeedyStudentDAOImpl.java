@@ -21,17 +21,9 @@ public class NeedyStudentDAOImpl implements NeedyStudentDAO {
     public EntityManager entityManager;
 
     @Override
-    public Boolean insertNeedyStudent(NeedyStudentEntity needyStudentEntity) {
-        try {
-            entityManager.getTransaction().begin();
+    @Transactional
+    public void insertNeedyStudent(NeedyStudentEntity needyStudentEntity) {
             entityManager.persist(needyStudentEntity);
-            entityManager.getTransaction().commit();
-            return true;
-        }
-        catch(Exception e){
-            entityManager.getTransaction().rollback();
-            return false;
-        }
 
     }
 

@@ -7,7 +7,7 @@ import com.sbu.dao.model.HelperEntity;
  */
 public interface HelperService {
 
-    public Boolean insertPeriodicHelp(HelperEntity helperEntity);
+    public void insertPeriodicHelp(HelperEntity helperEntity);
 
     public  HelperEntity getByEmail(HelperEntity helperEntity);
     public  HelperEntity getByPhoneNumber(HelperEntity helperEntity);

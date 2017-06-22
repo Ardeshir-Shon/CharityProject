@@ -19,7 +19,7 @@ public class ActiveMemberServiceImpl implements ActiveMemberService {
     }
 
     @Override
-    public Boolean insertActiveMemberEntity(ActiveMemberEntity activeMemberEntity) {
-        return activeMemberDAO.insertActiveMemberEntity(activeMemberEntity);
+    public void insertActiveMemberEntity(ActiveMemberEntity activeMemberEntity) {
+        activeMemberDAO.insertActiveMemberEntity(activeMemberEntity);
     }
 }

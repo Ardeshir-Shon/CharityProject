@@ -16,8 +16,8 @@ public class SuggestionServiceImpl implements SuggestionService {
     SuggestionDAO suggestionDAO;
 
     @Override
-    public Boolean insertSuggestion(SuggestionEntity suggestionEntity) {
-        return suggestionDAO.insertSuggestion(suggestionEntity);
+    public void insertSuggestion(SuggestionEntity suggestionEntity) {
+        suggestionDAO.insertSuggestion(suggestionEntity);
     }
 
     @Override

@@ -14,8 +14,8 @@ public class HelperServiceImpl implements HelperService {
     HelperDAO helperDAO;
 
     @Override
-    public Boolean insertPeriodicHelp(HelperEntity helperEntity) {
-        return helperDAO.insertPeriodicHelp(helperEntity);
+    public void insertPeriodicHelp(HelperEntity helperEntity) {
+        helperDAO.insertPeriodicHelp(helperEntity);
     }
 
     @Override

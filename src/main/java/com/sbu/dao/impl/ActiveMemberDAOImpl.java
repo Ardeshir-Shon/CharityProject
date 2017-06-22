@@ -28,17 +28,12 @@ public class ActiveMemberDAOImpl implements ActiveMemberDAO {
     }
 
     @Override
-    public Boolean insertActiveMemberEntity(ActiveMemberEntity activeMemberEntity) {
-        try {
-            entityManager.getTransaction().begin();
+    @Transactional
+    public void insertActiveMemberEntity(ActiveMemberEntity activeMemberEntity) {
+
             entityManager.persist(activeMemberEntity);
-            entityManager.getTransaction().commit();
-            return true;
-        }
-        catch(Exception e){
-            entityManager.getTransaction().rollback();
-            return false;
-        }
+
+
 
     }
 }
