@@ -2,15 +2,16 @@
   Created by IntelliJ IDEA.
   User: HamidReza
   Date: 6/22/17
-  Time: 10:24 AM
+  Time: 2:27 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %><%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html lang="en">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,25 +33,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/../resources/style.css" type="text/css">
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="https://use.fontawesome.com/5881fd899f.js"></script>
-    <script>
-        function hider() {
-            if (document.getElementById("checkbox").checked == false) {
-                document.getElementById("email").style.display = "none";
-                document.getElementById("phone").style.display = "none";
-
-            }
-            else {
-                document.getElementById("email").style.display = "block";
-                document.getElementById("phone").style.display = "block";
-            }
-
-
-        }
-        function sendmessage() {
-            document.getElementById("sendmsg").innerHTML = "sdhjfvkjhw";
-        }
-
-    </script>
     <style>
         @font-face {
             font-family: Gulf;
@@ -64,7 +46,6 @@
     </style>
 
 </head>
-
 <body>
 <div class="container" style="min-height: 10px">
 </div>
@@ -79,32 +60,26 @@
                 </button>
                 <a class="navbar-brand" href="home.html">خیریه امید نو</a>
             </div>
-
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li><a href="home.html">خانه</a></li>
-
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">همکاری
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="active_members.html">عضویت فعال</a></li>
-
                             <li><a href="periodic_help.html">اعلام همکاری</a></li>
-
-                            <li class="active"><a href="discard.html">لفو همکاری</a></li>
+                            <li><a href="discard.html">لفو همکاری</a></li>
                         </ul>
                     </li>
                     <li><a href="inbox.html">ارسال پیام</a></li>
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">خدمات کانون
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">دایره‌ی فعالیت‌ها</a></li>
-
                             <li><a href="recommendation.html">معرفی دانشجوی‌ مددجو</a></li>
-
-                            <li><a href="needy_students.html">درمیان‌گذاری نیازمندی با کانون</a></li>
+                            <li class="active"><a href="needy_students.html">درمیان‌گذاری نیازمندی با کانون</a></li>
                         </ul>
                     </li>
                     <li>
@@ -114,69 +89,74 @@
                         <a href="donate.html">کمک نقدی‌&nbspآنی</a>
                     </li>
                 </ul>
-                <form:form class="navbar-form navbar-right">
+                <form class="navbar-form navbar-right">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="جستجو">
+                        <input type="text" class="form-control" placeholder="جستجو" >
                         <div class="input-group-btn">
                             <button class="btn btn-default" type="submit">
                                 <i class="glyphicon glyphicon-search"></i>
                             </button>
                         </div>
                     </div>
-                </form:form>
+                </form>
             </div>
         </div>
     </nav>
 </div>
 <div class="container" style="font-family: Gulf;">
-    <h4 style="margin-bottom: 15px;">اعلام لغو همکاری</h4>
-    <p id="demo"></p>
-
-    <form:form class="form-horizontal" method="post" action="/discard/main">
+    <h4 style="margin-bottom: 15px;">فرم عضویت به عنوان دانشجوی تحت پوشش</h4>
+    <h5 style="color: #c73f3f; margin-bottom: 18px;">تمامی اطلاعات دریافتی از سوی ما محرمانه در نظر گرفته شده و محفوظ اند.</h5>
+    <form:form class="form-horizontal" method="post" action="needyStudents/main">
         <div class="form-group">
-            <label class="control-label col-sm-2">ایمیل:</label>
+            <label class="control-label col-sm-2" >نام:</label>
             <div class="col-sm-5">
-                <input type="text"  name="email" class="form-control" placeholder="someone@example.com"
-                       style="text-align: left; direction: ltr;">
+                <input type="text" name="firstName" class="form-control" placeholder="نام خود را وارد کنید">
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-2">رمز عبور:</label>
+            <label class="control-label col-sm-2" >نام خانوادگی:</label>
             <div class="col-sm-5">
-                <input id="password" type="password" name="password" class="form-control" placeholder=""
-                       style="text-align: left; direction: ltr;">
+                <input type="text" name="lastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
             </div>
         </div>
         <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-5">
-                <button type="submit" class="btn btn-default" style="background-color: #f2f2f2; color: #777;"
-                        onclick="sendmessage();" id="sendmsg">لغو همکاری
-                </button>
+            <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
+            <div class="col-sm-5">
+                <input type="text" name="phoneNumber" class="form-control" placeholder="۰۹۱۲۱۲۳۴۵۶۷" style="text-align: left; direction: ltr;">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >شماره‌ی دانشجویی:</label>
+            <div class="col-sm-5">
+                <input type="text" name="studentNumber" class="form-control" placeholder="شماره‌ی دانشجویی خود را وارد کنید(به عدد)">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2">توضیحات:</label>
+            <div class="col-sm-5">
+                <textarea name="description" class="form-control" rows="6" placeholder="در مورد سطح و نوع نیاز خود برای ما بنویسید..."></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default" style="background-color: #f2f2f2; color: #777;">ثــبــت</button>
                 <!-- <div class="g-recaptcha" data-sitekey="6LdbBBsUAAAAAE2H11rzHeFOhrbkjnh9JIZG_HcY"></div> -->
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-5" style="min-height: 200px;">
             </div>
         </div>
     </form:form>
 </div>
 <div class="container">
-    <div class="row"
-         style="font-family:Gulf-semibold; background-color:#f2f2f2; margin-top: 15px; padding-top:10px; color: #777;">
+    <div class="row" style="font-family:Gulf-semibold; background-color:#f2f2f2; margin-top: 15px; padding-top:10px; color: #777;">
         <div class="col-sm-4"></div>
         <div class="col-sm-4" style="text-align: center; font-size: 20px;">
-            <span class="fa fa-envelope-o" aria-hidden="true"
-                  style="font-size: 25px; vertical-align: middle"></span><span style="vertical-align: middle"> &nbsp خبرنامه امید نو  </span>
+            <span class="fa fa-envelope-o" aria-hidden="true" style="font-size: 25px; vertical-align: middle"></span><span style="vertical-align: middle"> &nbsp خبرنامه امید نو  </span>
             <div style="margin-top: 15px;">
-                <form:form method="post" action="/discard/newsLetter">
+                <form:form method="post" action="needyStudent/newsLetter">
                     <div class="input-group">
-                        <input type="text" name="newsLetterEmail" class="form-control" placeholder="ایمیل خود را وارد کنید"
-                               style="text-align: center; direction: ltr;">
+                        <input type="text" name="newsLetterEmail" class="form-control" placeholder="ایمیل خود را وارد کنید" style="text-align: center; direction: ltr;">
                         <div class="input-group-btn">
                             <button class="btn btn-default" type="submit">
-                                <i class="fa fa-check-square-o" aria-hidden="true"
-                                   style="font-size:18px ;color:#777; vertical-align: middle;"></i>
+                                <i class="fa fa-check-square-o" aria-hidden="true" style="font-size:18px ;color:#777; vertical-align: middle;"></i>
                             </button>
                         </div>
                     </div>
@@ -185,41 +165,23 @@
         </div>
         <div class="col-sm-4"></div>
     </div>
-
-    <div class="row"
-         style="font-family:Gulf; min-height: 150px; background-color:#f2f2f2; padding-top:20px; color: #777;">
+    <div class="row" style="font-family:Gulf; min-height: 150px; background-color:#f2f2f2; padding-top:20px; color: #777;">
         <div class="col-sm-3">
-            <p style="font-size: 16px; font-family: Gulf-semibold;">درباره‌ی امید نو</p>
-            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+            <p style="font-size: 16px; font-family: Gulf-semibold;">درباره‌ی امید نو</p><p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
         </div>
         <div class="col-sm-3">
             <p style="font-size: 16px; font-family: Gulf-semibold;">ارتباط با ما</p>
-            <a href="mailto:info@omidno.ir" target="_top" style="text-decoration: none; color: inherit;"><span
-                    class="fa fa-envelope" aria-hidden="true"
-                    style="font-size: 20px; vertical-align: middle; margin-bottom: 5px;"></span><span
-                    style="vertical-align: middle">&nbsp info@omidno.ir</span></a>
-            <br><a href="https://telegram.me/omidnocharity" target="_blank"
-                   style="text-decoration: none; color: inherit;"><span class="fa fa-telegram" aria-hidden="true"
-                                                                        style=" font-size: 20px ;vertical-align: middle; margin-bottom: 5px;"></span><span
-                style="vertical-align: middle;">&nbsp  omidno </span></a>
-
-            <br><a href=inbox.html style="text-decoration: none; color: inherit;"><span class="fa fa-inbox"
-                                                                                        aria-hidden="true"
-                                                                                        style=" font-size: 20px ;vertical-align: middle; margin-bottom: 5px;"></span><span
-                style="vertical-align: middle;">&nbsp ارسال پیام</span></a>
-
+            <a href="mailto:info@omidno.ir" target="_top" style="text-decoration: none; color: inherit;"><span class="fa fa-envelope" aria-hidden="true" style="font-size: 20px; vertical-align: middle; margin-bottom: 5px;"></span><span style="vertical-align: middle">&nbsp info@omidno.ir</span></a>
+            <br><a href="https://telegram.me/omidnocharity" target="_blank" style="text-decoration: none; color: inherit;"><span class="fa fa-telegram" aria-hidden="true" style=" font-size: 20px ;vertical-align: middle; margin-bottom: 5px;"></span><span style="vertical-align: middle;">&nbsp  omidno </span></a>
+            <br><a href=inbox.html style="text-decoration: none; color: inherit;"><span class="fa fa-inbox" aria-hidden="true" style=" font-size: 20px ;vertical-align: middle; margin-bottom: 5px;"></span><span style="vertical-align: middle;">&nbsp ارسال پیام</span></a>
         </div>
         <div class="col-sm-3">
-            <p style="font-size: 16px; font-family: Gulf-semibold;">گزارش‌ها</p>
-            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+            <p style="font-size: 16px; font-family: Gulf-semibold;">گزارش‌ها</p><p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
         </div>
         <div class="col-sm-3">
-            <p style="font-size: 16px; font-family: Gulf-semibold;">حقوق قانونی وب‌سایت</p>
-            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. لورم ایپسوم
-                متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+            <p style="font-size: 16px; font-family: Gulf-semibold;">حقوق قانونی وب‌سایت</p><p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
         </div>
-
     </div>
-
+</div>
 </body>
 </html>
