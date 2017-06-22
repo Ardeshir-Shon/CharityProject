@@ -6,29 +6,32 @@ import javax.persistence.*;
  * Created by Mammad on 6/21/2017.
  */
 @Entity
-@Table(name = "helper")
-public class helper {
+@Table(name = "HELPER")
+public class HelperEntity {
 
-    @Column( length=50)
+    @Column( length=50, nullable = false)
     private String name;
-    @Column( length=50)
+    @Column( length=50, nullable = false)
     private String family;
     @Column( length=50)
     private String occupation;
-    private boolean sbu_professor;
-    private boolean sbu_student;
+    private boolean sbuProfessor;
+    private boolean sbuStudent;
     @Id
     @Column( length=50)
-    private String phone_number;
+    private String phoneNumber;
     @Column( length=50)
     private String email;
-    private Help_period help_period;
-    @Column( length=50)
-    private String cost_of_pay;
-    @Column( length=50)
+    private HelpPeriodEntity helpPeriod;
+    @Column( length=50, nullable = false)
+    private String costOfPay;
+    @Column( length=50, nullable = false)
     private String password;
-    @Column( length=500)
+    @Column( length=500, nullable = false)
     private String description;
+
+    public HelperEntity() {
+    }
 
     public String getName() {
         return name;
@@ -54,28 +57,28 @@ public class helper {
         this.occupation = occupation;
     }
 
-    public boolean isSbu_professor() {
-        return sbu_professor;
+    public boolean isSbuProfessor() {
+        return sbuProfessor;
     }
 
-    public void setSbu_professor(boolean sbu_professor) {
-        this.sbu_professor = sbu_professor;
+    public void setSbuProfessor(boolean sbuProfessor) {
+        this.sbuProfessor = sbuProfessor;
     }
 
-    public boolean isSbu_student() {
-        return sbu_student;
+    public boolean isSbuStudent() {
+        return sbuStudent;
     }
 
-    public void setSbu_student(boolean sbu_student) {
-        this.sbu_student = sbu_student;
+    public void setSbuStudent(boolean sbu_student) {
+        this.sbuStudent = sbuStudent;
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    public void setPhoneNumber(String phone_number) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {
@@ -87,23 +90,23 @@ public class helper {
     }
 
     @Enumerated(EnumType.ORDINAL)
-    public Help_period getHelp_period() {
-        return help_period;
+    public HelpPeriodEntity getHelp_period() {
+        return helpPeriod;
     }
 
-    public void setHelp_period(Help_period help_period) {
-        this.help_period = help_period;
+    public void setHelpPeriod(HelpPeriodEntity helpPeriod) {
+        this.helpPeriod = helpPeriod;
     }
 
 
 
 
-    public String getCost_of_pay() {
-        return cost_of_pay;
+    public String getCostOfPay() {
+        return costOfPay;
     }
 
-    public void setCost_of_pay(String cost_of_pay) {
-        this.cost_of_pay = cost_of_pay;
+    public void setCostOfPay(String costOfPay) {
+        this.costOfPay = costOfPay;
     }
 
     public String getPassword() {

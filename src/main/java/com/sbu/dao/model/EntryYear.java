@@ -3,7 +3,7 @@ package com.sbu.dao.model;
 /**
  * Created by Mammad on 6/21/2017.
  */
-public enum Entry_year {
+public enum EntryYear {
     ey96,
     ey95,
     ey94,
