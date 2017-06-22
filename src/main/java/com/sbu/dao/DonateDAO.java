@@ -5,5 +5,5 @@ package com.sbu.dao;
  */
 public interface DonateDAO {
 
-    public boolean setDonate(String costOfPay);
+    public Boolean setDonate(String costOfPay);
 }

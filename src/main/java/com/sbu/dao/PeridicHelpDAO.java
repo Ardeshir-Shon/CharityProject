@@ -8,9 +8,9 @@ import org.hibernate.boot.model.source.internal.hbm.Helper;
  */
 public interface PeridicHelpDAO {
 
-    public boolean setPeriodicHelp(HelperEntity helperEntity);
+    public Boolean setPeriodicHelp(HelperEntity helperEntity);
 
-    public HelperEntity getByName(String name,String family);
+    //public HelperEntity getByName(String name,String family);
     public  HelperEntity getByEmail(String email);
     public  HelperEntity getByPhoneNumber(String phoneNumber);
 
