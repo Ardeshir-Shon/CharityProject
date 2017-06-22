@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: HamidReza
   Date: 6/22/17
-  Time: 12:10 PM
+  Time: 3:06 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
@@ -10,45 +10,61 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html lang="en">
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>inbox</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/../resources/bootstrap-3.3.7-dist/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/../resources/bootstrap-3.3.7-dist/css/bootstrap.css"
+          type="text/css">
     <script src="/https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript">
     </script>
-    <script src="${pageContext.request.contextPath}/../resources/bootstrap-3.3.7-dist/js/bootstrap.min.js" type="text/javascript">
+    <script src="${pageContext.request.contextPath}/../resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"
+            type="text/javascript">
     </script>
     <script type="text/javascript" src="javascript.js">
     </script><!-- Load Bootstrap RTL theme from RawGit -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/../resources/bootstrap-rtl-master/dist/css/bootstrap-rtl.css" type="text/css">
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/../resources/bootstrap-rtl-master/dist/css/bootstrap-rtl.css"
+          type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/../resources/style.css" type="text/css">
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="https://use.fontawesome.com/5881fd899f.js"></script>
     <script>
-        function hider(){
-            if(document.getElementById("checkbox").checked ==false)
-            {
-                document.getElementById("stNumber").style.display = "none";
+
+        function hider() {
+            if (document.getElementById("checkbox").checked == false) {
+                document.getElementById("email").style.display = "none";
+                document.getElementById("phone").style.display = "none";
+
             }
-            else{
-                document.getElementById("stNumber").style.display = "block";
+            else {
+                document.getElementById("email").style.display = "block";
+                document.getElementById("phone").style.display = "block";
             }
+
+
         }
+        function sendmessage() {
+            document.getElementById("sendmsg").innerHTML = "sdhjfvkjhw";
+        }
+
     </script>
     <style>
         @font-face {
             font-family: Gulf;
             src: url(${pageContext.request.contextPath}/../resources/fonts/Gulf-regular.ttf);
         }
+
         @font-face {
             font-family: Gulf-semibold;
             src: url(${pageContext.request.contextPath}/../resources/fonts/Gulf-semibold.ttf);
         }
     </style>
+
 </head>
 
 <body>
@@ -70,11 +86,11 @@
                 <ul class="nav navbar-nav">
                     <li><a href="home.html">خانه</a></li>
 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">همکاری
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li class="active"><a href="active_members.html">عضویت فعال</a></li>
+                            <li><a href="active_members.html">عضویت فعال</a></li>
 
                             <li><a href="periodic_help.html">اعلام همکاری</a></li>
 
@@ -93,14 +109,14 @@
                             <li><a href="needy_students.html">درمیان‌گذاری نیازمندی با کانون</a></li>
                         </ul>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="suggestion.html">پیشنهادات</a>
                     </li>
                     <li>
                         <a href="donate.html">کمک نقدی‌&nbspآنی</a>
                     </li>
                 </ul>
-                <form:form class="navbar-form navbar-right" >
+                <form:form class="navbar-form navbar-right">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="جستجو" >
                         <div class="input-group-btn">
@@ -113,118 +129,55 @@
             </div>
         </div>
     </nav>
-</div>
-<div class="container" style="font-family: Gulf;">
-    <h4 style="margin-bottom: 15px;">فرم عضویت به عنوان عضو فعال کانون</h4>
-    <form:form class="form-horizontal" method="post" action="/activeMembers/main">
+</div>	    <div class="container" style="font-family: Gulf;">
+    <h4 style="margin-bottom: 15px;">فرم ارسال پیشنهادات </h4>
+    <p id="demo"></p>
+
+
+
+    <form:form class="form-horizontal" method="post" action="/suggestion/main">
         <div class="form-group">
-            <label class="control-label col-sm-2" >نام:</label>
+            <label class="control-label col-sm-2">نام:</label>
             <div class="col-sm-5">
                 <input type="text" name="firstName" class="form-control" placeholder="نام خود را وارد کنید">
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-2" >نام خانوادگی:</label>
+            <label class="control-label col-sm-2" >موضوع:</label>
             <div class="col-sm-5">
-                <input type="text" name="lastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
-            </div>
-        </div>
-        <!--
-                          <div class="form-group">
-                              <label class="control-label col-sm-2">سن:</label>
-                              <select class="form-control col-sm-1" style="margin-right: 13px;">
-                              <option>۱۸</option>
-                              <option>۱۹</option>
-                              <option>۲۰</option>
-                              <option>۲۱</option>
-                              <option>۲۲</option>
-                              <option>۲۳</option>
-                              <option>۲۴</option>
-                              <option>۲۵</option>
-                              <option>۲۶</option>
-                              <option>۲۷</option>
-                              <option>۲۸</option>
-                              <option>۲۹</option>
-                              <option>۳۰</option>
-                              <option>۳۱</option>
-                              <option>۳۲</option>
-                              <option>۳۳</option>
-                              <option>۳۴</option>
-                              <option>۳۵</option>
-                              <option>۳۶</option>
-                              <option>۳۷</option>
-                              <option>۳۸</option>
-                              <option>۳۹</option>
-                              <option>۴۰</option>
-                              <option>۴۱</option>
-                              <option>۴۲</option>
-                              <option>۴۳</option>
-                              <option>۴۴</option>
-                              <option>۴۵</option>
-                              <option>۴۶</option>
-                              <option>۴۷</option>
-                              <option>۴۸</option>
-                              <option>۴۹</option>
-                              <option>۵۰</option>
-                              <option>۵۱</option>
-                              <option>۵۲</option>
-                              <option>۵۳</option>
-                              <option>۵۴</option>
-                              <option>۵۵</option>
-                              <option>۵۶</option>
-                              <option>۵۷</option>
-                              <option>۵۸</option>
-                              <option>۵۹</option>
-                              <option>۶۰</option>
-                              <option>۶۱</option>
-                              <option>۶۲</option>
-                              <option>۶۳</option>
-                              <option>۶۴</option>
-                              <option>۶۵</option>
-                              <option>۶۶</option>
-                              <option>۶۷</option>
-                              <option>۶۸</option>
-                              <option>۶۹</option>
-                              <option>۷۰</option>
-                              </select>
-                          </div>
-        -->
-        <div class="form-group">
-            <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
-            <div class="col-sm-5">
-                <input type="text" name="phoneNumber" class="form-control" placeholder="۰۹۱۲۱۲۳۴۵۶۷" style="text-align: left; direction: ltr;">
+                <input type="text" name="lastName" class="form-control" placeholder="موضوع پیام را وارد کنید">
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-2" >ایمیل(اختیاری):</label>
+            <label class="control-label col-sm-2">متن پیشنهاد:</label>
             <div class="col-sm-5">
-                <input type="text" name="email" class="form-control" placeholder="someone@example.com" style="text-align: left; direction: ltr;">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2">شرح زمینه‌ی همکاری:</label>
-            <div class="col-sm-5">
-                <textarea name="description" class="form-control" rows="6" placeholder=""></textarea>
+                <textarea name="description" class="form-control" rows="6" id="comment"></textarea>
             </div>
         </div>
         <div class="form-group">
             <div class="control-label  col-sm-offset-2 col-sm-5" >
                 <div class="checkbox">
                     <div style="text-align: right; margin-right: 21px; margin-top: -5px;">
-                        <input type="checkbox" name="tendency" value="" id="checkbox" onchange="hider();">دانشجوی دانشگاه شهید بهشتی هستم</input>
+                        <input type="checkbox" value="" id="checkbox" onchange="hider();">آمادگی همکاری در این رابطه را دارم</input>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="form-group" id="stNumber" style="display: none;">
-            <label class="control-label col-sm-2" >شماره‌ی دانشجویی:</label>
+        <div class="form-group" id="phone" style="display: none;">
+            <label class="control-label col-sm-2" >شماره‌ی موبایل:</label>
             <div class="col-sm-5">
-                <input type="text" name="studentNumber" class="form-control" placeholder="شماره‌ی دانشجویی خود را وارد کنید(به عدد)">
+                <input type="text" class="form-control" placeholder="09121234567" style="text-align: left; direction: ltr;">
+            </div>
+        </div>
+        <div class="form-group" id="email" style="display: none;">
+            <label class="control-label col-sm-2" >ایمیل(اختیاری):</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" placeholder="someone@example.com" style="text-align: left; direction: ltr;">
             </div>
         </div>
         <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default" style="background-color: #f2f2f2; color: #777;">ثــبــت</button>
+            <div class="col-sm-offset-2 col-sm-5">
+                <button  type="submit" class="btn btn-default" style="background-color: #f2f2f2; color: #777;" onclick="sendmessage();" id="sendmsg">ثبت پیام</button>
                 <!-- <div class="g-recaptcha" data-sitekey="6LdbBBsUAAAAAE2H11rzHeFOhrbkjnh9JIZG_HcY"></div> -->
             </div>
         </div>
@@ -236,7 +189,7 @@
         <div class="col-sm-4" style="text-align: center; font-size: 20px;">
             <span class="fa fa-envelope-o" aria-hidden="true" style="font-size: 25px; vertical-align: middle"></span><span style="vertical-align: middle"> &nbsp خبرنامه امید نو  </span>
             <div style="margin-top: 15px;">
-                <form:form method="post" action="/activeMembers/newsLetter">
+                <form:form method="post" action="/suggestion/newsLetter">
                     <div class="input-group">
                         <input type="text" name="newsLetterEmail" class="form-control" placeholder="ایمیل خود را وارد کنید" style="text-align: center; direction: ltr;">
                         <div class="input-group-btn">
@@ -272,6 +225,8 @@
 
     </div>
 </div>
+
+
+
 </body>
 </html>
-
