@@ -9,9 +9,9 @@ import java.util.List;
  */
 public interface IntroductionDAO {
 
-    public boolean setIntroduction(IntroductionEntity introductionEntity);
+    public Boolean setIntroduction(IntroductionEntity introductionEntity);
 
-    public List<IntroductionEntity> getByRecommenderName(String name,String family);
+    //public List<IntroductionEntity> getByRecommenderName(String name,String family);
     public List<IntroductionEntity> getByRecommenderPhoneNumber(String phoneNumber);
     public IntroductionEntity getByNeedyName(String name,String family);
 
