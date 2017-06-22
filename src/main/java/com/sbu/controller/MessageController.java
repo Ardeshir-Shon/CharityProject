@@ -3,6 +3,7 @@ package com.sbu.controller;
 import com.sbu.controller.model.MessageModel;
 import com.sbu.dao.model.MessageEntity;
 import com.sbu.service.MessageService;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,11 +36,25 @@ public class MessageController {
             messageEntity.setSubject(messageModel.getTitle());
             messageEntity.setText(messageModel.getBody());
         }
-        else{
-            model.addAttribute("errorfill","اطلاعات را کاملا وارد کنید.");
+        else{// fill necessary incorrect
+            model.addAttribute("state",new Boolean(false));
             return "inbox";
         }
-        //if (messageModel.get)
+        if(messageModel.isTendency()){// want to contribute and filled top true
+            if (messageModel.getPhoneNumber()!=null || messageModel.getEmail()!=null){// correct
+                if (messageModel.getPhoneNumber()!=null)
+                    messageEntity.setPhone_number(messageModel.getPhoneNumber());
+                if (messageModel.getEmail()!=null)
+                    messageEntity.setEmail(messageModel.getEmail());
+                model.addAttribute("state",new Boolean(true));
+            }
+            else{// for more contribute, at least fill phone or email
+                model.addAttribute("state",new Boolean(false));
+                return "inbox";
+            }
+        }
+        model.addAttribute("state",new Boolean(true));
+        messageService.insertMessage(messageEntity);
         return "inbox";
     }
 }
