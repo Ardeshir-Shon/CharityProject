@@ -22,7 +22,7 @@ public class HelperEntity {
     private String phoneNumber;
     @Column( length=50)
     private String email;
-    private HelpPeriodEntity helpPeriod;
+    private PeriodicHelpEntity helpPeriod;
     @Column( length=50, nullable = false)
     private String costOfPay;
     @Column( length=50, nullable = false)
@@ -90,11 +90,11 @@ public class HelperEntity {
     }
 
     @Enumerated(EnumType.ORDINAL)
-    public HelpPeriodEntity getHelp_period() {
+    public PeriodicHelpEntity getHelp_period() {
         return helpPeriod;
     }
 
-    public void setHelpPeriod(HelpPeriodEntity helpPeriod) {
+    public void setHelpPeriod(PeriodicHelpEntity helpPeriod) {
         this.helpPeriod = helpPeriod;
     }
 
