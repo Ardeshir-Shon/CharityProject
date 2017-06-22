@@ -11,30 +11,33 @@ import javax.persistence.Table;
  * Created by Mammad on 6/21/2017.
  */
 @Entity
-@Table(name = "active_member")
-public class active_member {
+@Table(name = "ACTIVE_MEMBER")
+public class ActiveMemberEntity {
 
-    @Column( length=50)
+    @Column( length=50, nullable = false)
     private String name;
-    @Column( length=50)
+    @Column( length=50, nullable = false)
     private String family;
     @Column( length=50)
     private String email;
     @Id
-    @Column( length=50)
-    private String phone_number;
-    @Column( length=500)
+    @Column( length=50, nullable = false)
+    private String phoneNumber;
+    @Column( length=500, nullable = false)
     private String description;
 
-    private boolean sbu_student;
-    @Column( length=50)
-    private String student_id;
+    private boolean sbuStudent;
+    @Column( length=50, nullable = false)
+    private String studentId;
 
-    public active_member(String name, String family, String phone_number, boolean sbu_student) {
+    public ActiveMemberEntity(String name, String family, String phone_number, boolean sbu_student) {
         this.name = name;
         this.family = family;
-        this.phone_number = phone_number;
-        this.sbu_student = sbu_student;
+        this.phoneNumber = phone_number;
+        this.sbuStudent = sbu_student;
+    }
+
+    public ActiveMemberEntity() {
     }
 
     public String getName() {
@@ -61,12 +64,12 @@ public class active_member {
         this.email = email;
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+        this.phoneNumber = phone_number;
     }
 
     public String getDescription() {
@@ -78,18 +81,18 @@ public class active_member {
     }
 
     public boolean isSbu_student() {
-        return sbu_student;
+        return sbuStudent;
     }
 
     public void setSbu_student(boolean sbu_student) {
-        this.sbu_student = sbu_student;
+        this.sbuStudent = sbu_student;
     }
 
     public String getStudent_id() {
-        return student_id;
+        return studentId;
     }
 
     public void setStudent_id(String student_id) {
-        this.student_id = student_id;
+        this.studentId = student_id;
     }
 }

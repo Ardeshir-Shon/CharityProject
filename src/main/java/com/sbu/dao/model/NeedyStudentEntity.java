@@ -11,31 +11,34 @@ import javax.persistence.Table;
  * Created by Mammad on 6/21/2017.
  */
 @Entity
-@Table(name = "needy_student")
-public class needy_student {
+@Table(name = "NEEDYSTUDENT")
+public class NeedyStudentEntity {
 
 
-    @Column( length=50)
+    @Column( length=50, nullable = false)
     private String name;
-    @Column( length=50)
+    @Column( length=50, nullable = false)
     private String family;
     @Id
     @Column( length=50)
-    private String phone_number;
+    private String phoneNumber;
     @Column( length=50)
     private String email;
-    @Column( length=50)
-    private String student_id;
+    @Column( length=50, nullable = false)
+    private String studentId;
     @Column( length=500)
     private String description;
 
-    public needy_student(String name, String family, String phone_number, String email) {
+    public NeedyStudentEntity(String name, String family, String phone_number, String email) {
         this.name = name;
         this.family = family;
-        this.phone_number = phone_number;
+        this.phoneNumber = phone_number;
         this.email = email;
     }
 
+
+    public NeedyStudentEntity() {
+    }
 
     public String getName() {
         return name;
@@ -53,21 +56,21 @@ public class needy_student {
         this.family = family;
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    public void setPhoneNumber(String phone_number) {
+        this.phoneNumber = phoneNumber;
     }
 
 
-    public String getStudent_id() {
-        return student_id;
+    public String getStudentId() {
+        return studentId;
     }
 
-    public void setStudent_id(String student_id) {
-        this.student_id = student_id;
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 
     public String getDescription() {

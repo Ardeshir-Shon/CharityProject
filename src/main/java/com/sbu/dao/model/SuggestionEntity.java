@@ -8,24 +8,27 @@ import javax.persistence.*;
  * Created by Mammad on 6/21/2017.
  */
 @Entity
-@Table(name = "suggestion")
-public class suggestion {
+@Table(name = "SUGGESTION")
+public class SuggestionEntity {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
-    @Column( length=50)
+    @Column( length=50, nullable = false)
     private String name;
-    @Column( length=50)
+    @Column( length=50, nullable = false)
     private String subject;
-    @Column( length=500)
+    @Column( length=500, nullable = false)
     private String text;
 
-    public suggestion(String name, String subject, String text) {
+    public SuggestionEntity(String name, String subject, String text) {
         this.name = name;
         this.subject = subject;
         this.text = text;
+    }
+
+    public SuggestionEntity() {
     }
 
     public Long getId() {
