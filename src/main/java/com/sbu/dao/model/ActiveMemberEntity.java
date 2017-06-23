@@ -18,10 +18,10 @@ public class ActiveMemberEntity {
     private String name;
     @Column( length=50, nullable = false)
     private String family;
-    @Column( length=50)
+    @Column( length=50 , unique = true)
     private String email;
     @Id
-    @Column( length=50, nullable = false)
+    @Column( length=50, nullable = false , unique = true)
     private String phoneNumber;
     @Column( length=500, nullable = false)
     private String description;
@@ -29,7 +29,7 @@ public class ActiveMemberEntity {
     @Column( length=50, nullable = false)
     private String studentId;
 
-    public ActiveMemberEntity(String name, String family, String phone_number, boolean sbu_student) {
+    public ActiveMemberEntity(String name, String family, String phone_number) {
         this.name = name;
         this.family = family;
         this.phoneNumber = phone_number;
@@ -79,11 +79,11 @@ public class ActiveMemberEntity {
     }
 
 
-    public String getStudent_id() {
+    public String getStudentId() {
         return studentId;
     }
 
-    public void setStudent_id(String student_id) {
-        this.studentId = student_id;
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 }

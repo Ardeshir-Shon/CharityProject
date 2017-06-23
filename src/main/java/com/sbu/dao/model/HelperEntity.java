@@ -15,20 +15,21 @@ public class HelperEntity {
     private String family;
     @Column( length=50)
     private String occupation;
-    private boolean sbuProfessor;
-    private boolean sbuStudent;
+    //private boolean sbuProfessor;
+    //private boolean sbuStudent;
+    private College professorCollege;
     @Id
-    @Column( length=50)
+    @Column( length=50 , unique = true)
     private String phoneNumber;
-    @Column( length=50)
+    @Column( length=50 , unique = true)
     private String email;
-    private HelpPeriodEntity helpPeriod;
+    private HelpPeriod helpPeriod;
     @Column( length=50, nullable = false)
     private String costOfPay;
     @Column( length=50, nullable = false)
     private String password;
     @Column( length=500, nullable = false)
-    private String description;
+    private String descriptionForNonCash;
 
     public HelperEntity() {
     }
@@ -49,6 +50,7 @@ public class HelperEntity {
         this.family = family;
     }
 
+
     public String getOccupation() {
         return occupation;
     }
@@ -57,6 +59,8 @@ public class HelperEntity {
         this.occupation = occupation;
     }
 
+
+    /*
     public boolean isSbuProfessor() {
         return sbuProfessor;
     }
@@ -71,6 +75,25 @@ public class HelperEntity {
 
     public void setSbuStudent(boolean sbu_student) {
         this.sbuStudent = sbuStudent;
+    }
+    */
+
+
+    public College getProfessorCollege() {
+        return professorCollege;
+    }
+
+    public void setProfessorCollege(College professorCollege) {
+        this.professorCollege = professorCollege;
+    }
+
+    public HelpPeriod getHelpPeriod() {
+        return helpPeriod;
+    }
+
+    @Enumerated(EnumType.ORDINAL)
+    public  void setHelpPeriod(HelpPeriod helpPeriod){
+        this.helpPeriod = helpPeriod;
     }
 
     public String getPhoneNumber() {
@@ -88,16 +111,6 @@ public class HelperEntity {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    @Enumerated(EnumType.ORDINAL)
-    public HelpPeriodEntity getHelp_period() {
-        return helpPeriod;
-    }
-
-    public void setHelpPeriod(HelpPeriodEntity helpPeriod) {
-        this.helpPeriod = helpPeriod;
-    }
-
 
 
 
@@ -118,10 +131,10 @@ public class HelperEntity {
     }
 
     public String getDescription() {
-        return description;
+        return descriptionForNonCash;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.descriptionForNonCash = description;
     }
 }

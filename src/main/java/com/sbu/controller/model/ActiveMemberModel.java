@@ -10,7 +10,7 @@ public class ActiveMemberModel {
     private String phoneNumber;
     private String mail;
     private String description;
-    private Boolean isStudent;
+    private boolean isStudent;
     private String studentNumber;
 
     public String getFirstName() {

@@ -16,9 +16,11 @@ public class IntroductionEntity {
     private String recommenderName;
     @Column( length=50, nullable = false)
     private String recommenderFamily;
-    @Column( length=50, nullable = false)
+    @Column( length=50, nullable = false , unique = true)
     private String recommenderPhoneNumber;
-    private boolean sbuStudent;
+    //private boolean sbuStudent;
+
+    private College recommenderCollege;
     @Column( length=50, nullable = false)
     private String recommenderStudentId;
 
@@ -70,6 +72,16 @@ public class IntroductionEntity {
         this.recommenderPhoneNumber = recommenderPhoneNumber;
     }
 
+    public College getStudentCollege() {
+        return recommenderCollege;
+    }
+
+    public void setStudentCollege(College recommenderCollege) {
+        this.recommenderCollege = recommenderCollege;
+    }
+
+
+    /*
     public boolean isSbuStudent() {
         return sbuStudent;
     }
@@ -77,6 +89,8 @@ public class IntroductionEntity {
     public void setSbuStudent(boolean sbuStudent) {
         this.sbuStudent = sbuStudent;
     }
+    */
+
 
     public String getNeedyName() {
         return needyName;

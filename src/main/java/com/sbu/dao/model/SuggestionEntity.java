@@ -1,6 +1,7 @@
 package com.sbu.dao.model;
 
 import org.springframework.stereotype.Component;
+import sun.security.util.Length;
 
 import javax.persistence.*;
 
@@ -21,6 +22,10 @@ public class SuggestionEntity {
     private String subject;
     @Column( length=500, nullable = false)
     private String text;
+    @Column(length = 50 , unique = true)
+    private String phoneNumber;
+    @Column(length = 50 , unique = true)
+    private String email;
 
     public SuggestionEntity(String name, String subject, String text) {
         this.name = name;
@@ -57,5 +62,21 @@ public class SuggestionEntity {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

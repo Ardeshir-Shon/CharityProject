@@ -22,9 +22,9 @@ public class MessageEntity {
     @Column( length=500)
     private String text;
 
-    @Column(length=50 )
+    @Column(length=50 , unique = true)
     private String phoneNumber;
-    @Column( length=50)
+    @Column( length=50 , unique = true)
     private String Email;
 
     public MessageEntity(String name, String subject, String text) {
@@ -66,12 +66,12 @@ public class MessageEntity {
         this.text = text;
     }
 
-    public String getPhone_number() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phoneNumber = phone_number;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {

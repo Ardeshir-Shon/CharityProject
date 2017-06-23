@@ -7,4 +7,5 @@ import com.sbu.dao.model.HelperEntity;
  */
 public interface DiscardService {
     public void dicardHelper(HelperEntity helperEntity);
+    public Boolean validation(String phoneNumber , String passWord);
 }
