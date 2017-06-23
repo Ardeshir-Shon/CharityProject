@@ -9,7 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import java.util.List;
 
 /**
  * Created by Mammad on 6/22/2017.
@@ -31,10 +33,14 @@ public class NeedyStudentDAOImpl implements NeedyStudentDAO {
     @Transactional
     public NeedyStudentEntity getByStudentId(String studentId) {
 
-        TypedQuery<NeedyStudentEntity> q =
-                entityManager.createQuery("SELECT *  FROM  NeedyStudentEntity WHERE studentId = " + studentId, NeedyStudentEntity.class);
+        Query query =
+                entityManager.createNativeQuery("SELECT needyStudentEntity  FROM  NeedyStudentEntity needyStudentEntity WHERE needyStudentEntity.studentId = ?1", NeedyStudentEntity.class);
 
-        NeedyStudentEntity needyStudentEntity= q.getResultList().get(0);
+        query.setParameter(1,studentId).getResultList();
+
+        List<NeedyStudentEntity> result = query.getResultList();
+
+        NeedyStudentEntity needyStudentEntity= result.get(0);
         return needyStudentEntity;
     }
 

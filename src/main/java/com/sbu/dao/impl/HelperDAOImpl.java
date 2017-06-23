@@ -7,7 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import java.util.List;
 
 /**
  * Created by Mammad on 6/22/2017.
@@ -30,10 +32,16 @@ public class HelperDAOImpl implements HelperDAO {
     @Override
     @Transactional
     public HelperEntity getByEmail(String email) {
-        TypedQuery<HelperEntity> q =
-                entityManager.createQuery("SELECT *  FROM  HelperEntity  WHERE email = " + email, HelperEntity.class);
 
-        HelperEntity helperEntity= q.getResultList().get(0);
+        String tempEmail;
+         Query query =
+                entityManager.createNativeQuery("SELECT helperEntity  FROM  HelperEntity helperEntity  WHERE helperEntity.email = ?1" , HelperEntity.class);
+
+        query.setParameter(1,email).getResultList();
+
+        List<HelperEntity> results = query.getResultList();
+
+        HelperEntity helperEntity= results.get(0);
         return helperEntity;
     }
 

@@ -8,8 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
+import java.util.ListIterator;
 
 /**
  * Created by Mammad on 6/22/2017.
@@ -29,12 +31,16 @@ public class IntoductionDAOImpl implements IntroductionDAO {
 
     @Override
     @Transactional
-    public List<IntroductionEntity> getByRecommenderPhoneNumber(String phoneNumber) {
+    public ListIterator<IntroductionEntity> getByRecommenderPhoneNumber(String phoneNumber) {
 
-        TypedQuery<IntroductionEntity> q =
-                entityManager.createQuery("SELECT *  FROM  IntroductionEntity  WHERE recommenderPhoneNumber = " + phoneNumber, IntroductionEntity.class);
+         Query query =
+                entityManager.createNativeQuery("SELECT introductionEntity  FROM  IntroductionEntity introductionEntity  WHERE introductionEntity.recommenderPhoneNumber = ?1", IntroductionEntity.class);
 
-        List<IntroductionEntity> introductionEntity = q.getResultList();
+        query.setParameter(1,phoneNumber).getResultList();
+
+        List<IntroductionEntity> results = query.getResultList();
+
+        ListIterator<IntroductionEntity> introductionEntity = results.listIterator();
         return introductionEntity;
     }
 
@@ -42,10 +48,16 @@ public class IntoductionDAOImpl implements IntroductionDAO {
     @Transactional
     public IntroductionEntity getByNeedyName(String name, String family) {
 
-        TypedQuery<IntroductionEntity> q =
-                entityManager.createQuery("SELECT *  FROM  IntroductionEntity  WHERE needyName = " + name + " and needyFamily" + family, IntroductionEntity.class);
+        Query query =
+                entityManager.createNativeQuery("SELECT introductionEntity  FROM  IntroductionEntity introductionEntity WHERE introductionEntity.needyName = ?1 and introductionEntity.needyFamily = ?2", IntroductionEntity.class);
 
-        IntroductionEntity introductionEntity = q.getResultList().get(0);
+        query.setParameter(1,name).getResultList();
+        query.setParameter(2,family).getResultList();
+
+
+        List<IntroductionEntity> results = query.getResultList();
+
+                IntroductionEntity introductionEntity = results.get(0);
         return introductionEntity;
     }
 }
