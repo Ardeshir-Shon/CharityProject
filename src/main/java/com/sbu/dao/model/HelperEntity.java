@@ -19,9 +19,9 @@ public class HelperEntity {
     //private boolean sbuStudent;
     private College professorCollege;
     @Id
-    @Column( length=50)
+    @Column( length=50 , unique = true)
     private String phoneNumber;
-    @Column( length=50)
+    @Column( length=50 , unique = true)
     private String email;
     private HelpPeriod helpPeriod;
     @Column( length=50, nullable = false)

@@ -13,8 +13,15 @@ public class HelperServiceImpl implements HelperService {
     @Autowired
     HelperDAO helperDAO;
 
+    String plainText;
+    String cipherText;
+
     @Override
     public void insertPeriodicHelp(HelperEntity helperEntity) {
+        plainText = helperEntity.getPassword();
+        cipherText = Encryptor.encrypt(plainText);
+        helperEntity.setPassword(cipherText);
+
         helperDAO.insertPeriodicHelp(helperEntity);
     }
 

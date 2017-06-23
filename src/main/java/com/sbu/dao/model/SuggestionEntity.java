@@ -22,9 +22,9 @@ public class SuggestionEntity {
     private String subject;
     @Column( length=500, nullable = false)
     private String text;
-    @Column(length = 50)
+    @Column(length = 50 , unique = true)
     private String phoneNumber;
-    @Column(length = 50)
+    @Column(length = 50 , unique = true)
     private String email;
 
     public SuggestionEntity(String name, String subject, String text) {

@@ -18,10 +18,10 @@ public class ActiveMemberEntity {
     private String name;
     @Column( length=50, nullable = false)
     private String family;
-    @Column( length=50)
+    @Column( length=50 , unique = true)
     private String email;
     @Id
-    @Column( length=50, nullable = false)
+    @Column( length=50, nullable = false , unique = true)
     private String phoneNumber;
     @Column( length=500, nullable = false)
     private String description;
