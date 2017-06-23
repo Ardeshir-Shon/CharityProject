@@ -2,14 +2,12 @@ package com.sbu.dao.impl;
 
 import com.sbu.dao.HelperDAO;
 import com.sbu.dao.model.HelperEntity;
-import com.sbu.dao.model.HelpPeriodEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import java.util.List;
 
 /**
  * Created by Mammad on 6/22/2017.
