@@ -3,6 +3,7 @@ package com.sbu.dao.impl;
 import com.sbu.dao.ActiveMemberDAO;
 import com.sbu.dao.model.ActiveMemberEntity;
 import com.sbu.dao.model.MessageEntity;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import javassist.bytecode.stackmap.BasicBlock;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,11 +30,15 @@ public class ActiveMemberDAOImpl implements ActiveMemberDAO {
 
     @Override
     @Transactional
-    public void insertActiveMemberEntity(ActiveMemberEntity activeMemberEntity) {
+    public Boolean insertActiveMemberEntity(ActiveMemberEntity activeMemberEntity) {
 
+        try {
             entityManager.persist(activeMemberEntity);
-
-
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
 
     }
 }

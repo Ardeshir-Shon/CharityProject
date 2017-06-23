@@ -198,7 +198,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2" >ایمیل(اختیاری):</label>
             <div class="col-sm-5">
-                <input type="text" name="email" class="form-control" placeholder="someone@example.com" style="text-align: left; direction: ltr;">
+                <input type="text" name="mail" class="form-control" placeholder="someone@example.com" style="text-align: left; direction: ltr;">
             </div>
         </div>
         <div class="form-group">

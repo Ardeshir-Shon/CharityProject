@@ -191,7 +191,6 @@
     <%}else if(request.getAttribute("state") != null && !(Boolean)request.getAttribute("state")) { %>
     <p>${state} review your inputs</p>
     <%}%>
-    ${test}
 </div>
 <div class="container">
     <div class="row"
