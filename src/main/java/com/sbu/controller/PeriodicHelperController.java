@@ -32,7 +32,25 @@ public class PeriodicHelperController {
 
         if (!periodicHelpCashModel.getFirstName().isEmpty())
             helperEntity.setName(periodicHelpCashModel.getFirstName());
+        if(!periodicHelpCashModel.getLastName().isEmpty())
+            helperEntity.setFamily(periodicHelpCashModel.getLastName());
+        if(!periodicHelpCashModel.getOccupation().isEmpty())
+            helperEntity.setOccupation(periodicHelpCashModel.getOccupation());
+        if(periodicHelpCashModel.isProfessor()==true)
+            if(!periodicHelpCashModel.getFacultyName().isEmpty())
+                helperEntity.setOccupation(periodicHelpCashModel.getOccupation());
+        if(!periodicHelpCashModel.getPhoneNumber().isEmpty())
+            helperEntity.setPhoneNumber(periodicHelpCashModel.getPhoneNumber());
+        if(!periodicHelpCashModel.getEmail().isEmpty())
+            helperEntity.setEmail(periodicHelpCashModel.getEmail());
+        if(!periodicHelpCashModel.getTimePeriod().isEmpty())
+            helperEntity.setHelpPeriod(periodicHelpCashModel.getTimePeriod());
 
+        if(!periodicHelpCashModel.getCostOfPay().isEmpty())
+            helperEntity.setCostOfPay(periodicHelpCashModel.getCostOfPay());
+        if(!periodicHelpCashModel.getPassword().isEmpty() && !periodicHelpCashModel.getPasswordRepeat().isEmpty())
+            if(periodicHelpCashModel.getPassword() == periodicHelpCashModel.getPasswordRepeat())
+                helperEntity.setPassword(periodicHelpCashModel.getPassword());
         return "";
     }
 

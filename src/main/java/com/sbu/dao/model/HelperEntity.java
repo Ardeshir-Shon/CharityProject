@@ -92,7 +92,7 @@ public class HelperEntity {
     }
 
     @Enumerated(EnumType.ORDINAL)
-    public  void setHelpPeriod(HelpPeriod helpPeriod){
+    public  void setHelpPeriod(String helpPeriod){
         this.helpPeriod = helpPeriod;
     }
 
