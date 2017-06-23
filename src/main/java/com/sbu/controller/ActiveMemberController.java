@@ -50,7 +50,7 @@ public class ActiveMemberController  {
 
         if (activeMemberModel.getPhoneNumber().isEmpty() || activeMemberModel.getFirstName().isEmpty()
                 || activeMemberModel.getLastName().isEmpty()){
-            dto.setState(0); // wrong input
+            dto.setState(0); // incomplete input
         }
         else{
             dto.setState(1); // ok input

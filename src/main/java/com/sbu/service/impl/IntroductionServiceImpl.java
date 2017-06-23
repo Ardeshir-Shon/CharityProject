@@ -19,8 +19,8 @@ public class IntroductionServiceImpl implements IntroductionService {
     IntroductionDAO introductionDAO;
 
     @Override
-    public void insertIntroduction(IntroductionEntity introductionEntity) {
-        introductionDAO.insertIntroduction(introductionEntity);
+    public Boolean insertIntroduction(IntroductionEntity introductionEntity) {
+        return introductionDAO.insertIntroduction(introductionEntity);
     }
 
     @Override

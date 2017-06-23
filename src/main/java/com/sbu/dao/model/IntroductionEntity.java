@@ -18,9 +18,6 @@ public class IntroductionEntity {
     private String recommenderFamily;
     @Column( length=50, nullable = false , unique = true)
     private String recommenderPhoneNumber;
-    //private boolean sbuStudent;
-
-    private College recommenderCollege;
     @Column( length=50, nullable = false)
     private String recommenderStudentId;
 
@@ -31,9 +28,9 @@ public class IntroductionEntity {
     private String needyFamily;
     @Column( length=50, nullable = false)
     private String needyStudentId;
-    private Gender  needyGender;
-    private EntryYear needyEnteringYear;
-    private College needyCollege;
+    private String  needyGender;
+    private String needyEnteringYear;
+    private String needyCollege;
     private boolean needyDormOccupy;
 
     @Column( length=500)
@@ -72,26 +69,6 @@ public class IntroductionEntity {
         this.recommenderPhoneNumber = recommenderPhoneNumber;
     }
 
-    public College getStudentCollege() {
-        return recommenderCollege;
-    }
-
-    public void setStudentCollege(College recommenderCollege) {
-        this.recommenderCollege = recommenderCollege;
-    }
-
-
-    /*
-    public boolean isSbuStudent() {
-        return sbuStudent;
-    }
-
-    public void setSbuStudent(boolean sbuStudent) {
-        this.sbuStudent = sbuStudent;
-    }
-    */
-
-
     public String getNeedyName() {
         return needyName;
     }
@@ -125,27 +102,27 @@ public class IntroductionEntity {
     }
 
     @Enumerated(EnumType.ORDINAL)
-    public Gender getNeedyGender() {
+    public String getNeedyGender() {
         return needyGender;
     }
 
-    public void setNeedyGender(Gender needyGender) {
+    public void setNeedyGender(String needyGender) {
         this.needyGender = needyGender;
     }
 
-    public EntryYear getNeedyEnteringYear() {
+    public String getNeedyEnteringYear() {
         return needyEnteringYear;
     }
 
-    public void setNeedyEnteringYear(EntryYear needEnteringYear) {
+    public void setNeedyEnteringYear(String needEnteringYear) {
         this.needyEnteringYear = needyEnteringYear;
     }
 
-    public College getNeedyCollege() {
+    public String getNeedyCollege() {
         return needyCollege;
     }
 
-    public void setNeedyCollege(College needy_college) {
+    public void setNeedyCollege(String needy_college) {
         this.needyCollege = needyCollege;
     }
 

@@ -10,7 +10,7 @@ import java.util.ListIterator;
  */
 public interface IntroductionDAO {
 
-    public void insertIntroduction(IntroductionEntity introductionEntity);
+    public Boolean insertIntroduction(IntroductionEntity introductionEntity);
 
     //public List<IntroductionEntity> getByRecommenderName(String name,String family);
     public ListIterator<IntroductionEntity> getByRecommenderPhoneNumber(String phoneNumber);
