@@ -22,18 +22,17 @@ public class NeedyStudentEntity {
     @Id
     @Column( length=50)
     private String phoneNumber;
-    @Column( length=50)
-    private String email;
+    //@Column( length=50)
+    //private String email;
     @Column( length=50, nullable = false)
     private String studentId;
     @Column( length=500)
     private String description;
 
-    public NeedyStudentEntity(String name, String family, String phone_number, String email) {
+    public NeedyStudentEntity(String name, String family, String phone_number) {
         this.name = name;
         this.family = family;
         this.phoneNumber = phone_number;
-        this.email = email;
     }
 
 
@@ -60,7 +59,7 @@ public class NeedyStudentEntity {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phone_number) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

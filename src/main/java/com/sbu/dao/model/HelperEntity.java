@@ -29,7 +29,7 @@ public class HelperEntity {
     @Column( length=50, nullable = false)
     private String password;
     @Column( length=500, nullable = false)
-    private String description;
+    private String descriptionForNonCash;
 
     public HelperEntity() {
     }
@@ -131,10 +131,10 @@ public class HelperEntity {
     }
 
     public String getDescription() {
-        return description;
+        return descriptionForNonCash;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.descriptionForNonCash = description;
     }
 }
