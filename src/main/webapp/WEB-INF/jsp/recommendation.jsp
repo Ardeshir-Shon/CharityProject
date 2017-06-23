@@ -137,7 +137,7 @@
                 <div style="min-height: 60px;"></div>
                 <div id="collapseOne" class="accordion-body collapse in">
                     <div class="accordion-inner">
-                        <form:form class="form-horizontal col-sm-offset-1" method="post" action="/recommendation/succor">
+                        <form:form class="form-horizontal col-sm-offset-1" method="post" action="/recommendation/main">
                             <div class="form-group">
                                 <label class="control-label col-sm-2" >نام معرف:</label>
                                 <div class="col-sm-5">

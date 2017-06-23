@@ -154,7 +154,7 @@
             <div class="control-label  col-sm-offset-2 col-sm-5">
                 <div class="checkbox">
                     <div style="text-align: right; margin-right: 21px; margin-top: -5px;">
-                        <input type="checkbox" name="tendency" value="" id="checkbox" onchange="hider();">مایلم در صورت
+                        <input type="checkbox" name="tendency" value="on" id="checkbox" onchange="hider();">مایلم در صورت
                         نیاز
                         به پیامم پاسخ داده شود</input>
                     </div>

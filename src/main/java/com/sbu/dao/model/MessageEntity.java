@@ -22,7 +22,6 @@ public class MessageEntity {
     @Column( length=500)
     private String text;
 
-    private boolean tendency;
     @Column(length=50 )
     private String phoneNumber;
     @Column( length=50)
@@ -65,14 +64,6 @@ public class MessageEntity {
 
     public void setText(String text) {
         this.text = text;
-    }
-
-    public boolean isTendency() {
-        return tendency;
-    }
-
-    public void setTendency(boolean tendency) {
-        this.tendency = tendency;
     }
 
     public String getPhone_number() {
