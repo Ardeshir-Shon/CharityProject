@@ -247,7 +247,7 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-2" >تکرار رمز عبور:</label>
                                 <div class="col-sm-5">
-                                    <input id="passwordRepeat" type="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+                                    <input name="passwordRepeat" type="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
                                 </div>
                             </div>
                             <div class="form-group">
