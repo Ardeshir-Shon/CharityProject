@@ -187,11 +187,11 @@
     <% if (request.getAttribute("state") != null && (Boolean)request.getAttribute("state"))
     {
     %>
-    <p>${state} message is submited!</p>
+    <p>${state} پیغام شما به درستی ثبت شد.</p>
     <%}else if(request.getAttribute("state") != null && !(Boolean)request.getAttribute("state")) { %>
-    <p>${state} review your inputs</p>
-    <%}%>
-    ${test}
+    <h5>${state}ورودی‌ها را دوباره چک کنید.</h5>
+    <%}
+    %>
 </div>
 <div class="container">
     <div class="row"
