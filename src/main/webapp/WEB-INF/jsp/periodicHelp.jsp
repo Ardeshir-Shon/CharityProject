@@ -159,7 +159,7 @@
                                 <div class="control-label  col-sm-offset-2 col-sm-5" >
                                     <div class="checkbox">
                                         <div style="text-align: right; margin-right: 21px; margin-top: -5px;">
-                                            <input type="checkbox" value="" id="checkbox" onchange="hider();">دانشجوی دانشگاه شهید بهشتی هستم</input>
+                                            <input type="checkbox" value="on" id="checkbox" onchange="hider();">دانشجوی دانشگاه شهید بهشتی هستم</input>
                                         </div>
                                     </div>
                                 </div>
