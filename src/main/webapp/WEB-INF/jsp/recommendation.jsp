@@ -141,20 +141,20 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-2" >نام معرف:</label>
                                 <div class="col-sm-5">
-                                    <input type="text" name="firstName" class="form-control" placeholder="نام خود را وارد کنید">
+                                    <input type="text" name="succorFirstName" class="form-control" placeholder="نام خود را وارد کنید">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" >نام خانوادگی معرف:</label>
                                 <div class="col-sm-5">
-                                    <input type="text" name="lastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
+                                    <input type="text" name="succorLastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="control-label  col-sm-offset-2 col-sm-5" >
                                     <div class="checkbox">
                                         <div style="text-align: right; margin-right: 21px; margin-top: -5px;">
-                                            <input type="checkbox" name="beingStudent" value="" id="checkbox" onchange="hider();">دانشجوی دانشگاه شهید بهشتی هستم</input>
+                                            <input type="checkbox" name="isStudent" value="" id="checkbox" onchange="hider();">دانشجوی دانشگاه شهید بهشتی هستم</input>
                                         </div>
                                     </div>
                                 </div>
@@ -183,7 +183,7 @@
             <div id="collapseTwo" class="accordion-body collapse in">
                 <div class="accordion-inner">
                     <h5 style="color: #c73f3f; margin-bottom: 18px;">ثبت تمامی موارد ذیل به جز نام و نام خانوادگی مددجو اختیاری است اما تکمیل کردن اطلاعات امر مدد رسانی را تسهیل می‌نماید.</h5>
-                    <form class="form-horizontal col-sm-offset-1">
+                    <form:form class="form-horizontal col-sm-offset-1" method="post" action="/recommendation/needy">
                         <div class="form-group">
                             <label class="control-label col-sm-2" >نام مددجو:</label>
                             <div class="col-sm-5">
@@ -265,13 +265,13 @@
                         <div class="form-group">
                             <label class="control-label col-sm-2">توضیحات بیشتر درباره‌ی مددجو:</label>
                             <div class="col-sm-5">
-                                <textarea class="form-control" rows="4" placeholder="در مورد سطح و نوع نیاز مددجو برای ما بنویسید..."></textarea>
+                                <textarea name="moreInfo" class="form-control" rows="4" placeholder="در مورد سطح و نوع نیاز مددجو برای ما بنویسید..."></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2">نحوه‌ی اطلاع شما در مورد نیازمندی دانشجوی مددجو:</label>
                             <div class="col-sm-5">
-                                <textarea class="form-control" rows="4" placeholder="در مورد سطح و نوع نیاز مددجو برای ما بنویسید..."></textarea>
+                                <textarea name="awarenessInfo" class="form-control" rows="4" placeholder="در مورد سطح و نوع نیاز مددجو برای ما بنویسید..."></textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -280,7 +280,7 @@
                                 <!-- <div class="g-recaptcha" data-sitekey="6LdbBBsUAAAAAE2H11rzHeFOhrbkjnh9JIZG_HcY"></div> -->
                             </div>
                         </div>
-                    </form>
+                    </form:form>
                 </div>
             </div>
         </div>
@@ -292,16 +292,16 @@
             <div class="col-sm-4" style="text-align: center; font-size: 20px;">
                 <span class="fa fa-envelope-o" aria-hidden="true" style="font-size: 25px; vertical-align: middle"></span><span style="vertical-align: middle"> &nbsp خبرنامه امید نو  </span>
                 <div style="margin-top: 15px;">
-                    <form>
+                    <form:form method="post" action="/recommendation/newsLetter">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="ایمیل خود را وارد کنید" style="text-align: center; direction: ltr;">
+                            <input type="text" name="newsLetterEmail" class="form-control" placeholder="ایمیل خود را وارد کنید" style="text-align: center; direction: ltr;">
                             <div class="input-group-btn">
                                 <button class="btn btn-default" type="submit">
                                     <i class="fa fa-check-square-o" aria-hidden="true" style="font-size:18px ;color:#777; vertical-align: middle;"></i>
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form:form>
                 </div>
             </div>
             <div class="col-sm-4"></div>
