@@ -3,6 +3,7 @@ package com.sbu.service.impl;
 import com.sbu.dao.IntroductionDAO;
 import com.sbu.dao.model.IntroductionEntity;
 import com.sbu.service.IntroductionService;
+import com.sun.xml.internal.bind.v2.runtime.reflect.ListIterator;
 import com.sun.xml.internal.ws.developer.Serialization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,8 +26,9 @@ public class IntroductionServiceImpl implements IntroductionService {
 
     @Override
     public List<IntroductionEntity> getByRecommenderPhoneNumber(IntroductionEntity introductionEntity) {
-        return introductionDAO.getByRecommenderPhoneNumber(introductionEntity.getRecommenderPhoneNumber());
+        return (List<IntroductionEntity>) introductionDAO.getByRecommenderPhoneNumber(introductionEntity.getRecommenderPhoneNumber());
     }
+
 
     @Override
     public IntroductionEntity getByNeedyName(IntroductionEntity introductionEntity) {

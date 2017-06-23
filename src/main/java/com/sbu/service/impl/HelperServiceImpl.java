@@ -4,10 +4,12 @@ import com.sbu.dao.HelperDAO;
 import com.sbu.dao.model.HelperEntity;
 import com.sbu.service.HelperService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by Mammad on 6/22/2017.
  */
+@Service
 public class HelperServiceImpl implements HelperService {
 
     @Autowired
