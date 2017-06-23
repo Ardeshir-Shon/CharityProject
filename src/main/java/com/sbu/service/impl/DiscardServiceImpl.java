@@ -14,7 +14,7 @@ public class DiscardServiceImpl implements DiscardService {
     DiscardDAO discardDAO;
 
     @Override
-    public void dicardHelper(HelperEntity helperEntity) {
-        discardDAO.dicardHelper(helperEntity.getPhoneNumber());
+    public Boolean dicardHelper(HelperEntity helperEntity) {
+        return discardDAO.dicardHelper(helperEntity.getPhoneNumber());
     }
 }

@@ -98,9 +98,6 @@ public class HelperEntity {
         this.helpPeriod = helpPeriod;
     }
 
-
-
-
     public String getCostOfPay() {
         return costOfPay;
     }

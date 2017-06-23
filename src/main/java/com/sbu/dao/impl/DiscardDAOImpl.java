@@ -18,9 +18,13 @@ public class DiscardDAOImpl implements DiscardDAO {
 
     @Override
     @Transactional
-    public void dicardHelper(String id) {
+    public Boolean dicardHelper(String id) {
+        try {
             entityManager.remove(id);
-
-
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
     }
 }
