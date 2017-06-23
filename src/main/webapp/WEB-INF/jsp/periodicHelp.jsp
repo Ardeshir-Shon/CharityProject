@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: HamidReza
-  Date: 6/22/17
-  Time: 3:19 PM
+  Date: 6/23/17
+  Time: 12:51 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
@@ -10,6 +10,7 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,6 +47,9 @@
 
 
         }
+        function sendmessage() {
+            document.getElementById("sendmsg").innerHTML = "ثبت شد!";
+        }
 
     </script>
     <style>
@@ -61,7 +65,6 @@
     </style>
 
 </head>
-
 <body>
 <div class="container" style="min-height: 10px">
 </div>
@@ -130,31 +133,33 @@
     <p id="demo"></p>
 </div>
 
-    <div class="container">
-        <div class="accordion">
-            <div class="accordion-group col-sm-12">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne" style="text-decoration: none; color: inherit;"><div class="accordion-heading col-sm-8">  اطلاعات معرف </div></a>
-                <div style="min-height: 60px;"></div>
-                <div id="collapseOne" class="accordion-body collapse in">
-                    <div class="accordion-inner">
-                        <form:form class="form-horizontal col-sm-offset-1" method="post" action="/recommendation/main">
+
+    <div class="container" >
+        <form:form class="form-horizontal" method="post" action="/periodicHelp/main">
+            <div class="accordion">
+                <div class="accordion-group col-sm-12">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne" style="text-decoration: none; color: inherit;"><div class="accordion-heading col-sm-8">  اطلاعات معرف </div></a>
+                    <div style="min-height: 60px;"></div>
+                    <div id="collapseOne" class="accordion-body collapse in">
+                        <div class="accordion-inner">
+                            <!--                     <form class="form-horizontal col-sm-offset-1"> -->
                             <div class="form-group">
-                                <label class="control-label col-sm-2" >نام معرف:</label>
+                                <label class="control-label col-sm-2">نام معرف:</label>
                                 <div class="col-sm-5">
-                                    <input type="text" name="succorFirstName" class="form-control" placeholder="نام خود را وارد کنید">
+                                    <input type="text" class="form-control" placeholder="نام خود را وارد کنید">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" >نام خانوادگی معرف:</label>
                                 <div class="col-sm-5">
-                                    <input type="text" name="succorLastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
+                                    <input type="text" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="control-label  col-sm-offset-2 col-sm-5" >
                                     <div class="checkbox">
                                         <div style="text-align: right; margin-right: 21px; margin-top: -5px;">
-                                            <input type="checkbox" name="isStudent" value="on" id="checkbox" onchange="hider();">دانشجوی دانشگاه شهید بهشتی هستم</input>
+                                            <input type="checkbox" value="on" id="checkbox" onchange="hider();">دانشجوی دانشگاه شهید بهشتی هستم</input>
                                         </div>
                                     </div>
                                 </div>
@@ -162,49 +167,49 @@
                             <div class="form-group" id="stNumber" style="display: none;">
                                 <label class="control-label col-sm-2" >شماره‌ی دانشجویی معرف:</label>
                                 <div class="col-sm-5">
-                                    <input type="text" name="succorStudentNumber" class="form-control" placeholder="شماره‌ی دانشجویی خود را وارد کنید(به عدد)">
+                                    <input type="text" class="form-control" placeholder="شماره‌ی دانشجویی خود را وارد کنید(به عدد)">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-2">شماره‌ی موبایل معرف:</label>
                                 <div class="col-sm-5">
-                                    <input type="text" name="succorPhoneNumber" class="form-control" placeholder="۰۹۱۲۱۲۳۴۵۶۷" style="text-align: left; direction: ltr;">
+                                    <input type="text" class="form-control" placeholder="۰۹۱۲۱۲۳۴۵۶۷" style="text-align: left; direction: ltr;">
                                 </div>
                             </div>
-                        </form:form>
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="accordion-group col-sm-12">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo" style="text-decoration: none; color: inherit;">
-                <div class="accordion-heading col-sm-8"> اطلاعات مددجو </div></a>
-            <div style="min-height: 60px;"></div>
-            <div id="collapseTwo" class="accordion-body collapse in">
-                <div class="accordion-inner">
-                    <h5 style="color: #c73f3f; margin-bottom: 18px;">ثبت تمامی موارد ذیل به جز نام و نام خانوادگی مددجو اختیاری است اما تکمیل کردن اطلاعات امر مدد رسانی را تسهیل می‌نماید.</h5>
-                    <form:form class="form-horizontal col-sm-offset-1" method="post" action="/recommendation/needy">
+            <div class="accordion-group col-sm-12">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo" style="text-decoration: none; color: inherit;">
+                    <div class="accordion-heading col-sm-8"> اطلاعات مددجو </div></a>
+                <div style="min-height: 60px;"></div>
+                <div id="collapseTwo" class="accordion-body collapse in">
+                    <div class="accordion-inner">
+                        <h5 style="color: #c73f3f; margin-bottom: 18px;">ثبت تمامی موارد ذیل به جز نام و نام خانوادگی مددجو اختیاری است اما تکمیل کردن اطلاعات امر مدد رسانی را تسهیل می‌نماید.</h5>
+                        <!--                     <form class="form-horizontal col-sm-offset-1"> -->
                         <div class="form-group">
-                            <label class="control-label col-sm-2" >نام مددجو:</label>
+                            <label class="control-label col-sm-2">نام مددجو:</label>
                             <div class="col-sm-5">
-                                <input type="text" name="needyFirstName" class="form-control" placeholder="نام مددجو را وارد کنید">
+                                <input type="text" class="form-control" placeholder="نام مددجو را وارد کنید">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2" >نام خانوادگی مددجو:</label>
                             <div class="col-sm-5">
-                                <input type="text" name="needyLastName" class="form-control" placeholder="نام خانوادگی مددجو را وارد کنید">
+                                <input type="text" class="form-control" placeholder="نام خانوادگی مددجو را وارد کنید">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2" >شماره‌ی دانشجویی مددجو:</label>
                             <div class="col-sm-5">
-                                <input type="text" name="needyStudentNumber" class="form-control" placeholder="در صورت اطلاع شماره‌ی دانشجویی مددجو را وارد کنید">
+                                <input type="text" class="form-control" placeholder="در صورت اطلاع شماره‌ی دانشجویی مددجو را وارد کنید">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2">جنسیت:</label>
-                            <select name="needyGender" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" >
+                            <select class="form-control col-sm-2" style="margin-right: 13px;" selected="none" >
                                 <option disabled selected value>-- انتخاب کنید --</option>
                                 <option>خانم</option>
                                 <option>آقا</option>
@@ -212,7 +217,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2">ورودی دانشگاه:</label>
-                            <select name="needyEntryYear" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" >
+                            <select class="form-control col-sm-2" style="margin-right: 13px;" selected="none" >
                                 <option disabled selected value>-- انتخاب کنید --</option>
                                 <option>۹۶</option>
                                 <option>۹۵</option>
@@ -226,7 +231,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2">دانشکده:</label>
-                            <select name="needyFacultyName" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" id="selector" onchange="shower();">
+                            <select class="form-control col-sm-2" style="margin-right: 13px;" selected="none" id="selector" onchange="shower();">
                                 <option disabled selected value>-- انتخاب کنید --</option>
                                 <option>مهندسی برق و کامپیوتر</option>
                                 <option>روانشناسی</option>
@@ -247,9 +252,9 @@
                             </select>
                         </div>
                         <div class="form-group" id="other_faculty" style="display: none;">
-                            <label class="control-label col-sm-2" >نام دانشکده:</label>
+                            <label class="control-label col-sm-2">نام دانشکده:</label>
                             <div class="col-sm-5">
-                                <input type="text" name="otherFacultyName" class="form-control" placeholder="نام دانشکده را وارد کنید">
+                                <input type="text" class="form-control" placeholder="نام دانشکده را وارد کنید">
                             </div>
                         </div>
                         <div class="form-group">
@@ -265,13 +270,13 @@
                         <div class="form-group">
                             <label class="control-label col-sm-2">توضیحات بیشتر درباره‌ی مددجو:</label>
                             <div class="col-sm-5">
-                                <textarea name="moreInfo" class="form-control" rows="4" placeholder="در مورد سطح و نوع نیاز مددجو برای ما بنویسید..."></textarea>
+                                <textarea class="form-control" rows="4" placeholder="در مورد سطح و نوع نیاز مددجو برای ما بنویسید..."></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2">نحوه‌ی اطلاع شما در مورد نیازمندی دانشجوی مددجو:</label>
                             <div class="col-sm-5">
-                                <textarea name="awarenessInfo" class="form-control" rows="4" placeholder="در مورد سطح و نوع نیاز مددجو برای ما بنویسید..."></textarea>
+                                <textarea class="form-control" rows="4" placeholder="در مورد سطح و نوع نیاز مددجو برای ما بنویسید..."></textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -280,10 +285,10 @@
                                 <!-- <div class="g-recaptcha" data-sitekey="6LdbBBsUAAAAAE2H11rzHeFOhrbkjnh9JIZG_HcY"></div> -->
                             </div>
                         </div>
-                    </form:form>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form:form>
     </div>
 
     <div class="container">
@@ -292,7 +297,7 @@
             <div class="col-sm-4" style="text-align: center; font-size: 20px;">
                 <span class="fa fa-envelope-o" aria-hidden="true" style="font-size: 25px; vertical-align: middle"></span><span style="vertical-align: middle"> &nbsp خبرنامه امید نو  </span>
                 <div style="margin-top: 15px;">
-                    <form:form method="post" action="/recommendation/newsLetter">
+                    <form:form method="post" action="/periodicHelp/newsLetter">
                         <div class="input-group">
                             <input type="text" name="newsLetterEmail" class="form-control" placeholder="ایمیل خود را وارد کنید" style="text-align: center; direction: ltr;">
                             <div class="input-group-btn">
@@ -322,12 +327,10 @@
             <div class="col-sm-3">
                 <p style="font-size: 16px; font-family: Gulf-semibold;">گزارش‌ها</p><p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
             </div>
-            <div class="col-sm-3">
-                <p style="font-size: 16px; font-family: Gulf-semibold;">حقوق قانونی وب‌سایت</p><p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
-            </div>
-
+                <div class="col-sm-3">
+                    <p style="font-size: 16px; font-family: Gulf-semibold;">حقوق قانونی وب‌سایت</p><p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+                </div>
         </div>
-    </div>
-
+</div>
 </body>
 </html>

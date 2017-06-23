@@ -33,23 +33,9 @@
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="https://use.fontawesome.com/5881fd899f.js"></script>
     <script>
-        function hider() {
-            if (document.getElementById("checkbox").checked == false) {
-                document.getElementById("email").style.display = "none";
-                document.getElementById("phone").style.display = "none";
-
-            }
-            else {
-                document.getElementById("email").style.display = "block";
-                document.getElementById("phone").style.display = "block";
-            }
-
-
-        }
         function sendmessage() {
             document.getElementById("sendmsg").innerHTML = "sdhjfvkjhw";
         }
-
     </script>
     <style>
         @font-face {
