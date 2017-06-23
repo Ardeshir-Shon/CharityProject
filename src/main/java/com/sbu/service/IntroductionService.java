@@ -1,6 +1,7 @@
 package com.sbu.service;
 
 import com.sbu.dao.model.IntroductionEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

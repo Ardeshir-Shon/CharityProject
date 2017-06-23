@@ -120,9 +120,9 @@
 
     <form:form class="form-horizontal" method="post" action="/discard/main">
         <div class="form-group">
-            <label class="control-label col-sm-2">ایمیل:</label>
+            <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
             <div class="col-sm-5">
-                <input type="text"  name="email" class="form-control" placeholder="someone@example.com"
+                <input type="text"  name="phoneNumber" class="form-control" placeholder="someone@example.com"
                        style="text-align: left; direction: ltr;">
             </div>
         </div>

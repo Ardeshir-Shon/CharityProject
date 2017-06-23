@@ -15,7 +15,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>inbox</title>
+    <title>suggestion</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/../resources/bootstrap-3.3.7-dist/css/bootstrap.css"
@@ -166,13 +166,13 @@
         <div class="form-group" id="phone" style="display: none;">
             <label class="control-label col-sm-2" >شماره‌ی موبایل:</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" placeholder="09121234567" style="text-align: left; direction: ltr;">
+                <input type="text" name="phoneNumber" class="form-control" placeholder="09121234567" style="text-align: left; direction: ltr;">
             </div>
         </div>
         <div class="form-group" id="email" style="display: none;">
             <label class="control-label col-sm-2" >ایمیل(اختیاری):</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" placeholder="someone@example.com" style="text-align: left; direction: ltr;">
+                <input type="text" name="email" class="form-control" placeholder="someone@example.com" style="text-align: left; direction: ltr;">
             </div>
         </div>
         <div class="form-group">
