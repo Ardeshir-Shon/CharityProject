@@ -129,66 +129,6 @@
                 <input type="text" name="lastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
             </div>
         </div>
-        <!--
-                          <div class="form-group">
-                              <label class="control-label col-sm-2">سن:</label>
-                              <select class="form-control col-sm-1" style="margin-right: 13px;">
-                              <option>۱۸</option>
-                              <option>۱۹</option>
-                              <option>۲۰</option>
-                              <option>۲۱</option>
-                              <option>۲۲</option>
-                              <option>۲۳</option>
-                              <option>۲۴</option>
-                              <option>۲۵</option>
-                              <option>۲۶</option>
-                              <option>۲۷</option>
-                              <option>۲۸</option>
-                              <option>۲۹</option>
-                              <option>۳۰</option>
-                              <option>۳۱</option>
-                              <option>۳۲</option>
-                              <option>۳۳</option>
-                              <option>۳۴</option>
-                              <option>۳۵</option>
-                              <option>۳۶</option>
-                              <option>۳۷</option>
-                              <option>۳۸</option>
-                              <option>۳۹</option>
-                              <option>۴۰</option>
-                              <option>۴۱</option>
-                              <option>۴۲</option>
-                              <option>۴۳</option>
-                              <option>۴۴</option>
-                              <option>۴۵</option>
-                              <option>۴۶</option>
-                              <option>۴۷</option>
-                              <option>۴۸</option>
-                              <option>۴۹</option>
-                              <option>۵۰</option>
-                              <option>۵۱</option>
-                              <option>۵۲</option>
-                              <option>۵۳</option>
-                              <option>۵۴</option>
-                              <option>۵۵</option>
-                              <option>۵۶</option>
-                              <option>۵۷</option>
-                              <option>۵۸</option>
-                              <option>۵۹</option>
-                              <option>۶۰</option>
-                              <option>۶۱</option>
-                              <option>۶۲</option>
-                              <option>۶۳</option>
-                              <option>۶۴</option>
-                              <option>۶۵</option>
-                              <option>۶۶</option>
-                              <option>۶۷</option>
-                              <option>۶۸</option>
-                              <option>۶۹</option>
-                              <option>۷۰</option>
-                              </select>
-                          </div>
-        -->
         <div class="form-group">
             <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
             <div class="col-sm-5">
