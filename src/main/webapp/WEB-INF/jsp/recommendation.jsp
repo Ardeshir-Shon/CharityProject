@@ -137,7 +137,7 @@
                 <div style="min-height: 60px;"></div>
                 <div id="collapseOne" class="accordion-body collapse in">
                     <div class="accordion-inner">
-                        <form:form class="form-horizontal col-sm-offset-1" method="post" action="/recommendation/main">
+                        <form:form class="form-horizontal col-sm-offset-1" method="post" action="/recommendation/succor">
                             <div class="form-group">
                                 <label class="control-label col-sm-2" >نام معرف:</label>
                                 <div class="col-sm-5">
@@ -154,7 +154,7 @@
                                 <div class="control-label  col-sm-offset-2 col-sm-5" >
                                     <div class="checkbox">
                                         <div style="text-align: right; margin-right: 21px; margin-top: -5px;">
-                                            <input type="checkbox" name="isStudent" value="on" id="checkbox" onchange="hider();">دانشجوی دانشگاه شهید بهشتی هستم</input>
+                                            <input type="checkbox" name="isStudent" value="" id="checkbox" onchange="hider();">دانشجوی دانشگاه شهید بهشتی هستم</input>
                                         </div>
                                     </div>
                                 </div>
