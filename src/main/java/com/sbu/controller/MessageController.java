@@ -43,7 +43,7 @@ public class MessageController {
         if(state && messageModel.isTendency()){// want to contribute and filled top true
             if (!messageModel.getPhoneNumber().isEmpty() || !messageModel.getEmail().isEmpty()){// correct
                 if (!messageModel.getPhoneNumber().isEmpty())
-                    messageEntity.setPhone_number(messageModel.getPhoneNumber());
+                    messageEntity.setPhoneNumber(messageModel.getPhoneNumber());
                 if (!messageModel.getEmail().isEmpty())
                     messageEntity.setEmail(messageModel.getEmail());
                 state=true;
