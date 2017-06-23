@@ -33,23 +33,28 @@ public class ActiveMemberController  {
         ActiveMemberEntity activeMember = new ActiveMemberEntity();
         ActiveMemberDTO dto = new ActiveMemberDTO();
 
-        activeMember.setName(activeMemberModel.getFirstName());
-        activeMember.setFamily(activeMemberModel.getLastName());
-        activeMember.setEmail(activeMemberModel.getMail());
-        activeMember.setPhone_number(activeMemberModel.getPhoneNumber());
-        activeMember.setDescription(activeMemberModel.getDescription());
-        if (activeMemberModel.getStudent()){
-            activeMember.setStudent_id(activeMemberModel.getStudentNumber());
+        if (!activeMemberModel.getFirstName().isEmpty())
+            activeMember.setName(activeMemberModel.getFirstName());
+        if (!activeMemberModel.getLastName().isEmpty())
+            activeMember.setFamily(activeMemberModel.getLastName());
+        if (!activeMemberModel.getMail().isEmpty())
+            activeMember.setEmail(activeMemberModel.getMail());
+        if (!activeMemberModel.getPhoneNumber().isEmpty())
+            activeMember.setPhone_number(activeMemberModel.getPhoneNumber());
+        if (!activeMemberModel.getDescription().isEmpty())
+            activeMember.setDescription(activeMemberModel.getDescription());
+        if (activeMemberModel.getStudent() && !activeMemberModel.getStudentNumber().isEmpty()){
+            activeMember.setStudentId(activeMemberModel.getStudentNumber());
         }
         dto.setFilled(activeMember);
 
-        if (activeMemberModel.getPhoneNumber()==null || activeMemberModel.getFirstName()==null
-                || activeMemberModel.getLastName()==null){
+        if (activeMemberModel.getPhoneNumber().isEmpty() || activeMemberModel.getFirstName().isEmpty()
+                || activeMemberModel.getLastName().isEmpty()){
             dto.setState(0); // wrong input
         }
         else{
             dto.setState(1); // ok input
-            if (activeMemberModel.getStudent() && activeMemberModel.getStudentNumber()==null ){
+            if (activeMemberModel.getStudent() && activeMemberModel.getStudentNumber().isEmpty() ){
                 dto.setState(2); // wrong input down
                 model.addAttribute("dto",dto);
                 return "activeMembers";
