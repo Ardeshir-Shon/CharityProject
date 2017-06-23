@@ -22,40 +22,48 @@ public class MessageController {
     MessageService messageService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String initMessage(Model model) {
-        model.addAttribute("msg", "Show this hamidreza");
+    public String initMessage(Model model){
+        model.addAttribute("msg","Show this hamidreza");
         return "inbox";
     }
 
-    @RequestMapping(value = "/message", method = RequestMethod.POST)
-    public String controlMessage(Model model, @ModelAttribute("messageModel") MessageModel messageModel) {
-
-        MessageEntity messageEntity = new MessageEntity();
-        if (messageModel.getName() != null && messageModel.getTitle() != null && messageModel.getBody() != null) {
+    @RequestMapping(value="/message" , method = RequestMethod.POST)
+    public String controlMessage(Model model, @ModelAttribute("messageModel")MessageModel messageModel){
+        Boolean state=null;
+        MessageEntity messageEntity=new MessageEntity();
+        if (messageModel.getName() !=null && messageModel.getTitle() != null && messageModel.getBody() != null){
 
             messageEntity.setName(messageModel.getName());
             messageEntity.setSubject(messageModel.getTitle());
             messageEntity.setText(messageModel.getBody());
-        } else {// fill necessary incorrect
-            model.addAttribute("test", "hereeeeeeee");
-            model.addAttribute("state", new Boolean(false));
-            return "inbox";
+            //model.addAttribute("state",new Boolean(true));
+            state=true;
         }
-        if (messageModel.isTendency()) {// want to contribute and filled top true
-            if (messageModel.getPhoneNumber() != null || messageModel.getEmail() != null) {// correct
-                if (messageModel.getPhoneNumber() != null)
+        else{// fill necessary incorrect
+            //model.addAttribute("state",new Boolean(false));
+            state=false;
+            //return "inbox";
+        }
+        if(state && messageModel.isTendency()){// want to contribute and filled top true
+            if (messageModel.getPhoneNumber()!=null || messageModel.getEmail()!=null){// correct
+                if (messageModel.getPhoneNumber()!=null)
                     messageEntity.setPhone_number(messageModel.getPhoneNumber());
-                if (messageModel.getEmail() != null)
+                if (messageModel.getEmail()!=null)
                     messageEntity.setEmail(messageModel.getEmail());
-                model.addAttribute("state", new Boolean(true));
-            } else {// for more contribute, at least fill phone or email
-                model.addAttribute("state", new Boolean(false));
-                return "inbox";
+                //model.addAttribute("state",new Boolean(true));
+                state=true;
+            }
+            else{// for more contribute, at least fill phone or email
+                //model.addAttribute("state",new Boolean(false));
+                state=false;
+                //return "inbox";
             }
         }
+        if (state) {
+            messageService.insertMessage(messageEntity);
+        }
+        model.addAttribute("state",state);
 
-        model.addAttribute("state", new Boolean(true));
-        messageService.insertMessage(messageEntity);
         return "inbox";
     }
 }

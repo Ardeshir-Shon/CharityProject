@@ -26,7 +26,6 @@ public class ActiveMemberEntity {
     @Column( length=500, nullable = false)
     private String description;
 
-    private boolean sbuStudent;
     @Column( length=50, nullable = false)
     private String studentId;
 
@@ -34,7 +33,6 @@ public class ActiveMemberEntity {
         this.name = name;
         this.family = family;
         this.phoneNumber = phone_number;
-        this.sbuStudent = sbu_student;
     }
 
     public ActiveMemberEntity() {
@@ -80,13 +78,6 @@ public class ActiveMemberEntity {
         this.description = description;
     }
 
-    public boolean isSbu_student() {
-        return sbuStudent;
-    }
-
-    public void setSbu_student(boolean sbu_student) {
-        this.sbuStudent = sbu_student;
-    }
 
     public String getStudent_id() {
         return studentId;
