@@ -29,7 +29,7 @@ public class ActiveMemberDAOImpl implements ActiveMemberDAO {
     }
 
     @Override
-    @Transactional
+    //@Transactional
     public Boolean insertActiveMemberEntity(ActiveMemberEntity activeMemberEntity) {
 
         try {

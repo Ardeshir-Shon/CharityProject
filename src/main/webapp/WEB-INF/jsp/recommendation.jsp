@@ -29,22 +29,21 @@
         function hider(){
             if(document.getElementById("checkbox").checked ==false)
             {
-                document.getElementById("email").style.display = "none";
-                document.getElementById("phone").style.display = "none";
-
+                document.getElementById("stNumber").style.display = "none";
             }
             else{
-                document.getElementById("email").style.display = "block";
-                document.getElementById("phone").style.display = "block";
+                document.getElementById("stNumber").style.display = "block";
             }
-
-
         }
-        function sendmessage()
-        {
-            document.getElementById("sendmsg").innerHTML="sdhjfvkjhw";
+        function shower(){
+            if (document.getElementById("selector").value == "سایر")
+            {
+                document.getElementById("other_faculty").style.display = "block";
+            }
+            else{
+                document.getElementById("other_faculty").style.display = "none";
+            }
         }
-
     </script>
     <style>
         @font-face {
@@ -125,8 +124,6 @@
 <div class="container" style="font-family: Gulf;">
     <h4 style="margin-bottom: 15px;">فرم ارسال پیام </h4>
     <p id="demo"></p>
-</div>>
-
 
 <div class="container" >
     <form:form class="form-horizontal" method="post" action="/recommendation/main">
@@ -153,7 +150,7 @@
                             <div class="control-label  col-sm-offset-2 col-sm-5" >
                                 <div class="checkbox">
                                     <div style="text-align: right; margin-right: 21px; margin-top: -5px;">
-                                        <input type="checkbox" name="isStudent" value="" id="checkbox" onchange="hider();">دانشجوی دانشگاه شهید بهشتی هستم</input>
+                                        <input type="checkbox" name="isStudent" value="on" id="checkbox" onchange="hider();">دانشجوی دانشگاه شهید بهشتی هستم</input>
                                     </div>
                                 </div>
                             </div>
@@ -212,7 +209,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-2">ورودی دانشگاه:</label>
                         <select name="needyEntryYear" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" >
-                            <option disabled selected value>-- انتخاب کنید --</option>
+                            <option disabled value="" >-- انتخاب کنید --</option>
                             <option value="۹۶">۹۶</option>
                             <option value="۹۵">۹۵</option>
                             <option value="۹۴">۹۴</option>
@@ -226,7 +223,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-2">دانشکده:</label>
                         <select name="needyFacultyName" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" id="selector" onchange="shower();">
-                            <option disabled selected value>-- انتخاب کنید --</option>
+                            <option disabled value="">-- انتخاب کنید --</option>
                             <option value="مهندسی برق و کامپیوتر">مهندسی برق و کامپیوتر</option>
                             <option value="روانشناسی">روانشناسی</option>
                             <option value="حقوق">حقوق</option>
@@ -325,6 +322,7 @@
             <p style="font-size: 16px; font-family: Gulf-semibold;">حقوق قانونی وب‌سایت</p><p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
         </div>
     </div>
+</div>
 </div>
 </body>
 </html>

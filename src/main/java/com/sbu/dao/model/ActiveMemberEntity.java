@@ -26,14 +26,9 @@ public class ActiveMemberEntity {
     @Column( length=500, nullable = false)
     private String description;
 
-    @Column( length=50, nullable = false)
+    @Column( length=50)
     private String studentId;
 
-    public ActiveMemberEntity(String name, String family, String phone_number) {
-        this.name = name;
-        this.family = family;
-        this.phoneNumber = phone_number;
-    }
 
     public ActiveMemberEntity() {
     }

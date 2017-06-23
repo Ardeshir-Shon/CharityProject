@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping(value = "/periodHelp")
-public class PeriodicHelperController {
+public class   PeriodicHelperController {
 
     @Autowired
     HelperService helperService;

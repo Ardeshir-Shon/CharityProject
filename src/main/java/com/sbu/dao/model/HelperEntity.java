@@ -23,7 +23,7 @@ public class HelperEntity {
     private String phoneNumber;
     @Column( length=50 , unique = true)
     private String email;
-    private HelpPeriod helpPeriod;
+    private String helpPeriod;
     @Column( length=50, nullable = false)
     private String costOfPay;
     @Column( length=50, nullable = false)
@@ -87,7 +87,7 @@ public class HelperEntity {
         this.professorCollege = professorCollege;
     }
 
-    public HelpPeriod getHelpPeriod() {
+    public String getHelpPeriod() {
         return helpPeriod;
     }
 

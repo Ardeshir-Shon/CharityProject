@@ -22,6 +22,6 @@ public class SuggestionServiceImpl implements SuggestionService {
 
     @Override
     public List<SuggestionEntity> getByName(SuggestionEntity suggestionEntity) {
-        return suggestionDAO.getByName(suggestionEntity.getName());
+        return (List<SuggestionEntity>) suggestionDAO.getByName(suggestionEntity.getName());
     }
 }
