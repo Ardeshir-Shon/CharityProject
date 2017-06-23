@@ -3,7 +3,7 @@ package com.sbu.controller.model;
 /**
  * Created by HamidReza on 6/23/17.
  */
-public class needyStudentModel {
+public class NeedyStudentModel {
     private String firstName;
     private String lastName;
     private String phoneNumber;
