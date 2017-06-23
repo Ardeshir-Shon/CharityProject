@@ -20,7 +20,7 @@ public class NeedyStudentEntity {
     @Column( length=50, nullable = false)
     private String family;
     @Id
-    @Column( length=50)
+    @Column( length=50 , unique = true)
     private String phoneNumber;
     //@Column( length=50)
     //private String email;

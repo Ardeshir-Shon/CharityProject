@@ -16,7 +16,7 @@ public class IntroductionEntity {
     private String recommenderName;
     @Column( length=50, nullable = false)
     private String recommenderFamily;
-    @Column( length=50, nullable = false)
+    @Column( length=50, nullable = false , unique = true)
     private String recommenderPhoneNumber;
     //private boolean sbuStudent;
 

@@ -1,6 +1,8 @@
 package com.sbu.dao.impl;
 
 import com.sbu.dao.DiscardDAO;
+import com.sbu.dao.model.HelperEntity;
+import org.hibernate.boot.model.source.internal.hbm.Helper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,13 +20,14 @@ public class DiscardDAOImpl implements DiscardDAO {
 
     @Override
     @Transactional
-    public Boolean dicardHelper(String id) {
-        try {
+    public void dicardHelperEntity(String id) {
             entityManager.remove(id);
-            return true;
-        }
-        catch (Exception e){
-            return false;
-        }
+
+    }
+    @Override
+    @Transactional
+    public HelperEntity getHelper(String id){
+        HelperEntity helperEntity=(HelperEntity) entityManager.find(HelperEntity.class,id);
+        return helperEntity;
     }
 }
