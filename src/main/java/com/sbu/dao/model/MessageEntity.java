@@ -66,12 +66,12 @@ public class MessageEntity {
         this.text = text;
     }
 
-    public String getPhone_number() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phoneNumber = phone_number;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {

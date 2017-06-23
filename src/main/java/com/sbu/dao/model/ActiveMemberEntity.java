@@ -29,7 +29,7 @@ public class ActiveMemberEntity {
     @Column( length=50, nullable = false)
     private String studentId;
 
-    public ActiveMemberEntity(String name, String family, String phone_number, boolean sbu_student) {
+    public ActiveMemberEntity(String name, String family, String phone_number) {
         this.name = name;
         this.family = family;
         this.phoneNumber = phone_number;
@@ -79,11 +79,11 @@ public class ActiveMemberEntity {
     }
 
 
-    public String getStudent_id() {
+    public String getStudentId() {
         return studentId;
     }
 
-    public void setStudent_id(String student_id) {
-        this.studentId = student_id;
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 }
