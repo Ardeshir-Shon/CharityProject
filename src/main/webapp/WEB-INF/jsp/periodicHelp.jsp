@@ -142,7 +142,7 @@
                 <div style="min-height: 60px;"></div>
                 <div id="collapseOne" class="accordion-body collapse in">
                     <div class="accordion-inner">
-                        <form:form class="form-horizontal col-sm-offset-1" method="post" action="/periodHelp/cash">
+                        <div class="form-horizontal col-sm-offset-1" method="post" action="/periodHelp/cash">
                             <form:form class="form-horizontal" method="post" action="/activeMembers/main">
                                 <%
                                     GenericDTO<HelperEntity> dto= (GenericDTO<HelperEntity>) request.getAttribute("dto");
@@ -1176,5 +1176,6 @@
     </div>
 
 </div>
+</div>
 </body>
-</html>
+</html>f

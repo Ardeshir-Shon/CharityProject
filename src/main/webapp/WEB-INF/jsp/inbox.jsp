@@ -94,7 +94,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="active_members.html">عضویت فعال</a></li>
 
-                            <li><a href="periodic_help.html">اعلام همکاری</a></li>
+                            <li><a href="/periodHelp">اعلام همکاری</a></li>
 
                             <li><a href="discard.html">لفو همکاری</a></li>
                         </ul>
@@ -214,7 +214,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2">متن پیام:</label>
             <div class="col-sm-5">
-                <textarea class="form-control" name="body" rows="6" id="comment" placeholder="بایستی متن پیام خود را وارد کنید!"></textarea>
+                <textarea class="form-control" name="body" rows="6" id="comment1" placeholder="بایستی متن پیام خود را وارد کنید!"></textarea>
             </div>
         </div>
         <%
@@ -223,7 +223,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2">متن پیام:</label>
             <div class="col-sm-5">
-                <textarea class="form-control" name="body" rows="6" id="comment"></textarea>
+                <textarea class="form-control" name="body" rows="6" id="comment2"></textarea>
             </div>
         </div>
         <%
@@ -233,7 +233,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2">متن پیام:</label>
             <div class="col-sm-5">
-                <textarea class="form-control" name="body" rows="6" id="comment"></textarea>
+                <textarea class="form-control" name="body" rows="6" id="comment3"></textarea>
             </div>
         </div>
         <%

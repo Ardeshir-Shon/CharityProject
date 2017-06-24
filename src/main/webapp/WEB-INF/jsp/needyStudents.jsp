@@ -154,7 +154,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2" >نام خانوادگی:</label>
             <div class="col-sm-5">
-                <input type="text" name="title" class="form-control wrong" placeholder="بایستی نام خانوادگی خود را وارد کنید!">
+                <input type="text" name="lastName" class="form-control wrong" placeholder="بایستی نام خانوادگی خود را وارد کنید!">
             </div>
         </div>
         <%
@@ -163,7 +163,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2" >نام خانوادگی:</label>
             <div class="col-sm-5">
-                <input type="text" name="title" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
+                <input type="text" name="lastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
             </div>
         </div>
         <%
@@ -173,7 +173,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2" >نام خانوادگی:</label>
             <div class="col-sm-5">
-                <input type="text" name="title" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
+                <input type="text" name="lastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
             </div>
         </div>
         <%
@@ -254,7 +254,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2">توضیحات:</label>
             <div class="col-sm-5">
-                <textarea name="body" class="form-control" rows="6" placeholder="در مورد سطح و نوع نیاز خود برای ما بنویسید..."></textarea>
+                <textarea name="description" class="form-control" rows="6" placeholder="در مورد سطح و نوع نیاز خود برای ما بنویسید..."></textarea>
             </div>
         </div>
 
