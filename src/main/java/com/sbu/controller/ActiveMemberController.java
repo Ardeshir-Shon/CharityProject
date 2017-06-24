@@ -59,9 +59,14 @@ public class ActiveMemberController  {
                 model.addAttribute("dto",dto);
                 return "activeMembers";
             }
-            boolean insert=activeMemberService.insertActiveMemberEntity(activeMember);
-            if (!insert)
-                dto.setState(-1); // invalid inputs / id is repetitive
+            if (activeMemberService.idExist(activeMember)){
+                dto.setState(-1);
+            }
+            else {
+                boolean insert=activeMemberService.insertActiveMemberEntity(activeMember);
+                if (!insert)
+                    dto.setState(-1); // invalid inputs / id is repetitive
+            }
         }
         model.addAttribute("dto",dto);
         return "activeMembers";

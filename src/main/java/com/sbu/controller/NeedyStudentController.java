@@ -49,9 +49,14 @@ public class NeedyStudentController {
         }
         else{
             dto.setState(1); // ok input
-            boolean insert=needyStudentService.insertNeedyStudent(needyStudent);
-            if (!insert)
-                dto.setState(-1); // invalid inputs / id is repetitive
+            if (needyStudentService.idExist(needyStudent)){
+                dto.setState(-1);
+            }
+            else {
+                boolean insert=needyStudentService.insertNeedyStudent(needyStudent);
+                if (!insert)
+                    dto.setState(-1); // invalid inputs / id is repetitive
+            }
         }
         model.addAttribute("dto",dto);
         return "needyStudents";

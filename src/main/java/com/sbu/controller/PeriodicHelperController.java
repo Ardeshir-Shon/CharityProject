@@ -84,9 +84,14 @@ public class PeriodicHelperController {
                 model.addAttribute("dto",dto);
                 return "periodicHelp";
             }
-            boolean insert=helperService.insertPeriodicHelp(helperEntity);
-            if (!insert)
+            if (helperService.idExist(helperEntity)){
                 dto.setState(-1);
+            }
+            else {
+                boolean insert=helperService.insertPeriodicHelp(helperEntity);
+                if (!insert)
+                    dto.setState(-1);
+            }
         }
         model.addAttribute("passwordRepeat",periodicHelpCashModel.getPasswordRepeat());
         model.addAttribute("dto",dto);
@@ -136,9 +141,14 @@ public class PeriodicHelperController {
         }
         else{
             dto.setState(1); // ok required inputs
-            boolean insert=helperService.insertPeriodicHelp(helperEntity);
-            if (!insert)
+            if (helperService.idExist(helperEntity)){
                 dto.setState(-1);
+            }
+            else {
+                boolean insert=helperService.insertPeriodicHelp(helperEntity);
+                if (!insert)
+                    dto.setState(-1);
+            }
         }
         model.addAttribute("passwordRepeat",periodicHelpCashModel.getPasswordRepeat());
         model.addAttribute("dto",dto);
@@ -192,9 +202,14 @@ public class PeriodicHelperController {
             dto.setState(0);
         else{
             dto.setState(1); // ok required inputs
-            boolean insert=helperService.insertPeriodicHelp(helperEntity);
-            if (!insert)
+            if (helperService.idExist(helperEntity)){
                 dto.setState(-1);
+            }
+            else {
+                boolean insert=helperService.insertPeriodicHelp(helperEntity);
+                if (!insert)
+                    dto.setState(-1);
+            }
         }
         model.addAttribute("passwordRepeat",periodicHelpCashModel.getPasswordRepeat());
         return "periodicHelp";

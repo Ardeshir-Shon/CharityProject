@@ -28,7 +28,7 @@ public class NeedyStudentServiceImpl implements NeedyStudentService{
 
     @Override
     public Boolean idExist(NeedyStudentEntity needyStudentEntity){
-        return getByPhoneNumber(needyStudentEntity).equals(null);
+        return !getByPhoneNumber(needyStudentEntity).equals(null);
     }
 
     @Override
