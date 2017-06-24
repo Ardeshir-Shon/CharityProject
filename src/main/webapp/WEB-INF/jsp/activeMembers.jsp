@@ -245,29 +245,28 @@
         </div>
 
 
-        <%--<%--%>
-            <%--if (dto!=null && dto.getState().equals(2))--%>
-            <%--{--%>
-        <%--%>--%>
-        <%--<div class="form-group" id="stNumber" style="display: none;">--%>
-            <%--<label class="control-label col-sm-2" >شماره‌ی دانشجویی:</label>--%>
-            <%--<div class="col-sm-5">--%>
-                <%--<input type="text" name="studentNumber" class="form-control wrong" placeholder="بایستی شماره‌ی دانشجویی خود را وارد کنید!">--%>
-            <%--</div>--%>
-        <%--</div>--%>
-        <%--<%--%>
-            <%--}else{--%>
-        <%--%>--%>
-        <%--<div class="form-group" id="stNumber" style="display: none;">--%>
-            <%--<label class="control-label col-sm-2" >شماره‌ی دانشجویی:</label>--%>
-            <%--<div class="col-sm-5">--%>
-                <%--<input type="text" name="studentNumber" class="form-control" placeholder="شماره‌ی دانشجویی خود را وارد کنید(به عدد)">--%>
-            <%--</div>--%>
-        <%--</div>--%>
-        <%--<%--%>
-            <%--}--%>
-        <%--%>--%>
-
+        <%
+            if (dto!=null && dto.getState().equals(2))
+            {
+        %>
+        <div class="form-group" id="stNumber" style="display: none;">
+            <label class="control-label col-sm-2" >شماره‌ی دانشجویی:</label>
+            <div class="col-sm-5">
+                <input type="text" name="studentNumber" class="form-control wrong" placeholder="بایستی شماره‌ی دانشجویی خود را وارد کنید!">
+            </div>
+        </div>
+        <%
+            }else{
+        %>
+        <div class="form-group" id="stNumber" style="display: none;">
+            <label class="control-label col-sm-2" >شماره‌ی دانشجویی:</label>
+            <div class="col-sm-5">
+                <input type="text" name="studentNumber" class="form-control" placeholder="شماره‌ی دانشجویی خود را وارد کنید(به عدد)">
+            </div>
+        </div>
+        <%
+            }
+        %>
 
         <div class="form-group" id="stNumber" style="display: none;">
             <label class="control-label col-sm-2" >شماره‌ی دانشجویی:</label>
@@ -275,6 +274,7 @@
                 <input type="text" name="studentNumber" class="form-control" placeholder="شماره‌ی دانشجویی خود را وارد کنید(به عدد)">
             </div>
         </div>
+
         <%
             if((dto != null && dto.getState() != 1) || dto == null)
             {

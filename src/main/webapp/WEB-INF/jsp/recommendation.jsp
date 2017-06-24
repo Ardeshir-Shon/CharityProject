@@ -57,15 +57,6 @@
             font-family: Gulf-semibold;
             font-size: 17px;
         }
-        @font-face {
-            font-family: Gulf;
-            src: url(fonts/Gulf-regular.ttf);
-        }
-        @font-face {
-            font-family: Gulf-semibold;
-            src: url(fonts/Gulf-semibold.ttf);
-        }
-
     </style>
     <style>
         input.wrong::-webkit-input-placeholder { /* WebKit, Blink, Edge */
@@ -371,7 +362,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-2">جنسیت:</label>
                         <select name="needyGender" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" >
-                            <option disabled selected value>-- انتخاب کنید --</option>
+                            <option disabled selected value="">-- انتخاب کنید --</option>
                             <option value="خانم">خانم</option>
                             <option value="آقا">آقا</option>
                         </select>
@@ -379,7 +370,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-2">ورودی دانشگاه:</label>
                         <select name="needyEntryYear" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" >
-                            <option disabled value="" >-- انتخاب کنید --</option>
+                            <option disabled selected value="" >-- انتخاب کنید --</option>
                             <option value="۹۶">۹۶</option>
                             <option value="۹۵">۹۵</option>
                             <option value="۹۴">۹۴</option>
@@ -393,7 +384,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-2">دانشکده:</label>
                         <select name="needyFacultyName" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" id="selector" onchange="shower();">
-                            <option disabled value="">-- انتخاب کنید --</option>
+                            <option disabled selected value="">-- انتخاب کنید --</option>
                             <option value="مهندسی برق و کامپیوتر">مهندسی برق و کامپیوتر</option>
                             <option value="روانشناسی">روانشناسی</option>
                             <option value="حقوق">حقوق</option>
