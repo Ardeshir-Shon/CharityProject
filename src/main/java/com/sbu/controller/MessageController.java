@@ -58,7 +58,7 @@ public class MessageController {
             insert=messageService.insertMessage(messageEntity);
         }
         if (!insert)
-            dto.setState(-2);
+            dto.setState(-1);
         dto.setFilled(messageEntity);
         model.addAttribute("dto",dto);
         return "inbox";
