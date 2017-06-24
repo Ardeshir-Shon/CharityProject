@@ -24,8 +24,14 @@ public class NeedyStudentDAOImpl implements NeedyStudentDAO {
 
     @Override
     @Transactional
-    public void insertNeedyStudent(NeedyStudentEntity needyStudentEntity) {
+    public Boolean insertNeedyStudent(NeedyStudentEntity needyStudentEntity) {
+        try {
             entityManager.persist(needyStudentEntity);
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
 
     }
 

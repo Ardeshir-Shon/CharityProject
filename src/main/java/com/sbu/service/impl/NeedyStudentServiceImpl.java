@@ -5,10 +5,12 @@ import com.sbu.dao.model.MessageEntity;
 import com.sbu.dao.model.NeedyStudentEntity;
 import com.sbu.service.NeedyStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by Mammad on 6/22/2017.
  */
+@Service
 public class NeedyStudentServiceImpl implements NeedyStudentService{
 
     @Autowired
@@ -30,8 +32,8 @@ public class NeedyStudentServiceImpl implements NeedyStudentService{
     }
 
     @Override
-    public void insertNeedyStudent(NeedyStudentEntity needyStudentEntity) {
-        needyStudentDAO.insertNeedyStudent(needyStudentEntity);
+    public Boolean insertNeedyStudent(NeedyStudentEntity needyStudentEntity) {
+        return needyStudentDAO.insertNeedyStudent(needyStudentEntity);
     }
 
     @Override
