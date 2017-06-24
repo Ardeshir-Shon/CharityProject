@@ -28,9 +28,8 @@ public class MessageDAOImpl implements MessageDAO {
     }
 
     @Override
-    //@Transactional
+    @Transactional
     public void insertMessage(MessageEntity message) {
         entityManager.persist(message);
-        entityManager.getTransaction().commit();
     }
 }
