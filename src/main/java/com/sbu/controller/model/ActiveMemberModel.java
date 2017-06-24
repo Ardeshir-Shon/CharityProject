@@ -61,7 +61,7 @@ public class ActiveMemberModel {
         this.description = description;
     }
 
-    public void setStudent(String student) {
+    public void setIsStudent(String student) {
         isStudent = student;
     }
 

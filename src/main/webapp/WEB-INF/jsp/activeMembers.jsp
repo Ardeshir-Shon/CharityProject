@@ -268,13 +268,6 @@
             }
         %>
 
-        <div class="form-group" id="stNumber" style="display: none;">
-            <label class="control-label col-sm-2" >شماره‌ی دانشجویی:</label>
-            <div class="col-sm-5">
-                <input type="text" name="studentNumber" class="form-control" placeholder="شماره‌ی دانشجویی خود را وارد کنید(به عدد)">
-            </div>
-        </div>
-
         <%
             if((dto != null && dto.getState() != 1) || dto == null)
             {

@@ -322,7 +322,7 @@
                     <%
                         if (dto!=null && dto.getState().equals(0))
                         {
-                            if (dto.getFilled().getNeedyName()==null){
+                            if (dto.getFilled().getNeedyFamily()==null){
                     %>
                     <div class="form-group">
                         <label class="control-label col-sm-2" >نام خانوادگی مددجو:</label>
