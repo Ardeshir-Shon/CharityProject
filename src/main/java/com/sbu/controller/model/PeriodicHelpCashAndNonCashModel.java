@@ -1,13 +1,14 @@
 package com.sbu.controller.model;
 
 /**
- * Created by HamidReza on 6/23/17.
+ * Created by HamidReza on 6/24/17.
  */
-public class PeriodicHelpModel {
+public class PeriodicHelpCashAndNonCashModel {
     private String firstName;
     private String lastName;
     private String occupation;
     private boolean isProfessor;
+    private boolean isStudent;
     private String facultyName;
     private String otherFacultyName;
     private String phoneNumber;
@@ -16,9 +17,6 @@ public class PeriodicHelpModel {
     private String costOfPay;
     private String password;
     private String passwordRepeat;
-    private boolean isStudent;
-    private String expertiseInfo;
-
 
     public String getFirstName() {
         return firstName;
@@ -50,6 +48,14 @@ public class PeriodicHelpModel {
 
     public void setProfessor(boolean professor) {
         isProfessor = professor;
+    }
+
+    public boolean isStudent() {
+        return isStudent;
+    }
+
+    public void setStudent(boolean student) {
+        isStudent = student;
     }
 
     public String getFacultyName() {
@@ -114,21 +120,5 @@ public class PeriodicHelpModel {
 
     public void setPasswordRepeat(String passwordRepeat) {
         this.passwordRepeat = passwordRepeat;
-    }
-
-    public boolean isStudent() {
-        return isStudent;
-    }
-
-    public void setStudent(boolean student) {
-        isStudent = student;
-    }
-
-    public String getExpertiseInfo() {
-        return expertiseInfo;
-    }
-
-    public void setExpertiseInfo(String expertiseInfo) {
-        this.expertiseInfo = expertiseInfo;
     }
 }

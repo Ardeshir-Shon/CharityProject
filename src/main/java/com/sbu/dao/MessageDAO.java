@@ -8,6 +8,6 @@ import com.sbu.dao.model.MessageEntity;
 public interface MessageDAO {
 
     public MessageEntity getMessagebyId(Long id);
-    public void insertMessage(MessageEntity message);
+    public Boolean insertMessage(MessageEntity message);
 
 }

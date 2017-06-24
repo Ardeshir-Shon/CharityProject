@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.Cache;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceException;
 
 /**
  * Created by Mammad on 6/22/2017.
@@ -36,7 +37,7 @@ public class ActiveMemberDAOImpl implements ActiveMemberDAO {
             entityManager.persist(activeMemberEntity);
             return true;
         }
-        catch (Exception e){
+        catch (PersistenceException e){
             return false;
         }
 

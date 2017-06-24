@@ -1,6 +1,6 @@
 package com.sbu.controller;
 
-import com.sbu.controller.DTO.RecommendationDTO;
+import com.sbu.controller.DTO.GenericDTO;
 import com.sbu.controller.model.RecommendationModel;
 import com.sbu.dao.model.IntroductionEntity;
 import com.sbu.service.IntroductionService;
@@ -30,7 +30,7 @@ public class RecommendationController {
     public String recommendationSubmit(Model model , @ModelAttribute("recommendationModel")RecommendationModel recommendationModel){
 
         IntroductionEntity recommendationEntity=new IntroductionEntity();
-        RecommendationDTO dto=new RecommendationDTO();
+        GenericDTO<IntroductionEntity> dto=new GenericDTO<>();
 
         if (!recommendationModel.getSuccorFirstName().isEmpty())
             recommendationEntity.setRecommenderName(recommendationModel.getSuccorFirstName());
@@ -80,7 +80,8 @@ public class RecommendationController {
         dto.setFilled(recommendationEntity);
 
         if (recommendationModel.getSuccorFirstName().isEmpty() || recommendationModel.getSuccorLastName().isEmpty()
-                || recommendationModel.getSuccorPhoneNumber().isEmpty() )
+                || recommendationModel.getSuccorPhoneNumber().isEmpty()
+                    || recommendationModel.getNeedyFirstName().isEmpty() || recommendationModel.getNeedyLastName().isEmpty() )
             dto.setState(0); // incomplete inputs
         else{
             dto.setState(1); // ok state

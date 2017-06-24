@@ -23,17 +23,12 @@ public class ActiveMemberEntity {
     @Id
     @Column( length=50, nullable = false , unique = true)
     private String phoneNumber;
-    @Column( length=500, nullable = false)
+    @Column( length=500)
     private String description;
 
-    @Column( length=50, nullable = false)
+    @Column( length=50)
     private String studentId;
 
-    public ActiveMemberEntity(String name, String family, String phone_number) {
-        this.name = name;
-        this.family = family;
-        this.phoneNumber = phone_number;
-    }
 
     public ActiveMemberEntity() {
     }

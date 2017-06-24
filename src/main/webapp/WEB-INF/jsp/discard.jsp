@@ -122,8 +122,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
             <div class="col-sm-5">
-                <input type="text"  name="phoneNumber" class="form-control" placeholder="someone@example.com"
-                       style="text-align: left; direction: ltr;">
+                <input type="text" name="phoneNumber" class="form-control" placeholder="۰۹۱۲۱۲۳۴۵۶۷" style="text-align: left; direction: ltr;">
             </div>
         </div>
         <div class="form-group">

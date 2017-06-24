@@ -15,15 +15,13 @@ public class HelperEntity {
     private String family;
     @Column( length=50)
     private String occupation;
-    //private boolean sbuProfessor;
-    //private boolean sbuStudent;
-    private College professorCollege;
+    private String professorCollege;
     @Id
     @Column( length=50 , unique = true)
     private String phoneNumber;
     @Column( length=50 , unique = true)
     private String email;
-    private HelpPeriod helpPeriod;
+    private String helpPeriod;
     @Column( length=50, nullable = false)
     private String costOfPay;
     @Column( length=50, nullable = false)
@@ -50,7 +48,6 @@ public class HelperEntity {
         this.family = family;
     }
 
-
     public String getOccupation() {
         return occupation;
     }
@@ -59,35 +56,15 @@ public class HelperEntity {
         this.occupation = occupation;
     }
 
-
-    /*
-    public boolean isSbuProfessor() {
-        return sbuProfessor;
-    }
-
-    public void setSbuProfessor(boolean sbuProfessor) {
-        this.sbuProfessor = sbuProfessor;
-    }
-
-    public boolean isSbuStudent() {
-        return sbuStudent;
-    }
-
-    public void setSbuStudent(boolean sbu_student) {
-        this.sbuStudent = sbuStudent;
-    }
-    */
-
-
-    public College getProfessorCollege() {
+    public String getProfessorCollege() {
         return professorCollege;
     }
 
-    public void setProfessorCollege(College professorCollege) {
+    public void setProfessorCollege(String professorCollege) {
         this.professorCollege = professorCollege;
     }
 
-    public HelpPeriod getHelpPeriod() {
+    public String getHelpPeriod() {
         return helpPeriod;
     }
 

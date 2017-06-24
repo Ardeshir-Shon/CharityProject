@@ -48,23 +48,6 @@
                 document.getElementById("divselector2").style.display = "none";
             }
         }
-        function mangePanles(id){
-            var ids=["collapseOne","collapseTwo","collapseThree"];
-
-            if(document.getElementById(id).style.display=="none"){
-                for (var i=0; i<ids.length;i++){
-                    if (ids[i]!=id){
-                        alert('closing prob'+ids[i])
-                        document.getElementById(ids[i]).style.display="none"
-                    }
-                }
-                document.getElementById(id).style.display="block"; // show the icons
-            }
-            else{
-                alert('in else')
-                document.getElementById(id).style.display="none";
-            }
-        }
     </script>
     <style>
         @font-face {
@@ -185,7 +168,7 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-2">دانشکده:</label>
                                 <select name="facultyName" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" id="selector" onchange="shower();">
-                                    <option disabled selected value>-- انتخاب کنید --</option>
+                                    <option disabled value="">-- انتخاب کنید --</option>
                                     <option value="مهندسی برق و کامپیوتر">مهندسی برق و کامپیوتر</option>
                                     <option value="روانشناسی">روانشناسی</option>
                                     <option value="حقوق">حقوق</option>
@@ -225,7 +208,7 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-2">تعهد پرداخت به صورت:</label>
                                 <select name="timePeriod" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" >
-                                    <option disabled selected value>-- انتخاب کنید --</option>
+                                    <option disabled value="">-- انتخاب کنید --</option>
                                     <option value="هفتگی">هفتگی</option>
                                     <option value="ماهانه">ماهانه</option>
                                     <option value="فصلی">فصلی</option>
@@ -285,20 +268,20 @@
                                 <input type="text" name="occupation" class="form-control" placeholder="شغل خود را وارد کنید">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="radio col-sm-offset-2 col-sm-4" id="radioid" onclick="radioHider();">
-                                <label style="width: 100%"><input name="isProfessor" type="radio">استاد دانشگاه شهید بهشتی هستم</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="radio col-sm-offset-2 col-sm-4" onclick="radioHider();">
-                                <label style="width: 100%"><input name="isStudent" type="radio">دانشجو دانشگاه شهید بهشتی هستم</label>
-                            </div>
-                        </div>
+                        <%--<div class="form-group">--%>
+                            <%--<div class="radio col-sm-offset-2 col-sm-4" id="radioid" onclick="radioHider();">--%>
+                                <%--<label style="width: 100%"><input name="isProfessor" type="radio">استاد دانشگاه شهید بهشتی هستم</label>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="form-group">--%>
+                            <%--<div class="radio col-sm-offset-2 col-sm-4" onclick="radioHider();">--%>
+                                <%--<label style="width: 100%"><input name="isStudent" type="radio">دانشجو دانشگاه شهید بهشتی هستم</label>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
                         <div class="form-group">
                             <label class="control-label col-sm-2">دانشکده:</label>
-                            <select name="facultyName" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" id="selector" onchange="shower();">
-                                <option disabled selected value>-- انتخاب کنید --</option>
+                            <select name="facultyName" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" id="selector2" onchange="shower();">
+                                <option disabled value="">-- انتخاب کنید --</option>
                                 <option value="مهندسی برق و کامپیوتر">مهندسی برق و کامپیوتر</option>
                                 <option value="روانشناسی">روانشناسی</option>
                                 <option value="حقوق">حقوق</option>
@@ -400,7 +383,7 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-2">دانشکده:</label>
                                 <select name="facultyName" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" id="selector" onchange="shower();">
-                                    <option disabled selected value>-- انتخاب کنید --</option>
+                                    <option disabled value="">-- انتخاب کنید --</option>
                                     <option value="مهندسی برق و کامپیوتر">مهندسی برق و کامپیوتر</option>
                                     <option value="روانشناسی">روانشناسی</option>
                                     <option value="حقوق">حقوق</option>
@@ -440,7 +423,7 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-2">تعهد پرداخت به صورت:</label>
                                 <select name="timePeriod" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" >
-                                    <option disabled selected value>-- انتخاب کنید --</option>
+                                    <option disabled value="">-- انتخاب کنید --</option>
                                     <option value="هفتگی">هفتگی</option>
                                     <option value="ماهانه">ماهانه</option>
                                     <option value="فصلی">فصلی</option>
