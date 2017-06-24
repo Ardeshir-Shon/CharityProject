@@ -1,16 +1,11 @@
+<%@ page import="com.sbu.controller.DTO.GenericDTO" %>
+<%@ page import="com.sbu.dao.model.ActiveMemberEntity" %>
 <%@ page import="com.sbu.dao.model.MessageEntity" %>
-<%@ page import="com.sbu.controller.DTO.GenericDTO" %><%--
-  Created by IntelliJ IDEA.
-  User: HamidReza
-  Date: 6/21/17
-  Time: 5:40 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -104,7 +99,7 @@
 
                             <li><a href="/recommendation">معرفی دانشجوی‌ مددجو</a></li>
 
-                            <li><a href="/needyStudents">درمیان‌گذاری نیازمندی با کانون</a></li>
+                            <li><a href="/needyStudent">درمیان‌گذاری نیازمندی با کانون</a></li>
                         </ul>
                     </li>
                     <li>

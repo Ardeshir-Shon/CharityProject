@@ -1,6 +1,11 @@
 <%@ page import="com.sbu.dao.model.HelperEntity" %>
 <%@ page import="com.sbu.controller.DTO.GenericDTO" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page contentType="text/html" pageEncoding="UTF-8" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,7 +60,7 @@
             font-family: Gulf-semibold;
             src: url(${pageContext.request.contextPath}/../resources/fonts/Gulf-semibold.ttf);
         }
-        input.wrong::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+        input.wrong::-webkit-input-placeholder {
             color: #c73f3f;
         }
     </style>
@@ -101,7 +106,7 @@
 
                             <li><a href="/recommendation">معرفی دانشجوی‌ مددجو</a></li>
 
-                            <li><a href="/needyStudents">درمیان‌گذاری نیازمندی با کانون</a></li>
+                            <li><a href="/needyStudent">درمیان‌گذاری نیازمندی با کانون</a></li>
                         </ul>
                     </li>
                     <li>
@@ -253,14 +258,13 @@
                                 </div>
                             </div>
 
-
                                 <%
                                     if (dto!=null && dto.getState().equals(2))
                                     {
                                 %>
                                 <div class="form-group">
                                     <label class="control-label col-sm-2">دانشکده:</label>
-                                    <select name="facultyName" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" id="selector" onchange="shower();">
+                                    <select name="facultyName" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" id="selector1" onchange="shower();">
                                         <option disabled selected value="" style="color: #c73f3f">بایستی دانشکده‌ی خود را انتخاب کنید!</option>
                                         <option value="مهندسی برق و کامپیوتر">مهندسی برق و کامپیوتر</option>
                                         <option value="روانشناسی">روانشناسی</option>
@@ -285,7 +289,7 @@
                                 %>
                                 <div class="form-group">
                                     <label class="control-label col-sm-2">دانشکده:</label>
-                                    <select name="facultyName" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" id="selector" onchange="shower();">
+                                    <select name="facultyName" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" id="selecto" onchange="shower();">
                                         <option disabled selected value="">-- انتخاب کنید --</option>
                                         <option value="مهندسی برق و کامپیوتر">مهندسی برق و کامپیوتر</option>
                                         <option value="روانشناسی">روانشناسی</option>
@@ -315,6 +319,7 @@
                                     <input type="text" name="otherFacultyName" class="form-control" placeholder="نام دانشکده را وارد کنید">
                                 </div>
                             </div>
+
                                 <%
                                     if (dto!=null && dto.getState().equals(0))
                                     {

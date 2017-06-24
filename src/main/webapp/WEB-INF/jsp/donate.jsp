@@ -17,15 +17,14 @@
     <title>inbox</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/../resources/bootstrap-3.3.7-dist/css/bootstrap.css" type="text/css">
-    <script src="/https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript">
     </script>
-    <script src="${pageContext.request.contextPath}/../resources/bootstrap-3.3.7-dist/js/bootstrap.min.js" type="text/javascript">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript">
     </script>
     <script type="text/javascript" src="javascript.js">
     </script><!-- Load Bootstrap RTL theme from RawGit -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/../resources/bootstrap-rtl-master/dist/css/bootstrap-rtl.css" type="text/css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/../resources/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css" type="text/css">
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="https://use.fontawesome.com/5881fd899f.js"></script>
     <style>
@@ -87,7 +86,7 @@
 
                             <li><a href="/recommendation">معرفی دانشجوی‌ مددجو</a></li>
 
-                            <li><a href="/needyStudents">درمیان‌گذاری نیازمندی با کانون</a></li>
+                            <li><a href="/needyStudent">درمیان‌گذاری نیازمندی با کانون</a></li>
                         </ul>
                     </li>
                     <li>
@@ -141,7 +140,7 @@
                                 </div>
                             </div>
                             <div class="form-group" id="other_faculty">
-                                <label class="control-label col-sm-2" for="n" >مبالغ دیگر:</label>
+                                <label class="control-label col-sm-2">مبالغ دیگر:</label>
                                 <div class="col-sm-5">
                                     <input type="text" class="form-control" placeholder="مبلغ را وارد کنید(تومان)">
                                 </div>

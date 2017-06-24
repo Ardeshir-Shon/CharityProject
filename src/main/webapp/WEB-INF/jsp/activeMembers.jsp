@@ -88,7 +88,7 @@
 
                             <li><a href="/recommendation">معرفی دانشجوی‌ مددجو</a></li>
 
-                            <li><a href="/needyStudents">درمیان‌گذاری نیازمندی با کانون</a></li>
+                            <li><a href="/needyStudent">درمیان‌گذاری نیازمندی با کانون</a></li>
                         </ul>
                     </li>
                     <li>
