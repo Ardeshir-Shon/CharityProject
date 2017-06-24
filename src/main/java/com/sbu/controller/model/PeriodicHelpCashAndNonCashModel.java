@@ -13,6 +13,7 @@ public class PeriodicHelpCashAndNonCashModel {
     private String costOfPay;
     private String password;
     private String passwordRepeat;
+    private String expertiseInfo;
 
     public String getFirstName() {
         return firstName;
@@ -84,5 +85,13 @@ public class PeriodicHelpCashAndNonCashModel {
 
     public void setPasswordRepeat(String passwordRepeat) {
         this.passwordRepeat = passwordRepeat;
+    }
+
+    public String getExpertiseInfo() {
+        return expertiseInfo;
+    }
+
+    public void setExpertiseInfo(String expertiseInfo) {
+        this.expertiseInfo = expertiseInfo;
     }
 }

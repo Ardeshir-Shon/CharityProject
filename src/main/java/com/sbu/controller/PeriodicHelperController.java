@@ -1,6 +1,7 @@
 package com.sbu.controller;
 
 import com.sbu.controller.DTO.GenericDTO;
+import com.sbu.controller.model.PeriodicHelpCashAndNonCashModel;
 import com.sbu.controller.model.PeriodicHelpCashModel;
 import com.sbu.controller.model.PeriodicHelpNonCashModel;
 import com.sbu.dao.model.HelperEntity;
@@ -142,6 +143,57 @@ public class PeriodicHelperController {
         return "periodicHelp";
     }
 
+    @RequestMapping(value = "/CashAndNonCash" , method = RequestMethod.POST)
+    public String periodHelpSubmit(Model model, @ModelAttribute("periodicHelpCashAndNonCashModel")PeriodicHelpCashAndNonCashModel periodicHelpCashModel){
 
+        HelperEntity helperEntity=new HelperEntity();
+        GenericDTO<HelperEntity> dto=new GenericDTO<>();
+        Integer predicateCount=0;
 
+        if (!periodicHelpCashModel.getFirstName().isEmpty())
+        {
+            helperEntity.setName(periodicHelpCashModel.getFirstName());
+            predicateCount++;
+        }
+        if(!periodicHelpCashModel.getLastName().isEmpty()){
+            helperEntity.setFamily(periodicHelpCashModel.getLastName());
+            predicateCount++;
+        }
+        if(!periodicHelpCashModel.getOccupation().isEmpty())
+            helperEntity.setOccupation(periodicHelpCashModel.getOccupation());
+
+        if(!periodicHelpCashModel.getPhoneNumber().isEmpty()){
+            helperEntity.setPhoneNumber(periodicHelpCashModel.getPhoneNumber());
+            predicateCount++;
+        }
+        if(!periodicHelpCashModel.getEmail().isEmpty())
+            helperEntity.setEmail(periodicHelpCashModel.getEmail());
+
+        if(!periodicHelpCashModel.getPassword().isEmpty() && !periodicHelpCashModel.getPasswordRepeat().isEmpty())
+            if(periodicHelpCashModel.getPassword().equals(periodicHelpCashModel.getPasswordRepeat())){
+                helperEntity.setPassword(periodicHelpCashModel.getPassword());
+                predicateCount+=2;
+            }
+        if(!periodicHelpCashModel.getTimePeriod().isEmpty()){
+            helperEntity.setHelpPeriod(periodicHelpCashModel.getTimePeriod());
+            predicateCount++;
+        }
+        if(!periodicHelpCashModel.getCostOfPay().isEmpty()){
+            helperEntity.setCostOfPay(periodicHelpCashModel.getCostOfPay());
+            predicateCount++;
+        }
+        if (!periodicHelpCashModel.getExpertiseInfo().isEmpty())
+            helperEntity.setDescription(periodicHelpCashModel.getExpertiseInfo());
+        dto.setFilled(helperEntity);
+
+        if (predicateCount!=7)// incomplete required input
+            dto.setState(0);
+        else{
+            dto.setState(1); // ok required inputs
+            boolean insert=helperService.insertPeriodicHelp(helperEntity);
+            if (!insert)
+                dto.setState(-1);
+        }
+        return "periodicHelp";
+    }
 }
