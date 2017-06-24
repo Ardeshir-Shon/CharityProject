@@ -14,6 +14,14 @@ public class NeedyStudentServiceImpl implements NeedyStudentService{
     NeedyStudentDAO needyStudentDAO;
 
     @Override
+    public Boolean idCheckNotNull(NeedyStudentEntity needyStudentEntity){
+        if(!needyStudentEntity.getPhoneNumber().isEmpty()){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
     public void insertNeedyStudent(NeedyStudentEntity needyStudentEntity) {
         needyStudentDAO.insertNeedyStudent(needyStudentEntity);
     }

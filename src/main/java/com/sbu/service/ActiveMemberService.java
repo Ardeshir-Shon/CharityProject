@@ -8,6 +8,8 @@ import com.sbu.dao.model.ActiveMemberEntity;
 public interface ActiveMemberService {
 
     public ActiveMemberEntity getActiveMemberEntity(ActiveMemberEntity activeMemberEntity);
+
+    public Boolean idChekNotNull(ActiveMemberEntity activeMemberEntity);
     public Boolean insertActiveMemberEntity(ActiveMemberEntity activeMemberEntity);
 
 }
