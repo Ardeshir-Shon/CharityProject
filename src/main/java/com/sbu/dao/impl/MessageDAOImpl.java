@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceException;
 
 /**
  * Created by user on 6/22/2017.
@@ -29,7 +30,14 @@ public class MessageDAOImpl implements MessageDAO {
 
     @Override
     @Transactional
-    public void insertMessage(MessageEntity message) {
-        entityManager.persist(message);
+    public Boolean insertMessage(MessageEntity message)
+    {
+        try {
+            entityManager.persist(message);
+            return true;
+        }
+        catch (PersistenceException e){
+            return false;
+        }
     }
 }
