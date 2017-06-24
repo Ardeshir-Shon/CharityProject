@@ -16,9 +16,19 @@ public class ActiveMemberServiceImpl implements ActiveMemberService {
     ActiveMemberDAO activeMemberDAO;
 
 
+
     @Override
     public ActiveMemberEntity getActiveMemberEntity(ActiveMemberEntity activeMemberEntity) {
         return activeMemberDAO.getActiveMemberEntity(activeMemberEntity.getPhoneNumber());
+    }
+
+    @Override
+    public Boolean idChekNotNull(ActiveMemberEntity activeMemberEntity){
+
+        if(!activeMemberEntity.getPhoneNumber().isEmpty()){
+            return true;
+        }
+        return false;
     }
 
     @Override
