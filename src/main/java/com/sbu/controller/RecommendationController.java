@@ -80,7 +80,8 @@ public class RecommendationController {
         dto.setFilled(recommendationEntity);
 
         if (recommendationModel.getSuccorFirstName().isEmpty() || recommendationModel.getSuccorLastName().isEmpty()
-                || recommendationModel.getSuccorPhoneNumber().isEmpty() )
+                || recommendationModel.getSuccorPhoneNumber().isEmpty()
+                    || recommendationModel.getNeedyFirstName().isEmpty() || recommendationModel.getNeedyLastName().isEmpty() )
             dto.setState(0); // incomplete inputs
         else{
             dto.setState(1); // ok state
