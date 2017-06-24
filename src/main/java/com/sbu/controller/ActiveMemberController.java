@@ -55,6 +55,7 @@ public class ActiveMemberController  {
         else{
             dto.setState(1); // ok input
             if (activeMemberModel.getStudent() && activeMemberModel.getStudentNumber().isEmpty() ){
+
                 dto.setState(2); // wrong input down
                 model.addAttribute("dto",dto);
                 return "activeMembers";

@@ -19,15 +19,6 @@ public class HelperServiceImpl implements HelperService {
     String cipherText;
 
     @Override
-    public  Boolean idChekNotNull(HelperEntity helperEntity){
-        if(!helperEntity.getPhoneNumber().isEmpty()){
-            return true;
-        }
-        return false;
-
-    }
-
-    @Override
     public void insertPeriodicHelp(HelperEntity helperEntity) {
         plainText = helperEntity.getPassword();
         cipherText = Encryptor.encrypt(plainText);

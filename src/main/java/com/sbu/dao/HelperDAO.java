@@ -8,7 +8,7 @@ import org.hibernate.boot.model.source.internal.hbm.Helper;
  */
 public interface HelperDAO {
 
-    public void insertPeriodicHelp(HelperEntity helperEntity);
+    public Boolean insertPeriodicHelp(HelperEntity helperEntity);
 
     //public HelperEntity getByName(String name,String family);
     public  HelperEntity getByEmail(String email);

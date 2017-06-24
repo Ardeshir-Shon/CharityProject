@@ -7,7 +7,7 @@ public class PeriodicHelpCashModel {
     private String firstName;
     private String lastName;
     private String occupation;
-    private boolean isProfessor;
+    private String isProfessor;
     private String facultyName;
     private String otherFacultyName;
     private String phoneNumber;
@@ -32,7 +32,7 @@ public class PeriodicHelpCashModel {
     }
 
     public boolean isProfessor() {
-        return isProfessor;
+        return !isProfessor.isEmpty();
     }
 
     public String getFacultyName() {
@@ -83,7 +83,7 @@ public class PeriodicHelpCashModel {
         this.occupation = occupation;
     }
 
-    public void setProfessor(boolean professor) {
+    public void setProfessor(String professor) {
         isProfessor = professor;
     }
 
