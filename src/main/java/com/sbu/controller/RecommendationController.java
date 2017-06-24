@@ -53,13 +53,13 @@ public class RecommendationController {
         if (!recommendationModel.getNeedyStudentNumber().isEmpty())
             recommendationEntity.setNeedyStudentId(recommendationModel.getNeedyStudentNumber());
 
-        if (!recommendationModel.getNeedyGender().isEmpty())
+        if (recommendationModel.getNeedyGender()!=null &&!recommendationModel.getNeedyGender().isEmpty())
             recommendationEntity.setNeedyGender(recommendationModel.getNeedyGender());
 
-        if (!recommendationModel.getNeedyEntryYear().isEmpty())
+        if (recommendationModel.getNeedyEntryYear()!=null && !recommendationModel.getNeedyEntryYear().isEmpty())
             recommendationEntity.setNeedyEnteringYear(recommendationModel.getNeedyEntryYear());
 
-        if (!recommendationModel.getNeedyFacultyName().isEmpty())
+        if (recommendationModel.getNeedyFacultyName()!=null && !recommendationModel.getNeedyFacultyName().isEmpty())
             if (recommendationModel.getNeedyFacultyName().equals("other") && !recommendationModel.getOtherFacultyName().isEmpty())
                 recommendationEntity.setNeedyCollege(recommendationModel.getOtherFacultyName());
             else

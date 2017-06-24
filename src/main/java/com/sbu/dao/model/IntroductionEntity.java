@@ -26,7 +26,7 @@ public class IntroductionEntity {
     private String needyName;
     @Column( length=50, nullable = false)
     private String needyFamily;
-    @Column( length=50, nullable = false)
+    @Column( length=50)
     private String needyStudentId;
     private String  needyGender;
     private String needyEnteringYear;
