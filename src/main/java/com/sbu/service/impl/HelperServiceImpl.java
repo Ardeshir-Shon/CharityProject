@@ -28,12 +28,12 @@ public class HelperServiceImpl implements HelperService {
     }
 
     @Override
-    public void insertPeriodicHelp(HelperEntity helperEntity) {
+    public Boolean insertPeriodicHelp(HelperEntity helperEntity) {
         plainText = helperEntity.getPassword();
         cipherText = Encryptor.encrypt(plainText);
         helperEntity.setPassword(cipherText);
 
-        helperDAO.insertPeriodicHelp(helperEntity);
+        return helperDAO.insertPeriodicHelp(helperEntity);
     }
 
     @Override
