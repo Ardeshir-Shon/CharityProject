@@ -1,3 +1,4 @@
+<%@ page import="com.sbu.controller.DTO.RecommendationDTO" %>
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
@@ -134,6 +135,13 @@
                 <div id="collapseOne" class="accordion-body collapse in">
                     <div class="accordion-inner">
                         <!--                     <form class="form-horizontal col-sm-offset-1"> -->
+                        <%
+                            RecommendationDTO dto = (RecommendationDTO) request.getAttribute("dto");
+                            if(dto!=null && !dto.getState())
+                            {
+
+                            }
+                        %>
                         <div class="form-group">
                             <label class="control-label col-sm-2">نام معرف:</label>
                             <div class="col-sm-5">

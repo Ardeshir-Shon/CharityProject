@@ -23,7 +23,7 @@ public class ActiveMemberEntity {
     @Id
     @Column( length=50, nullable = false , unique = true)
     private String phoneNumber;
-    @Column( length=500, nullable = false)
+    @Column( length=500)
     private String description;
 
     @Column( length=50)
