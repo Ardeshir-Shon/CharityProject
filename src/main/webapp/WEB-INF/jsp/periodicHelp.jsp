@@ -1,3 +1,5 @@
+<%@ page import="com.sbu.dao.model.HelperEntity" %>
+<%@ page import="com.sbu.controller.DTO.GenericDTO" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,6 +60,9 @@
         @font-face {
             font-family: Gulf-semibold;
             src: url(${pageContext.request.contextPath}/../resources/fonts/Gulf-semibold.ttf);
+        }
+        input.wrong::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+            color: #c73f3f;
         }
     </style>
 
@@ -138,24 +143,111 @@
                 <div id="collapseOne" class="accordion-body collapse in">
                     <div class="accordion-inner">
                         <form:form class="form-horizontal col-sm-offset-1" method="post" action="/periodHelp/cash">
-                            <div class="form-group">
-                                <label class="control-label col-sm-2">نام:</label>
-                                <div class="col-sm-5">
-                                    <input type="text" name="firstName" class="form-control" placeholder="نام خود را وارد کنید">
+                            <form:form class="form-horizontal" method="post" action="/activeMembers/main">
+                                <%
+                                    GenericDTO<HelperEntity> dto= (GenericDTO<HelperEntity>) request.getAttribute("dto");
+                                    if (dto!=null && dto.getState().equals(0))
+                                    {
+                                        if (dto.getFilled().getName()==null){
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >نام:</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" name="firstName" class="form-control wrong"  placeholder="بایستی نام خود را وارد کنید!">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" >نام خانوادگی:</label>
-                                <div class="col-sm-5">
-                                    <input type="text" name="lastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
+                                <%
+                                }else {
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >نام:</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" name="firstName" class="form-control" placeholder="نام خود را وارد کنید">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" >شغل:</label>
-                                <div class="col-sm-5">
-                                    <input type="text" name="occupation" class="form-control" placeholder="شغل خود را وارد کنید">
+                                <%
+                                    }
+                                }else{
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >نام:</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" name="firstName" class="form-control" placeholder="نام خود را وارد کنید">
+                                    </div>
                                 </div>
-                            </div>
+                                <%
+                                    }
+                                %>
+
+                                <%
+                                    if (dto!=null && dto.getState().equals(0))
+                                    {
+                                        if (dto.getFilled().getFamily()==null){
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >نام خانوادگی:</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" name="lastName" class="form-control wrong" placeholder="بایستی نام خانوادگی خود را وارد کنید!">
+                                    </div>
+                                </div>
+                                <%
+                                }else {
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >نام خانوادگی:</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" name="lastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
+                                    </div>
+                                </div>
+                                <%
+                                    }
+                                }else {
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >نام خانوادگی:</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" name="lastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
+                                    </div>
+                                </div>
+                                <%
+                                    }
+                                %>
+
+
+                                <%
+                                    if (dto!=null && dto.getState().equals(0))
+                                    {
+                                        if (dto.getFilled().getName()==null){
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >شغل:</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" name="occupation" class="form-control wrong" placeholder="شغل خود را وارد کنید">
+                                    </div>
+                                </div>
+                                <%
+                                }else {
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >شغل:</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" name="occupation" class="form-control" placeholder="شغل خود را وارد کنید">
+                                    </div>
+                                </div>
+                                <%
+                                    }
+                                }else{
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >شغل:</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" name="occupation" class="form-control" placeholder="شغل خود را وارد کنید">
+                                    </div>
+                                </div>
+                                <%
+                                    }
+                                %>
+
                             <div class="form-group">
                                 <div class="control-label  col-sm-offset-2 col-sm-5" >
                                     <div class="checkbox">
@@ -165,80 +257,285 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-2">دانشکده:</label>
-                                <select name="facultyName" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" id="selector" onchange="shower();">
-                                    <option disabled value="">-- انتخاب کنید --</option>
-                                    <option value="مهندسی برق و کامپیوتر">مهندسی برق و کامپیوتر</option>
-                                    <option value="روانشناسی">روانشناسی</option>
-                                    <option value="حقوق">حقوق</option>
-                                    <option value="علوم زمین">علوم زمین</option>
-                                    <option value="مدیریت و حسابداری">مدیریت و حسابداری</option>
-                                    <option value="ادبیات">ادبیات</option>
-                                    <option value="الهیات و ادیان">الهیات و ادیان</option>
-                                    <option value="اقتصاد و علوم سیاسی">اقتصاد و علوم سیاسی</option>
-                                    <option value="معماری">معماری</option>
-                                    <option value="فیزیک">فیزیک</option>
-                                    <option value="شیمی">شیمی</option>
-                                    <option value="ریاضی و علوم کامپیوتر">ریاضی و علوم کامپیوتر</option>
-                                    <option value="تربیت بدنی">تربیت بدنی</option>
-                                    <option value="عمران و آب و فاضلاب">عمران و آب و فاضلاب</option>
-                                    <option value="مکانیک">مکانیک</option>
-                                    <option value="other">سایر</option>
-                                </select>
-                            </div>
+
+
+                                <%
+                                    if (dto!=null && dto.getState().equals(2))
+                                    {
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">دانشکده:</label>
+                                    <select name="facultyName" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" id="selector" onchange="shower();">
+                                        <option disabled selected value="" style="color: #c73f3f">بایستی دانشکده‌ی خود را انتخاب کنید!</option>
+                                        <option value="مهندسی برق و کامپیوتر">مهندسی برق و کامپیوتر</option>
+                                        <option value="روانشناسی">روانشناسی</option>
+                                        <option value="حقوق">حقوق</option>
+                                        <option value="علوم زمین">علوم زمین</option>
+                                        <option value="مدیریت و حسابداری">مدیریت و حسابداری</option>
+                                        <option value="ادبیات">ادبیات</option>
+                                        <option value="الهیات و ادیان">الهیات و ادیان</option>
+                                        <option value="اقتصاد و علوم سیاسی">اقتصاد و علوم سیاسی</option>
+                                        <option value="معماری">معماری</option>
+                                        <option value="فیزیک">فیزیک</option>
+                                        <option value="شیمی">شیمی</option>
+                                        <option value="ریاضی و علوم کامپیوتر">ریاضی و علوم کامپیوتر</option>
+                                        <option value="تربیت بدنی">تربیت بدنی</option>
+                                        <option value="عمران و آب و فاضلاب">عمران و آب و فاضلاب</option>
+                                        <option value="مکانیک">مکانیک</option>
+                                        <option value="other">سایر</option>
+                                    </select>
+                                </div>
+                                <%
+                                }else{
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">دانشکده:</label>
+                                    <select name="facultyName" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" id="selector" onchange="shower();">
+                                        <option disabled selected value="">-- انتخاب کنید --</option>
+                                        <option value="مهندسی برق و کامپیوتر">مهندسی برق و کامپیوتر</option>
+                                        <option value="روانشناسی">روانشناسی</option>
+                                        <option value="حقوق">حقوق</option>
+                                        <option value="علوم زمین">علوم زمین</option>
+                                        <option value="مدیریت و حسابداری">مدیریت و حسابداری</option>
+                                        <option value="ادبیات">ادبیات</option>
+                                        <option value="الهیات و ادیان">الهیات و ادیان</option>
+                                        <option value="اقتصاد و علوم سیاسی">اقتصاد و علوم سیاسی</option>
+                                        <option value="معماری">معماری</option>
+                                        <option value="فیزیک">فیزیک</option>
+                                        <option value="شیمی">شیمی</option>
+                                        <option value="ریاضی و علوم کامپیوتر">ریاضی و علوم کامپیوتر</option>
+                                        <option value="تربیت بدنی">تربیت بدنی</option>
+                                        <option value="عمران و آب و فاضلاب">عمران و آب و فاضلاب</option>
+                                        <option value="مکانیک">مکانیک</option>
+                                        <option value="other">سایر</option>
+                                    </select>
+                                </div>
+                                <%
+                                    }
+                                %>
+
                             <div class="form-group" id="other_faculty" style="display: none;">
                                 <label class="control-label col-sm-2">نام دانشکده:</label>
                                 <div class="col-sm-5">
                                     <input type="text" name="otherFacultyName" class="form-control" placeholder="نام دانشکده را وارد کنید">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
-                                <div class="col-sm-5">
-                                    <input type="text" name="phoneNumber" class="form-control" placeholder="۰۹۱۲۱۲۳۴۵۶۷" style="text-align: left; direction: ltr;">
+                                <%
+                                    if (dto!=null && dto.getState().equals(0))
+                                    {
+                                        if (dto.getFilled().getPhoneNumber()==null)
+                                        {
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" name="phoneNumber" class="form-control wrong" placeholder="بایستی شماره‌ی موبایل خود را وارد کنید!">
+                                    </div>
                                 </div>
-                            </div>
+                                <%
+                                }else if(dto.getState().equals(-1))
+                                {
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" name="phoneNumber" class="form-control wrong" placeholder="این شمار‌ه‌ی موبایل پیش از این در سامانه ثبت شده است!">
+                                    </div>
+                                </div>
+                                <%
+                                    }
+                                } else{
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" name="phoneNumber" class="form-control" placeholder="۰۹۱۲۱۲۳۴۵۶۷" style="text-align: left; direction: ltr;">
+                                    </div>
+                                </div>
+                                <%
+                                    }
+                                %>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" >ایمیل (اختیاری):</label>
                                 <div class="col-sm-5">
                                     <input type="text" name="email" class="form-control" placeholder="someone@example.com" style="text-align: left; direction: ltr;">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-2">تعهد پرداخت به صورت:</label>
-                                <select name="timePeriod" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" >
-                                    <option disabled value="">-- انتخاب کنید --</option>
-                                    <option value="هفتگی">هفتگی</option>
-                                    <option value="ماهانه">ماهانه</option>
-                                    <option value="فصلی">فصلی</option>
-                                    <option value="سالانه">سالانه</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-2">مبلغ مورد تعهد:</label>
-                                <div class="col-sm-5">
-                                    <input name="costOfPay" type="text" class="form-control"  placeholder="عدد | تومان" style="text-align: left; direction: ltr;">
+
+                                <%
+                                    if (dto!=null && dto.getState().equals(0))
+                                    {
+                                        if (dto.getFilled().getHelpPeriod()==null){
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">تعهد پرداخت به صورت:</label>
+                                    <select name="timePeriod" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" >
+                                        <option disabled selected value="" style="color: #c73f3f">بازه‌ی زمانی مورد نظر خود را انتخاب کنید!</option>
+                                        <option value="هفتگی">هفتگی</option>
+                                        <option value="ماهانه">ماهانه</option>
+                                        <option value="فصلی">فصلی</option>
+                                        <option value="سالانه">سالانه</option>
+                                    </select>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" >رمز عبور:</label>
-                                <div class="col-sm-5">
-                                    <input name="password" type="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+                                <%
+                                }else {
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">تعهد پرداخت به صورت:</label>
+                                    <select name="timePeriod" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" >
+                                        <option disabled value="">-- انتخاب کنید --</option>
+                                        <option value="هفتگی">هفتگی</option>
+                                        <option value="ماهانه">ماهانه</option>
+                                        <option value="فصلی">فصلی</option>
+                                        <option value="سالانه">سالانه</option>
+                                    </select>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" >تکرار رمز عبور:</label>
-                                <div class="col-sm-5">
-                                    <input name="passwordRepeat" type="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+                                <%
+                                    }
+                                }else{
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">تعهد پرداخت به صورت:</label>
+                                    <select name="timePeriod" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" >
+                                        <option disabled value="">-- انتخاب کنید --</option>
+                                        <option value="هفتگی">هفتگی</option>
+                                        <option value="ماهانه">ماهانه</option>
+                                        <option value="فصلی">فصلی</option>
+                                        <option value="سالانه">سالانه</option>
+                                    </select>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-default" style="background-color: #f2f2f2; color: #777;">ثــبــت</button>
-                                    <!-- <div class="g-recaptcha" data-sitekey="6LdbBBsUAAAAAE2H11rzHeFOhrbkjnh9JIZG_HcY"></div> -->
+                                <%
+                                    }
+                                %>
+
+                                <%
+                                    if (dto!=null && dto.getState().equals(0))
+                                    {
+                                        if (dto.getFilled().getCostOfPay()==null){
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">مبلغ مورد تعهد:</label>
+                                    <div class="col-sm-5">
+                                        <input name="costOfPay" type="text" class="form-control"  placeholder="بایستی مبلغ مورد نظر خود را وارد کنید!" style="text-align: left; direction: ltr;">
+                                    </div>
                                 </div>
-                            </div>
+                                <%
+                                }else {
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">مبلغ مورد تعهد:</label>
+                                    <div class="col-sm-5">
+                                        <input name="costOfPay" type="text" class="form-control"  placeholder="عدد | تومان" style="text-align: left; direction: ltr;">
+                                    </div>
+                                </div>
+                                <%
+                                    }
+                                }else{
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">مبلغ مورد تعهد:</label>
+                                    <div class="col-sm-5">
+                                        <input name="costOfPay" type="text" class="form-control"  placeholder="عدد | تومان" style="text-align: left; direction: ltr;">
+                                    </div>
+                                </div>
+                                <%
+                                    }
+                                %>
+
+                                <%
+                                    if (dto!=null && dto.getState().equals(0))
+                                    {
+                                        if (dto.getFilled().getPassword()==null){
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >رمز عبور:</label>
+                                    <div class="col-sm-5">
+                                        <input name="password" type="password" class="form-control" placeholder="بایستی رمز مورد نظر خود را وارد کنید" >
+                                    </div>
+                                </div>
+                                <%
+                                }else {
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >رمز عبور:</label>
+                                    <div class="col-sm-5">
+                                        <input name="password" type="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+                                    </div>
+                                </div>
+                                <%
+                                    }
+                                }else{
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >رمز عبور:</label>
+                                    <div class="col-sm-5">
+                                        <input name="password" type="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+                                    </div>
+                                </div>
+                                <%
+                                    }
+                                %>
+
+                                <%
+                                    if (dto!=null && dto.getState().equals(0))
+                                    {
+                                        if (request.getAttribute("passwordRepeat")==null){
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >تکرار رمز عبور:</label>
+                                    <div class="col-sm-5">
+                                        <input name="password" type="password" class="form-control" placeholder="بایستی رمز مورد نظر خود را تکرار کنید" >
+                                    </div>
+                                </div>
+                                <%
+                                }else {
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >تکرار رمز عبور:</label>
+                                    <div class="col-sm-5">
+                                        <input name="password" type="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+                                    </div>
+                                </div>
+                                <%
+                                    }
+                                    }else if(dto.getFilled().getPassword() != request.getAttribute("passwordRepeat")){
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >تکرار رمز عبور:</label>
+                                    <div class="col-sm-5">
+                                        <input name="password" type="password" class="form-control" placeholder="عدم تطابق با رمز عبور!">
+                                    </div>
+                                </div>
+                                <%
+                                    }else{
+                                %>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >تکرار رمز عبور:</label>
+                                    <div class="col-sm-5">
+                                        <input name="password" type="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+                                    </div>
+                                </div>
+                                <%
+                                    }
+                                %>
+
+                                <%
+                                    if((dto != null && dto.getState() != 1) || dto == null)
+                                    {
+                                %>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-default" style="background-color: #f2f2f2; color: #777;">ثــبــت</button>
+                                        <!-- <div class="g-recaptcha" data-sitekey="6LdbBBsUAAAAAE2H11rzHeFOhrbkjnh9JIZG_HcY"></div> -->
+                                    </div>
+                                </div>
+                                <%
+                                }else {
+                                %>
+                                <h5 class="col-sm-offset-2 col-sm-10" style="color: #41985c; margin-bottom: 18px;">اطلاعات شما با موفقیت ثبت گردیدند.</h5>
+                                <%
+                                    }
+                                %>
                         </form:form>
                     </div>
                 </div>
@@ -250,68 +547,145 @@
             <div id="collapseTwo" class="accordion-body collapse">
                 <div class="accordion-inner">
                     <form:form class="form-horizontal col-sm-offset-1" method="post" action="/periodHelp/nonCash">
+                        <%
+                            GenericDTO<HelperEntity> dto= (GenericDTO<HelperEntity>) request.getAttribute("dto");
+                            if (dto!=null && dto.getState().equals(0))
+                            {
+                                if (dto.getFilled().getName()==null){
+                        %>
                         <div class="form-group">
-                            <label class="control-label col-sm-2">نام:</label>
+                            <label class="control-label col-sm-2" >نام:</label>
+                            <div class="col-sm-5">
+                                <input type="text" name="firstName" class="form-control wrong"  placeholder="بایستی نام خود را وارد کنید!">
+                            </div>
+                        </div>
+                        <%
+                        }else {
+                        %>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >نام:</label>
                             <div class="col-sm-5">
                                 <input type="text" name="firstName" class="form-control" placeholder="نام خود را وارد کنید">
                             </div>
                         </div>
+                        <%
+                            }
+                        }else{
+                        %>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >نام:</label>
+                            <div class="col-sm-5">
+                                <input type="text" name="firstName" class="form-control" placeholder="نام خود را وارد کنید">
+                            </div>
+                        </div>
+                        <%
+                            }
+                        %>
+
+                        <%
+                            if (dto!=null && dto.getState().equals(0))
+                            {
+                                if (dto.getFilled().getFamily()==null){
+                        %>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >نام خانوادگی:</label>
+                            <div class="col-sm-5">
+                                <input type="text" name="lastName" class="form-control wrong" placeholder="بایستی نام خانوادگی خود را وارد کنید!">
+                            </div>
+                        </div>
+                        <%
+                        }else {
+                        %>
                         <div class="form-group">
                             <label class="control-label col-sm-2" >نام خانوادگی:</label>
                             <div class="col-sm-5">
                                 <input type="text" name="lastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
                             </div>
                         </div>
+                        <%
+                            }
+                        }else {
+                        %>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >نام خانوادگی:</label>
+                            <div class="col-sm-5">
+                                <input type="text" name="lastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
+                            </div>
+                        </div>
+                        <%
+                            }
+                        %>
+
+
+                        <%
+                            if (dto!=null && dto.getState().equals(0))
+                            {
+                                if (dto.getFilled().getName()==null){
+                        %>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >شغل:</label>
+                            <div class="col-sm-5">
+                                <input type="text" name="occupation" class="form-control wrong" placeholder="شغل خود را وارد کنید">
+                            </div>
+                        </div>
+                        <%
+                        }else {
+                        %>
                         <div class="form-group">
                             <label class="control-label col-sm-2" >شغل:</label>
                             <div class="col-sm-5">
                                 <input type="text" name="occupation" class="form-control" placeholder="شغل خود را وارد کنید">
                             </div>
                         </div>
-                        <%--<div class="form-group">--%>
-                            <%--<div class="radio col-sm-offset-2 col-sm-4" id="radioid" onclick="radioHider();">--%>
-                                <%--<label style="width: 100%"><input name="isProfessor" type="radio">استاد دانشگاه شهید بهشتی هستم</label>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                        <%--<div class="form-group">--%>
-                            <%--<div class="radio col-sm-offset-2 col-sm-4" onclick="radioHider();">--%>
-                                <%--<label style="width: 100%"><input name="isStudent" type="radio">دانشجو دانشگاه شهید بهشتی هستم</label>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
+                        <%
+                            }
+                        }else{
+                        %>
                         <div class="form-group">
-                            <label class="control-label col-sm-2">دانشکده:</label>
-                            <select name="facultyName" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" id="selector2" onchange="shower();">
-                                <option disabled value="">-- انتخاب کنید --</option>
-                                <option value="مهندسی برق و کامپیوتر">مهندسی برق و کامپیوتر</option>
-                                <option value="روانشناسی">روانشناسی</option>
-                                <option value="حقوق">حقوق</option>
-                                <option value="علوم زمین">علوم زمین</option>
-                                <option value="مدیریت و حسابداری">مدیریت و حسابداری</option>
-                                <option value="ادبیات">ادبیات</option>
-                                <option value="الهیات و ادیان">الهیات و ادیان</option>
-                                <option value="اقتصاد و علوم سیاسی">اقتصاد و علوم سیاسی</option>
-                                <option value="معماری">معماری</option>
-                                <option value="فیزیک">فیزیک</option>
-                                <option value="شیمی">شیمی</option>
-                                <option value="ریاضی و علوم کامپیوتر">ریاضی و علوم کامپیوتر</option>
-                                <option value="تربیت بدنی">تربیت بدنی</option>
-                                <option value="عمران و آب و فاضلاب">عمران و آب و فاضلاب</option>
-                                <option value="مکانیک">مکانیک</option>
-                                <option value="other">سایر</option>
-                            </select>
-                        </div>
-                        <div class="form-group" id="other_faculty" style="display: none;">
-                            <label class="control-label col-sm-2">نام دانشکده:</label>
+                            <label class="control-label col-sm-2" >شغل:</label>
                             <div class="col-sm-5">
-                                <input type="text" name="otherFacultyName" class="form-control" placeholder="نام دانشکده را وارد کنید">
+                                <input type="text" name="occupation" class="form-control" placeholder="شغل خود را وارد کنید">
                             </div>
                         </div>
+                        <%
+                            }
+                        %>
+
+                        <%
+                            if (dto!=null && dto.getState().equals(0))
+                            {
+                                if (dto.getFilled().getPhoneNumber()==null)
+                                {
+                        %>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
+                            <div class="col-sm-5">
+                                <input type="text" name="phoneNumber" class="form-control wrong" placeholder="بایستی شماره‌ی موبایل خود را وارد کنید!">
+                            </div>
+                        </div>
+                        <%
+                        }else if(dto.getState().equals(-1))
+                        {
+                        %>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
+                            <div class="col-sm-5">
+                                <input type="text" name="phoneNumber" class="form-control wrong" placeholder="این شمار‌ه‌ی موبایل پیش از این در سامانه ثبت شده است!">
+                            </div>
+                        </div>
+                        <%
+                            }
+                        } else{
+                        %>
                         <div class="form-group">
                             <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
                             <div class="col-sm-5">
                                 <input type="text" name="phoneNumber" class="form-control" placeholder="۰۹۱۲۱۲۳۴۵۶۷" style="text-align: left; direction: ltr;">
                             </div>
                         </div>
+                        <%
+                            }
+                        %>
                         <div class="form-group">
                             <label class="control-label col-sm-2" >ایمیل (اختیاری):</label>
                             <div class="col-sm-5">
@@ -324,24 +698,99 @@
                                 <textarea name="expertiseInfo" class="form-control" rows="4" placeholder="در مورد حوزه‌ی تخصص و علاقه‌ خود برای ما بنویسید..."></textarea>
                             </div>
                         </div>
+                        <%
+                            if (dto!=null && dto.getState().equals(0))
+                            {
+                                if (dto.getFilled().getPassword()==null){
+                        %>
                         <div class="form-group">
                             <label class="control-label col-sm-2" >رمز عبور:</label>
                             <div class="col-sm-5">
-                                <input type="password" name="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+                                <input name="password" type="password" class="form-control" placeholder="بایستی رمز مورد نظر خود را وارد کنید" >
                             </div>
                         </div>
+                        <%
+                        }else {
+                        %>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >رمز عبور:</label>
+                            <div class="col-sm-5">
+                                <input name="password" type="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+                            </div>
+                        </div>
+                        <%
+                            }
+                        }else{
+                        %>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >رمز عبور:</label>
+                            <div class="col-sm-5">
+                                <input name="password" type="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+                            </div>
+                        </div>
+                        <%
+                            }
+                        %>
+
+                        <%
+                            if (dto!=null && dto.getState().equals(0))
+                            {
+                                if (request.getAttribute("passwordRepeat")==null){
+                        %>
                         <div class="form-group">
                             <label class="control-label col-sm-2" >تکرار رمز عبور:</label>
                             <div class="col-sm-5">
-                                <input type="password" name="passwordRepeat" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+                                <input name="password" type="password" class="form-control" placeholder="بایستی رمز مورد نظر خود را تکرار کنید" >
                             </div>
                         </div>
+                        <%
+                        }else {
+                        %>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >تکرار رمز عبور:</label>
+                            <div class="col-sm-5">
+                                <input name="password" type="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+                            </div>
+                        </div>
+                        <%
+                            }
+                        }else if(dto.getFilled().getPassword() != request.getAttribute("passwordRepeat")){
+                        %>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >تکرار رمز عبور:</label>
+                            <div class="col-sm-5">
+                                <input name="password" type="password" class="form-control" placeholder="عدم تطابق با رمز عبور!">
+                            </div>
+                        </div>
+                        <%
+                        }else{
+                        %>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >تکرار رمز عبور:</label>
+                            <div class="col-sm-5">
+                                <input name="password" type="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+                            </div>
+                        </div>
+                        <%
+                            }
+                        %>
+
+                        <%
+                            if((dto != null && dto.getState() != 1) || dto == null)
+                            {
+                        %>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <button type="submit" class="btn btn-default" style="background-color: #f2f2f2; color: #777;">ثــبــت</button>
-                                <!-- <div class="g-recaptcha" data-sitekey="6LdbBBsUAAAAAE2H11rzHeFOhrbkjnh9JIZG_HcY"></div> -->
                             </div>
                         </div>
+                        <%
+                        }else {
+                        %>
+                        <h5 class="col-sm-offset-2 col-sm-10" style="color: #41985c; margin-bottom: 18px;">اطلاعات شما با موفقیت ثبت گردیدند.</h5>
+                        <%
+                            }
+                        %>
                     </form:form>
                 </div>
             </div>
@@ -352,74 +801,169 @@
             <div id="collapseThree" class="accordion-body collapse">
                 <div class="accordion-inner">
                         <form:form class="form-horizontal col-sm-offset-1" method="post" action="/periodHelp/cashAndNonCash">
+                            <%
+                                GenericDTO<HelperEntity> dto= (GenericDTO<HelperEntity>) request.getAttribute("dto");
+                                if (dto!=null && dto.getState().equals(0))
+                                {
+                                    if (dto.getFilled().getName()==null){
+                            %>
                             <div class="form-group">
-                                <label class="control-label col-sm-2">نام:</label>
+                                <label class="control-label col-sm-2" >نام:</label>
+                                <div class="col-sm-5">
+                                    <input type="text" name="firstName" class="form-control wrong"  placeholder="بایستی نام خود را وارد کنید!">
+                                </div>
+                            </div>
+                            <%
+                            }else {
+                            %>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" >نام:</label>
                                 <div class="col-sm-5">
                                     <input type="text" name="firstName" class="form-control" placeholder="نام خود را وارد کنید">
                                 </div>
                             </div>
+                            <%
+                                }
+                            }else{
+                            %>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" >نام:</label>
+                                <div class="col-sm-5">
+                                    <input type="text" name="firstName" class="form-control" placeholder="نام خود را وارد کنید">
+                                </div>
+                            </div>
+                            <%
+                                }
+                            %>
+
+                            <%
+                                if (dto!=null && dto.getState().equals(0))
+                                {
+                                    if (dto.getFilled().getFamily()==null){
+                            %>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" >نام خانوادگی:</label>
+                                <div class="col-sm-5">
+                                    <input type="text" name="lastName" class="form-control wrong" placeholder="بایستی نام خانوادگی خود را وارد کنید!">
+                                </div>
+                            </div>
+                            <%
+                            }else {
+                            %>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" >نام خانوادگی:</label>
                                 <div class="col-sm-5">
                                     <input type="text" name="lastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
                                 </div>
                             </div>
+                            <%
+                                }
+                            }else {
+                            %>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" >نام خانوادگی:</label>
+                                <div class="col-sm-5">
+                                    <input type="text" name="lastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
+                                </div>
+                            </div>
+                            <%
+                                }
+                            %>
+
+
+                            <%
+                                if (dto!=null && dto.getState().equals(0))
+                                {
+                                    if (dto.getFilled().getName()==null){
+                            %>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" >شغل:</label>
+                                <div class="col-sm-5">
+                                    <input type="text" name="occupation" class="form-control wrong" placeholder="شغل خود را وارد کنید">
+                                </div>
+                            </div>
+                            <%
+                            }else {
+                            %>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" >شغل:</label>
                                 <div class="col-sm-5">
                                     <input type="text" name="occupation" class="form-control" placeholder="شغل خود را وارد کنید">
                                 </div>
                             </div>
-                            <%--<div class="form-group">--%>
-                                <%--<div class="radio col-sm-offset-2 col-sm-4" id="radioid" onclick="radioHider();">--%>
-                                    <%--<label style="width: 100%"><input name="isProfessor" type="radio">استاد دانشگاه شهید بهشتی هستم</label>--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
-                            <%--<div class="form-group">--%>
-                                <%--<div class="radio col-sm-offset-2 col-sm-4" onclick="radioHider();">--%>
-                                    <%--<label style="width: 100%"><input name="isStudent" type="radio">دانشجو دانشگاه شهید بهشتی هستم</label>--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
+                            <%
+                                }
+                            }else{
+                            %>
                             <div class="form-group">
-                                <label class="control-label col-sm-2">دانشکده:</label>
-                                <select name="facultyName" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" id="selector" onchange="shower();">
-                                    <option disabled value="">-- انتخاب کنید --</option>
-                                    <option value="مهندسی برق و کامپیوتر">مهندسی برق و کامپیوتر</option>
-                                    <option value="روانشناسی">روانشناسی</option>
-                                    <option value="حقوق">حقوق</option>
-                                    <option value="علوم زمین">علوم زمین</option>
-                                    <option value="مدیریت و حسابداری">مدیریت و حسابداری</option>
-                                    <option value="ادبیات">ادبیات</option>
-                                    <option value="الهیات و ادیان">الهیات و ادیان</option>
-                                    <option value="اقتصاد و علوم سیاسی">اقتصاد و علوم سیاسی</option>
-                                    <option value="معماری">معماری</option>
-                                    <option value="فیزیک">فیزیک</option>
-                                    <option value="شیمی">شیمی</option>
-                                    <option value="ریاضی و علوم کامپیوتر">ریاضی و علوم کامپیوتر</option>
-                                    <option value="تربیت بدنی">تربیت بدنی</option>
-                                    <option value="عمران و آب و فاضلاب">عمران و آب و فاضلاب</option>
-                                    <option value="مکانیک">مکانیک</option>
-                                    <option value="other">سایر</option>
-                                </select>
-                            </div>
-                            <div class="form-group" id="other_faculty" style="display: none;">
-                                <label class="control-label col-sm-2">نام دانشکده:</label>
+                                <label class="control-label col-sm-2" >شغل:</label>
                                 <div class="col-sm-5">
-                                    <input type="text" name="otherFacultyName" class="form-control" placeholder="نام دانشکده را وارد کنید">
+                                    <input type="text" name="occupation" class="form-control" placeholder="شغل خود را وارد کنید">
                                 </div>
                             </div>
+                            <%
+                                }
+                            %>
+
+                            <%
+                                if (dto!=null && dto.getState().equals(0))
+                                {
+                                    if (dto.getFilled().getPhoneNumber()==null)
+                                    {
+                            %>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
+                                <div class="col-sm-5">
+                                    <input type="text" name="phoneNumber" class="form-control wrong" placeholder="بایستی شماره‌ی موبایل خود را وارد کنید!">
+                                </div>
+                            </div>
+                            <%
+                            }else if(dto.getState().equals(-1))
+                            {
+                            %>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
+                                <div class="col-sm-5">
+                                    <input type="text" name="phoneNumber" class="form-control wrong" placeholder="این شمار‌ه‌ی موبایل پیش از این در سامانه ثبت شده است!">
+                                </div>
+                            </div>
+                            <%
+                                }
+                            } else{
+                            %>
                             <div class="form-group">
                                 <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
                                 <div class="col-sm-5">
                                     <input type="text" name="phoneNumber" class="form-control" placeholder="۰۹۱۲۱۲۳۴۵۶۷" style="text-align: left; direction: ltr;">
                                 </div>
                             </div>
+                            <%
+                                }
+                            %>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" >ایمیل (اختیاری):</label>
                                 <div class="col-sm-5">
                                     <input type="text" name="email" class="form-control" placeholder="someone@example.com" style="text-align: left; direction: ltr;">
                                 </div>
                             </div>
+                            <%
+                                if (dto!=null && dto.getState().equals(0))
+                                {
+                                    if (dto.getFilled().getHelpPeriod()==null){
+                            %>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">تعهد پرداخت به صورت:</label>
+                                <select name="timePeriod" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" >
+                                    <option disabled selected value="" style="color: #c73f3f">بازه‌ی زمانی مورد نظر خود را انتخاب کنید!</option>
+                                    <option value="هفتگی">هفتگی</option>
+                                    <option value="ماهانه">ماهانه</option>
+                                    <option value="فصلی">فصلی</option>
+                                    <option value="سالانه">سالانه</option>
+                                </select>
+                            </div>
+                            <%
+                            }else {
+                            %>
                             <div class="form-group">
                                 <label class="control-label col-sm-2">تعهد پرداخت به صورت:</label>
                                 <select name="timePeriod" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" >
@@ -430,36 +974,155 @@
                                     <option value="سالانه">سالانه</option>
                                 </select>
                             </div>
+                            <%
+                                }
+                            }else{
+                            %>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">تعهد پرداخت به صورت:</label>
+                                <select name="timePeriod" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" >
+                                    <option disabled value="">-- انتخاب کنید --</option>
+                                    <option value="هفتگی">هفتگی</option>
+                                    <option value="ماهانه">ماهانه</option>
+                                    <option value="فصلی">فصلی</option>
+                                    <option value="سالانه">سالانه</option>
+                                </select>
+                            </div>
+                            <%
+                                }
+                            %>
+                            <%
+                                if (dto!=null && dto.getState().equals(0))
+                                {
+                                    if (dto.getFilled().getCostOfPay()==null){
+                            %>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">مبلغ مورد تعهد:</label>
+                                <div class="col-sm-5">
+                                    <input name="costOfPay" type="text" class="form-control"  placeholder="بایستی مبلغ مورد نظر خود را وارد کنید!" style="text-align: left; direction: ltr;">
+                                </div>
+                            </div>
+                            <%
+                            }else {
+                            %>
                             <div class="form-group">
                                 <label class="control-label col-sm-2">مبلغ مورد تعهد:</label>
                                 <div class="col-sm-5">
                                     <input name="costOfPay" type="text" class="form-control"  placeholder="عدد | تومان" style="text-align: left; direction: ltr;">
                                 </div>
                             </div>
+                            <%
+                                }
+                            }else{
+                            %>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">مبلغ مورد تعهد:</label>
+                                <div class="col-sm-5">
+                                    <input name="costOfPay" type="text" class="form-control"  placeholder="عدد | تومان" style="text-align: left; direction: ltr;">
+                                </div>
+                            </div>
+                            <%
+                                }
+                            %>
                             <div class="form-group">
                                 <label class="control-label col-sm-2">توضیحات بیشتر درباره‌ی حوزه‌ی تخصص و علاقه‌:</label>
                                 <div class="col-sm-5">
                                     <textarea name="expertiseInfo" class="form-control" rows="4" placeholder="در مورد حوزه‌ی تخصص و علاقه‌ خود برای ما بنویسید..."></textarea>
                                 </div>
                             </div>
+                            <%
+                                if (dto!=null && dto.getState().equals(0))
+                                {
+                                    if (dto.getFilled().getPassword()==null){
+                            %>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" >رمز عبور:</label>
                                 <div class="col-sm-5">
-                                    <input type="password" name="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+                                    <input name="password" type="password" class="form-control" placeholder="بایستی رمز مورد نظر خود را وارد کنید" >
                                 </div>
                             </div>
+                            <%
+                            }else {
+                            %>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" >رمز عبور:</label>
+                                <div class="col-sm-5">
+                                    <input name="password" type="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+                                </div>
+                            </div>
+                            <%
+                                }
+                            }else{
+                            %>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" >رمز عبور:</label>
+                                <div class="col-sm-5">
+                                    <input name="password" type="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+                                </div>
+                            </div>
+                            <%
+                                }
+                            %>
+
+                            <%
+                                if (dto!=null && dto.getState().equals(0))
+                                {
+                                    if (request.getAttribute("passwordRepeat")==null){
+                            %>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" >تکرار رمز عبور:</label>
                                 <div class="col-sm-5">
-                                    <input type="password" name="passwordRepeat" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+                                    <input name="password" type="password" class="form-control" placeholder="بایستی رمز مورد نظر خود را تکرار کنید" >
                                 </div>
                             </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-default" style="background-color: #f2f2f2; color: #777;">ثــبــت</button>
-                                <!-- <div class="g-recaptcha" data-sitekey="6LdbBBsUAAAAAE2H11rzHeFOhrbkjnh9JIZG_HcY"></div> -->
+                            <%
+                            }else {
+                            %>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" >تکرار رمز عبور:</label>
+                                <div class="col-sm-5">
+                                    <input name="password" type="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+                                </div>
                             </div>
-                        </div>
+                            <%
+                                }
+                            }else if(dto.getFilled().getPassword() != request.getAttribute("passwordRepeat")){
+                            %>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" >تکرار رمز عبور:</label>
+                                <div class="col-sm-5">
+                                    <input name="password" type="password" class="form-control" placeholder="عدم تطابق با رمز عبور!">
+                                </div>
+                            </div>
+                            <%
+                            }else{
+                            %>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" >تکرار رمز عبور:</label>
+                                <div class="col-sm-5">
+                                    <input name="password" type="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+                                </div>
+                            </div>
+                            <%
+                                }
+                            %>
+
+                            <%
+                                if((dto != null && dto.getState() != 1) || dto == null)
+                                {
+                            %>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-default" style="background-color: #f2f2f2; color: #777;">ثــبــت</button>
+                                </div>
+                            </div>
+                            <%
+                            }else {
+                            %>
+                            <h5 class="col-sm-offset-2 col-sm-10" style="color: #41985c; margin-bottom: 18px;">اطلاعات شما با موفقیت ثبت گردیدند.</h5>
+                            <%
+                                }
+                            %>
                     </form:form>
                 </div>
             </div>
@@ -512,6 +1175,6 @@
 
     </div>
 
-</div>>
+</div>
 </body>
 </html>
