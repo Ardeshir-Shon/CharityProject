@@ -42,8 +42,6 @@
             font-family: Gulf-semibold;
             src: url(${pageContext.request.contextPath}/../resources/fonts/Gulf-semibold.ttf);
         }
-    </style>
-    <style>
         input.wrong::-webkit-input-placeholder { /* WebKit, Blink, Edge */
             color: #c73f3f;
         }

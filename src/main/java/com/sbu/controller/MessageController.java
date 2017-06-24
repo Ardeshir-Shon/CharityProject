@@ -60,7 +60,7 @@ public class MessageController {
         if (!insert)
             dto.setState(-2);
         dto.setFilled(messageEntity);
-        model.addAttribute("state",dto);
+        model.addAttribute("dto",dto);
         return "inbox";
     }
 }

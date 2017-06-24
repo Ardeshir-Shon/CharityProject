@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.sbu.dao.model.SuggestionEntity" %>
+<%@ page import="com.sbu.controller.DTO.GenericDTO" %><%--
   Created by IntelliJ IDEA.
   User: HamidReza
   Date: 6/22/17
@@ -136,24 +137,109 @@
 
 
     <form:form class="form-horizontal" method="post" action="/suggestion/main">
+        <%
+            GenericDTO<SuggestionEntity> dto= (GenericDTO<SuggestionEntity>)request.getAttribute("dto");
+            if (dto!=null && dto.getState().equals(0))
+            {
+                if (dto.getFilled().getName()==null){
+        %>
         <div class="form-group">
-            <label class="control-label col-sm-2">نام:</label>
+            <label class="control-label col-sm-2" >نام:</label>
+            <div class="col-sm-5">
+                <input type="text" name="firstName" class="form-control wrong"  placeholder="بایستی نام خود را وارد کنید!">
+            </div>
+        </div>
+        <%
+        }else {
+        %>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >نام:</label>
             <div class="col-sm-5">
                 <input type="text" name="firstName" class="form-control" placeholder="نام خود را وارد کنید">
             </div>
         </div>
+        <%
+            }
+        }else{
+        %>
         <div class="form-group">
-            <label class="control-label col-sm-2" >موضوع:</label>
+            <label class="control-label col-sm-2" >نام:</label>
             <div class="col-sm-5">
-                <input type="text" name="lastName" class="form-control" placeholder="موضوع پیام را وارد کنید">
+                <input type="text" name="firstName" class="form-control" placeholder="نام خود را وارد کنید">
             </div>
         </div>
+        <%
+            }
+        %>
+
+        <%
+            if (dto!=null && dto.getState().equals(0))
+            {
+                if (dto.getFilled().getSubject()==null){
+        %>
+        <div class="form-group">
+            <label class="control-label col-sm-2">موضوع:</label>
+            <div class="col-sm-5">
+                <input type="text" name="title" class="form-control wrong" placeholder="بایستی موضوع پیام خود را وارد کنید!">
+            </div>
+        </div>
+        <%
+        }else {
+        %>
+        <div class="form-group">
+            <label class="control-label col-sm-2">موضوع:</label>
+            <div class="col-sm-5">
+                <input type="text" name="title" class="form-control" placeholder="موضوع پیام را وارد کنید">
+            </div>
+        </div>
+        <%
+            }
+        }else{
+        %>
+        <div class="form-group">
+            <label class="control-label col-sm-2">موضوع:</label>
+            <div class="col-sm-5">
+                <input type="text" name="title" class="form-control" placeholder="موضوع پیام را وارد کنید">
+            </div>
+        </div>
+        <%
+            }
+        %>
+
+        <%
+            if (dto!=null && dto.getState().equals(0))
+            {
+                if (dto.getFilled().getText()==null){
+        %>
+        <div class="form-group">
+            <label class="control-label col-sm-2">متن پیشنهاد:</label>
+            <div class="col-sm-5">
+                <textarea class="form-control" name="body" rows="6" id="comment" placeholder="بایستی متن پیشنهاد خود را وارد کنید!"></textarea>
+            </div>
+        </div>
+        <%
+        }else {
+        %>
         <div class="form-group">
             <label class="control-label col-sm-2">متن پیشنهاد:</label>
             <div class="col-sm-5">
                 <textarea name="description" class="form-control" rows="6" id="comment"></textarea>
             </div>
         </div>
+        <%
+            }
+        }else{
+        %>
+        <div class="form-group">
+            <label class="control-label col-sm-2">متن پیشنهاد:</label>
+            <div class="col-sm-5">
+                <textarea name="description" class="form-control" rows="6" id="comment"></textarea>
+            </div>
+        </div>
+        <%
+            }
+        %>
+
         <div class="form-group">
             <div class="control-label  col-sm-offset-2 col-sm-5" >
                 <div class="checkbox">
@@ -163,24 +249,54 @@
                 </div>
             </div>
         </div>
-        <div class="form-group" id="phone" style="display: none;">
-            <label class="control-label col-sm-2" >شماره‌ی موبایل:</label>
+
+        <%
+            if (dto!=null && dto.getState().equals(2))
+            {
+        %>
+        <div class="form-group">
+            <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
             <div class="col-sm-5">
-                <input type="text" name="phoneNumber" class="form-control" placeholder="09121234567" style="text-align: left; direction: ltr;">
+                <input type="text" name="phoneNumber" class="form-control wrong" placeholder="بایستی شماره‌ی موبایل خود را وارد کنید!">
             </div>
         </div>
+        <%
+        }else{
+        %>
+        <div class="form-group" id="phone" style="display: none;">
+            <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
+            <div class="col-sm-5">
+                <input type="text" name="phoneNumber" class="form-control" placeholder="09121234567"
+                       style="text-align: left; direction: ltr;">
+            </div>
+        </div>
+        <%
+            }
+        %>
         <div class="form-group" id="email" style="display: none;">
             <label class="control-label col-sm-2" >ایمیل(اختیاری):</label>
             <div class="col-sm-5">
                 <input type="text" name="email" class="form-control" placeholder="someone@example.com" style="text-align: left; direction: ltr;">
             </div>
         </div>
+        <%
+            if((dto != null && dto.getState() != 1) || dto == null)
+            {
+        %>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-5">
-                <button  type="submit" class="btn btn-default" style="background-color: #f2f2f2; color: #777;" onclick="sendmessage();" id="sendmsg">ثبت پیام</button>
-                <!-- <div class="g-recaptcha" data-sitekey="6LdbBBsUAAAAAE2H11rzHeFOhrbkjnh9JIZG_HcY"></div> -->
+                <button type="submit" class="btn btn-default" style="background-color: #f2f2f2; color: #777;"
+                        onclick="sendmessage();" id="sendmsg">ثبت پیشنهاد
+                </button>
             </div>
         </div>
+        <%
+        }else {
+        %>
+        <h5 class="col-sm-offset-2 col-sm-10" style="color: #41985c; margin-bottom: 18px;">پیشنهاد شما با موفقیت ثبت گردیدند.</h5>
+        <%
+            }
+        %>
     </form:form>
 </div>
 <div class="container">
