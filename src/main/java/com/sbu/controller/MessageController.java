@@ -1,5 +1,6 @@
 package com.sbu.controller;
 
+import com.sbu.controller.DTO.GenericDTO;
 import com.sbu.controller.model.MessageModel;
 import com.sbu.dao.model.MessageEntity;
 import com.sbu.service.MessageService;
@@ -28,34 +29,38 @@ public class MessageController {
 
     @RequestMapping(value="/message" , method = RequestMethod.POST)
     public String controlMessage(Model model, @ModelAttribute("messageModel")MessageModel messageModel){
-        Boolean state=null;
-        MessageEntity messageEntity=new MessageEntity();
-        if (!messageModel.getName().isEmpty() && !messageModel.getTitle().isEmpty() && !messageModel.getBody().isEmpty()){
 
+        GenericDTO<MessageEntity> dto = new GenericDTO<>();
+        MessageEntity messageEntity=new MessageEntity();
+
+        if (!messageModel.getName().isEmpty() && !messageModel.getTitle().isEmpty() && !messageModel.getBody().isEmpty()){
             messageEntity.setName(messageModel.getName());
             messageEntity.setSubject(messageModel.getTitle());
             messageEntity.setText(messageModel.getBody());
-            state=true;
+            dto.setState(1); // ok required inputs.
         }
         else{// fill necessary incorrect
-            state=false;
+            dto.setState(0); // incomplete required input.
         }
-        if(state && messageModel.isTendency()){// want to contribute and filled top true
+        if(dto.getState()==1 && messageModel.isTendency()){// want to contribute and filled top true
             if (!messageModel.getPhoneNumber().isEmpty() || !messageModel.getEmail().isEmpty()){// correct
                 if (!messageModel.getPhoneNumber().isEmpty())
                     messageEntity.setPhoneNumber(messageModel.getPhoneNumber());
                 if (!messageModel.getEmail().isEmpty())
                     messageEntity.setEmail(messageModel.getEmail());
-                state=true;
             }
             else{// for more contribute, at least fill phone or email
-                state=false;
+                dto.setState(2); // enter email or phone
             }
         }
-        if (state) {
-            messageService.insertMessage(messageEntity);
+        boolean insert=false;
+        if (dto.getState()==1) {
+            insert=messageService.insertMessage(messageEntity);
         }
-        model.addAttribute("state",state);
+        if (!insert)
+            dto.setState(-2);
+        dto.setFilled(messageEntity);
+        model.addAttribute("state",dto);
         return "inbox";
     }
 }
