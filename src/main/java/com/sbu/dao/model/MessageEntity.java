@@ -24,7 +24,7 @@ public class MessageEntity {
 
     @Column(length=50 , unique = true)
     private String phoneNumber;
-    @Column( length=50 , unique = true)
+    @Column( length=50 )
     private String Email;
 
     public MessageEntity(String name, String subject, String text) {

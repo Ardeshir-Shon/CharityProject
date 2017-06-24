@@ -24,7 +24,7 @@ public class SuggestionEntity {
     private String text;
     @Column(length = 50 , unique = true)
     private String phoneNumber;
-    @Column(length = 50 , unique = true)
+    @Column(length = 50 )
     private String email;
 
     public SuggestionEntity(String name, String subject, String text) {

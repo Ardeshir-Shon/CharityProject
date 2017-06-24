@@ -19,7 +19,7 @@ public class HelperEntity {
     @Id
     @Column( length=50 , unique = true)
     private String phoneNumber;
-    @Column( length=50 , unique = true)
+    @Column( length=50 )
     private String email;
     private String helpPeriod;
     @Column( length=50, nullable = false)
