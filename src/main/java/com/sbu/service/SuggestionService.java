@@ -11,7 +11,7 @@ public interface SuggestionService {
 
     public Boolean validation(SuggestionEntity suggestionEntity);
 
-    public void insertSuggestion(SuggestionEntity suggestionEntity);
+    public Boolean insertSuggestion(SuggestionEntity suggestionEntity);
 
     public List<SuggestionEntity> getByName(SuggestionEntity suggestionEntity);
 

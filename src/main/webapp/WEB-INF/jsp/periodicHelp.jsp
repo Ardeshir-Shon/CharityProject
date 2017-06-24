@@ -147,7 +147,7 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-2" >نام خانوادگی:</label>
                                 <div class="col-sm-5">
-                                    <input type="text" name="lastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
+                                    <input type="text" name="title" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -259,7 +259,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-2" >نام خانوادگی:</label>
                             <div class="col-sm-5">
-                                <input type="text" name="lastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
+                                <input type="text" name="title" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
                             </div>
                         </div>
                         <div class="form-group">
@@ -361,7 +361,7 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-2" >نام خانوادگی:</label>
                                 <div class="col-sm-5">
-                                    <input type="text" name="lastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
+                                    <input type="text" name="title" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
                                 </div>
                             </div>
                             <div class="form-group">

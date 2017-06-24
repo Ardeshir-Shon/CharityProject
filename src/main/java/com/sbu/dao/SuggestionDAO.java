@@ -10,7 +10,7 @@ import java.util.ListIterator;
  */
 public interface SuggestionDAO {
 
-    public void insertSuggestion(SuggestionEntity suggestionEntity);
+    public Boolean insertSuggestion(SuggestionEntity suggestionEntity);
 
     public ListIterator<SuggestionEntity> getByName(String name);
     //public List<SuggestionEntity>  getBySubject(String subject);

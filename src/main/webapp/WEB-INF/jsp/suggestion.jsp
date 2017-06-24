@@ -223,7 +223,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2">متن پیشنهاد:</label>
             <div class="col-sm-5">
-                <textarea name="description" class="form-control" rows="6" id="comment"></textarea>
+                <textarea name="body" class="form-control" rows="6" id="comment"></textarea>
             </div>
         </div>
         <%
@@ -233,7 +233,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2">متن پیشنهاد:</label>
             <div class="col-sm-5">
-                <textarea name="description" class="form-control" rows="6" id="comment"></textarea>
+                <textarea name="body" class="form-control" rows="6" id="comment"></textarea>
             </div>
         </div>
         <%
@@ -244,7 +244,7 @@
             <div class="control-label  col-sm-offset-2 col-sm-5" >
                 <div class="checkbox">
                     <div style="text-align: right; margin-right: 21px; margin-top: -5px;">
-                        <input type="checkbox" value="" id="checkbox" onchange="hider();">آمادگی همکاری در این رابطه را دارم</input>
+                        <input name="tendency" type="checkbox" value="on" id="checkbox" onchange="hider();">آمادگی همکاری در این رابطه را دارم</input>
                     </div>
                 </div>
             </div>

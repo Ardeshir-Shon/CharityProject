@@ -37,7 +37,7 @@
     </persistence-unit>
     
     <persistence-unit name="localContainerEntity">
-        <description>Spring JPA Demo with LocalContainerEntityManagerFactoryBean</description>
+        <body>Spring JPA Demo with LocalContainerEntityManagerFactoryBean</body>
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
