@@ -88,6 +88,7 @@ public class PeriodicHelperController {
             if (!insert)
                 dto.setState(-1);
         }
+        model.addAttribute("passwordRepeat",periodicHelpCashModel.getPasswordRepeat());
         model.addAttribute("dto",dto);
         return "periodicHelp";
     }
@@ -139,6 +140,7 @@ public class PeriodicHelperController {
             if (!insert)
                 dto.setState(-1);
         }
+        model.addAttribute("passwordRepeat",periodicHelpCashModel.getPasswordRepeat());
         model.addAttribute("dto",dto);
         return "periodicHelp";
     }
@@ -194,6 +196,7 @@ public class PeriodicHelperController {
             if (!insert)
                 dto.setState(-1);
         }
+        model.addAttribute("passwordRepeat",periodicHelpCashModel.getPasswordRepeat());
         return "periodicHelp";
     }
 }
