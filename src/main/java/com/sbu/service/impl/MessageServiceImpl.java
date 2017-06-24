@@ -1,6 +1,7 @@
 package com.sbu.service.impl;
 
 import com.sbu.dao.MessageDAO;
+import com.sbu.dao.model.IntroductionEntity;
 import com.sbu.dao.model.MessageEntity;
 import com.sbu.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,16 @@ public class MessageServiceImpl implements MessageService {
 
     @Autowired
     MessageDAO messageDAO;
+
+    @Override
+    public Boolean validation(MessageEntity messageEntity){
+        if(Validate.validateNumer(messageEntity.getPhoneNumber())){
+            if(Validate.validateEmail(messageEntity.getEmail())){
+                    return true;
+                }
+        }
+        return false;
+    }
 
     @Override
     public MessageEntity getMessage(MessageEntity message) {

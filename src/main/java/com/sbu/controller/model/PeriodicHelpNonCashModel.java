@@ -7,10 +7,6 @@ public class PeriodicHelpNonCashModel {
     private String firstName;
     private String lastName;
     private String occupation;
-    private boolean isProfessor;
-    private boolean isStudent;
-    private String facultyName;
-    private String otherFacultyName;
     private String phoneNumber;
     private String email;
     private String expertiseInfo;
@@ -39,38 +35,6 @@ public class PeriodicHelpNonCashModel {
 
     public void setOccupation(String occupation) {
         this.occupation = occupation;
-    }
-
-    public boolean isProfessor() {
-        return isProfessor;
-    }
-
-    public void setProfessor(boolean professor) {
-        isProfessor = professor;
-    }
-
-    public boolean isStudent() {
-        return isStudent;
-    }
-
-    public void setStudent(boolean student) {
-        isStudent = student;
-    }
-
-    public String getFacultyName() {
-        return facultyName;
-    }
-
-    public void setFacultyName(String facultyName) {
-        this.facultyName = facultyName;
-    }
-
-    public String getOtherFacultyName() {
-        return otherFacultyName;
-    }
-
-    public void setOtherFacultyName(String otherFacultyName) {
-        this.otherFacultyName = otherFacultyName;
     }
 
     public String getPhoneNumber() {

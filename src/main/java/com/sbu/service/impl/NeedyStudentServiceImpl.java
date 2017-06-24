@@ -1,6 +1,7 @@
 package com.sbu.service.impl;
 
 import com.sbu.dao.NeedyStudentDAO;
+import com.sbu.dao.model.MessageEntity;
 import com.sbu.dao.model.NeedyStudentEntity;
 import com.sbu.service.NeedyStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,18 @@ public class NeedyStudentServiceImpl implements NeedyStudentService{
     NeedyStudentDAO needyStudentDAO;
 
     @Override
-    public Boolean idCheckNotNull(NeedyStudentEntity needyStudentEntity){
-        if(!needyStudentEntity.getPhoneNumber().isEmpty()){
-            return true;
+    public Boolean validation(NeedyStudentEntity needyStudentEntity){
+        if(Validate.validateNumer(needyStudentEntity.getPhoneNumber())){
+            if(Validate.validateNumer(needyStudentEntity.getStudentId())){
+                return true;
+            }
         }
         return false;
+    }
+
+    @Override
+    public Boolean idExist(NeedyStudentEntity needyStudentEntity){
+        return getByPhoneNumber(needyStudentEntity).equals(null);
     }
 
     @Override

@@ -7,7 +7,7 @@ public class MessageModel {
     private String name;
     private String title;
     private String body;
-    private boolean tendency;
+    private String tendency;
     private String phoneNumber;
     private String email;
     private String newsletterEmail;
@@ -49,10 +49,10 @@ public class MessageModel {
     }
 
     public boolean isTendency() {
-        return tendency;
+        return !(tendency==null);
     }
 
-    public void setTendency(boolean tendency) {
+    public void setTendency(String tendency) {
         this.tendency = tendency;
     }
 

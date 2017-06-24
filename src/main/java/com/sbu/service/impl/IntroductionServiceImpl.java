@@ -1,6 +1,7 @@
 package com.sbu.service.impl;
 
 import com.sbu.dao.IntroductionDAO;
+import com.sbu.dao.model.HelperEntity;
 import com.sbu.dao.model.IntroductionEntity;
 import com.sbu.service.IntroductionService;
 import com.sun.xml.internal.bind.v2.runtime.reflect.ListIterator;
@@ -18,6 +19,18 @@ public class IntroductionServiceImpl implements IntroductionService {
 
     @Autowired
     IntroductionDAO introductionDAO;
+
+    @Override
+    public Boolean validation(IntroductionEntity introductionEntity){
+        if(Validate.validateNumer(introductionEntity.getNeedyStudentId())){
+            if(Validate.validateNumer(introductionEntity.getRecommenderPhoneNumber())){
+                if(Validate.validateNumer(introductionEntity.getRecommenderStudentId())){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     @Override
     public Boolean insertIntroduction(IntroductionEntity introductionEntity) {

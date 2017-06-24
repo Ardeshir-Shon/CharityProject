@@ -23,12 +23,22 @@ public class ActiveMemberServiceImpl implements ActiveMemberService {
     }
 
     @Override
-    public Boolean idChekNotNull(ActiveMemberEntity activeMemberEntity){
+    public Boolean validation(ActiveMemberEntity activeMemberEntity){
+        if(Validate.validateNumer(activeMemberEntity.getPhoneNumber())){
+            if(Validate.validateNumer(activeMemberEntity.getStudentId())){
+                if(Validate.validateEmail(activeMemberEntity.getEmail())){
+                    return true;
+                }
+            }
 
-        if(!activeMemberEntity.getPhoneNumber().isEmpty()){
-            return true;
         }
         return false;
+    }
+
+    @Override
+    public Boolean idExist(ActiveMemberEntity activeMemberEntity){
+
+        return !getActiveMemberEntity(activeMemberEntity).equals(null);
     }
 
     @Override

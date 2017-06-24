@@ -65,10 +65,10 @@ public class RecommendationController {
             else
                 recommendationEntity.setNeedyCollege(recommendationModel.getNeedyFacultyName());
 
-        if (!recommendationModel.getIsDormSettler().isEmpty())
+        if (recommendationModel.getIsDormSettler())
             recommendationEntity.setNeedyDormOccupy(true);
 
-        if (!recommendationModel.getIsNotDormSettler().isEmpty())
+        if (recommendationModel.getIsNotDormSettler())
             recommendationEntity.setNeedyDormOccupy(false);
 
         if (!recommendationModel.getMoreInfo().isEmpty())

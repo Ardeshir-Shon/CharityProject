@@ -8,7 +8,7 @@ public class RecommendationModel {
 
     private String succorFirstName;
     private String succorLastName;
-    private boolean isStudent;
+    private String isStudent;
     private String succorStudentNumber;
     private String succorPhoneNumber;
 
@@ -33,7 +33,7 @@ public class RecommendationModel {
     }
 
     public Boolean getStudent() {
-        return isStudent;
+        return !(isStudent==null);
     }
 
     public String getSuccorStudentNumber() {
@@ -72,12 +72,12 @@ public class RecommendationModel {
         return otherFacultyName;
     }
 
-    public String getIsDormSettler() {
-        return isDormSettler;
+    public Boolean getIsDormSettler() {
+        return !(isDormSettler==null);
     }
 
-    public String getIsNotDormSettler() {
-        return isNotDormSettler;
+    public Boolean getIsNotDormSettler() {
+        return !(isNotDormSettler==null);
     }
 
     public String getMoreInfo() {
@@ -96,7 +96,7 @@ public class RecommendationModel {
         this.succorLastName = succorLastName;
     }
 
-    public void setStudent(Boolean student) {
+    public void setIsStudent(String student) {
         isStudent = student;
     }
 

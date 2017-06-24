@@ -19,21 +19,30 @@ public class HelperServiceImpl implements HelperService {
     String cipherText;
 
     @Override
-    public  Boolean idChekNotNull(HelperEntity helperEntity){
-        if(!helperEntity.getPhoneNumber().isEmpty()){
-            return true;
-        }
-        return false;
+    public  Boolean idExist(HelperEntity helperEntity){
+        return getByPhoneNumber(helperEntity).equals(null);
 
     }
 
     @Override
-    public void insertPeriodicHelp(HelperEntity helperEntity) {
+    public Boolean validation(HelperEntity helperEntity){
+        if(Validate.validateEmail(helperEntity.getEmail())){
+            if(Validate.validateNumer(helperEntity.getPhoneNumber())){
+                if(Validate.validateNumer(helperEntity.getCostOfPay())){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public Boolean insertPeriodicHelp(HelperEntity helperEntity) {
         plainText = helperEntity.getPassword();
         cipherText = Encryptor.encrypt(plainText);
         helperEntity.setPassword(cipherText);
 
-        helperDAO.insertPeriodicHelp(helperEntity);
+        return helperDAO.insertPeriodicHelp(helperEntity);
     }
 
     @Override

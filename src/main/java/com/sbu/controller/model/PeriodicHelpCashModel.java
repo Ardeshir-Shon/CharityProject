@@ -7,7 +7,7 @@ public class PeriodicHelpCashModel {
     private String firstName;
     private String lastName;
     private String occupation;
-    private boolean isProfessor;
+    private String isProfessor;
     private String facultyName;
     private String otherFacultyName;
     private String phoneNumber;
@@ -16,8 +16,6 @@ public class PeriodicHelpCashModel {
     private String costOfPay;
     private String password;
     private String passwordRepeat;
-    // why student field added?
-    private boolean isStudent;
 
     public String getFirstName() {
         return firstName;
@@ -32,7 +30,7 @@ public class PeriodicHelpCashModel {
     }
 
     public boolean isProfessor() {
-        return isProfessor;
+        return !(isProfessor==null);
     }
 
     public String getFacultyName() {
@@ -67,9 +65,6 @@ public class PeriodicHelpCashModel {
         return passwordRepeat;
     }
 
-    public boolean isStudent() {
-        return isStudent;
-    }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -83,7 +78,7 @@ public class PeriodicHelpCashModel {
         this.occupation = occupation;
     }
 
-    public void setProfessor(boolean professor) {
+    public void setIsProfessor(String professor) {
         isProfessor = professor;
     }
 
@@ -119,7 +114,4 @@ public class PeriodicHelpCashModel {
         this.passwordRepeat = passwordRepeat;
     }
 
-    public void setStudent(boolean student) {
-        isStudent = student;
-    }
 }

@@ -9,7 +9,8 @@ public interface ActiveMemberService {
 
     public ActiveMemberEntity getActiveMemberEntity(ActiveMemberEntity activeMemberEntity);
 
-    public Boolean idChekNotNull(ActiveMemberEntity activeMemberEntity);
+    public Boolean idExist(ActiveMemberEntity activeMemberEntity);
+    public Boolean validation(ActiveMemberEntity activeMemberEntity);
     public Boolean insertActiveMemberEntity(ActiveMemberEntity activeMemberEntity);
 
 }

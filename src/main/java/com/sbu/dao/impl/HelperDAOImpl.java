@@ -22,11 +22,14 @@ public class HelperDAOImpl implements HelperDAO {
 
     @Override
     @Transactional
-    public void insertPeriodicHelp(HelperEntity helperEntity) {
-
+    public Boolean insertPeriodicHelp(HelperEntity helperEntity) {
+        try {
             entityManager.persist(helperEntity);
-
-
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
     }
 
     @Override
