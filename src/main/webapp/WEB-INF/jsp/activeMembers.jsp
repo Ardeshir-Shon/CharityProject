@@ -11,15 +11,14 @@
     <title>active members</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/../resources/bootstrap-3.3.7-dist/css/bootstrap.css" type="text/css">
-    <script src="/https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript">
     </script>
-    <script src="${pageContext.request.contextPath}/../resources/bootstrap-3.3.7-dist/js/bootstrap.min.js" type="text/javascript">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript">
     </script>
     <script type="text/javascript" src="javascript.js">
     </script><!-- Load Bootstrap RTL theme from RawGit -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/../resources/bootstrap-rtl-master/dist/css/bootstrap-rtl.css" type="text/css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/../resources/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css" type="text/css">
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="https://use.fontawesome.com/5881fd899f.js"></script>
     <script>
@@ -62,41 +61,41 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="home.html">خیریه امید نو</a>
+                <a class="navbar-brand" href="/home">خیریه امید نو</a>
             </div>
 
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><a href="home.html">خانه</a></li>
+                    <li><a href="/home">خانه</a></li>
 
                     <li class="dropdown active">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">همکاری
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li class="active"><a href="active_members.html">عضویت فعال</a></li>
+                            <li class="active"><a href="/activeMembers">عضویت فعال</a></li>
 
-                            <li><a href="periodic_help.html">اعلام همکاری</a></li>
+                            <li><a href="/periodHelp">اعلام همکاری</a></li>
 
-                            <li><a href="discard.html">لفو همکاری</a></li>
+                            <li><a href="/discard">لفو همکاری</a></li>
                         </ul>
                     </li>
-                    <li><a href="inbox.html">ارسال پیام</a></li>
+                    <li><a href="/inbox">ارسال پیام</a></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">خدمات کانون
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">دایره‌ی فعالیت‌ها</a></li>
 
-                            <li><a href="recommendation.html">معرفی دانشجوی‌ مددجو</a></li>
+                            <li><a href="/recommendation">معرفی دانشجوی‌ مددجو</a></li>
 
-                            <li><a href="needy_students.html">درمیان‌گذاری نیازمندی با کانون</a></li>
+                            <li><a href="/needyStudents">درمیان‌گذاری نیازمندی با کانون</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="suggestion.html">پیشنهادات</a>
+                        <a href="/suggestion">پیشنهادات</a>
                     </li>
                     <li>
-                        <a href="donate.html">کمک نقدی‌&nbspآنی</a>
+                        <a href="/donate">کمک نقدی‌&nbspآنی</a>
                     </li>
                 </ul>
                 <form:form class="navbar-form navbar-right" >

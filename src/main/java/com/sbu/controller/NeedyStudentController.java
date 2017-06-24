@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Created by user on 6/24/2017.
  */
 @Controller
+@RequestMapping(value = "/needyStudent")
 public class NeedyStudentController {
     @Autowired
     NeedyStudentService needyStudentService;
