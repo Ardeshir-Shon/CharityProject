@@ -36,7 +36,7 @@ public class MessageDAOImpl implements MessageDAO {
             entityManager.persist(message);
             return true;
         }
-        catch (PersistenceException e){
+        catch (Exception e){
             return false;
         }
     }
