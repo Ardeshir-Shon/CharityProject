@@ -11,6 +11,8 @@ import java.util.ListIterator;
  */
 public interface IntroductionService {
 
+
+    public Boolean validation(IntroductionEntity introductionEntity);
     public Boolean insertIntroduction(IntroductionEntity introductionEntity);
 
     public List<IntroductionEntity> getByRecommenderPhoneNumber(IntroductionEntity introductionEntity);

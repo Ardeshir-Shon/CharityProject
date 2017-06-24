@@ -8,6 +8,8 @@ import com.sbu.dao.model.NeedyStudentEntity;
 public interface NeedyStudentService {
 
 
+    public Boolean validation(NeedyStudentEntity needyStudentEntity);
+
     public Boolean idExist(NeedyStudentEntity needyStudentEntity);
     public void insertNeedyStudent(NeedyStudentEntity needyStudentEntity);
 

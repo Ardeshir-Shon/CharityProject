@@ -20,11 +20,20 @@ public class HelperServiceImpl implements HelperService {
 
     @Override
     public  Boolean idExist(HelperEntity helperEntity){
-        if(helperEntity.getPhoneNumber() == getByPhoneNumber(helperEntity).getPhoneNumber()){
-            return true;
+        return getByPhoneNumber(helperEntity).equals(null);
+
+    }
+
+    @Override
+    public Boolean validation(HelperEntity helperEntity){
+        if(Validate.validateEmail(helperEntity.getEmail())){
+            if(Validate.validateNumer(helperEntity.getPhoneNumber())){
+                if(Validate.validateNumer(helperEntity.getCostOfPay())){
+                    return true;
+                }
+            }
         }
         return false;
-
     }
 
     @Override

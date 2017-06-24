@@ -9,6 +9,7 @@ public interface HelperService {
 
 
     public  Boolean idExist(HelperEntity helperEntity);
+    public Boolean validation(HelperEntity helperEntity);
     public Boolean insertPeriodicHelp(HelperEntity helperEntity);
 
     public  HelperEntity getByEmail(HelperEntity helperEntity);

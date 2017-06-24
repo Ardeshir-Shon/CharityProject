@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
  * Created by user on 6/22/2017.
  */
 public interface MessageService {
+
+    public Boolean validation(MessageEntity messageEntity);
     public MessageEntity getMessage(MessageEntity message);
     public Boolean insertMessage(MessageEntity message);
 }

@@ -1,6 +1,7 @@
 package com.sbu.service.impl;
 
 import com.sbu.dao.SuggestionDAO;
+import com.sbu.dao.model.MessageEntity;
 import com.sbu.dao.model.SuggestionEntity;
 import com.sbu.service.SuggestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,16 @@ public class SuggestionServiceImpl implements SuggestionService {
 
     @Autowired
     SuggestionDAO suggestionDAO;
+
+    @Override
+    public Boolean validation(SuggestionEntity suggestionEntity){
+        if(Validate.validateNumer(suggestionEntity.getPhoneNumber())){
+            if(Validate.validateEmail(suggestionEntity.getEmail())){
+                return true;
+            }
+        }
+        return false;
+    }
 
     @Override
     public void insertSuggestion(SuggestionEntity suggestionEntity) {

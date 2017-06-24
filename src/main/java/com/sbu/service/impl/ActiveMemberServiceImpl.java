@@ -22,17 +22,23 @@ public class ActiveMemberServiceImpl implements ActiveMemberService {
         return activeMemberDAO.getActiveMemberEntity(activeMemberEntity.getPhoneNumber());
     }
 
-    //public Boolean validation(ActiveMemberEntity activeMemberEntity){
+    @Override
+    public Boolean validation(ActiveMemberEntity activeMemberEntity){
+        if(Validate.validateNumer(activeMemberEntity.getPhoneNumber())){
+            if(Validate.validateNumer(activeMemberEntity.getStudentId())){
+                if(Validate.validateEmail(activeMemberEntity.getEmail())){
+                    return true;
+                }
+            }
 
-    //}
+        }
+        return false;
+    }
 
     @Override
     public Boolean idExist(ActiveMemberEntity activeMemberEntity){
 
-        if(activeMemberEntity.getPhoneNumber() == getActiveMemberEntity(activeMemberEntity).getPhoneNumber()){
-            return true;
-        }
-        return false;
+        return !getActiveMemberEntity(activeMemberEntity).equals(null);
     }
 
     @Override
