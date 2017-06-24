@@ -34,7 +34,7 @@ public class ActiveMemberModel {
     }
 
     public Boolean getStudent() {
-        return !isStudent.isEmpty();
+        return !(isStudent==null);
     }
 
     public String getStudentNumber() {

@@ -1,6 +1,6 @@
 package com.sbu.controller;
 
-import com.sbu.controller.DTO.ActiveMemberDTO;
+import com.sbu.controller.DTO.GenericDTO;
 import com.sbu.controller.model.ActiveMemberModel;
 import com.sbu.dao.model.ActiveMemberEntity;
 import com.sbu.service.ActiveMemberService;
@@ -31,7 +31,7 @@ public class ActiveMemberController  {
     public String activeMemberSubmit(Model model, @ModelAttribute("activeMemberModel") ActiveMemberModel activeMemberModel) {
 
         ActiveMemberEntity activeMember = new ActiveMemberEntity();
-        ActiveMemberDTO dto = new ActiveMemberDTO();
+        GenericDTO<ActiveMemberEntity> dto = new GenericDTO<>();
 
         if (!activeMemberModel.getFirstName().isEmpty())
             activeMember.setName(activeMemberModel.getFirstName());
