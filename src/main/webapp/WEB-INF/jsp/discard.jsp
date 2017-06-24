@@ -1,4 +1,6 @@
-<%--
+<%@ page import="com.sbu.dao.DiscardDAO" %>
+<%@ page import="com.sbu.controller.model.DiscardModel" %>
+<%@ page import="com.sbu.controller.DTO.GenericDTO" %><%--
   Created by IntelliJ IDEA.
   User: HamidReza
   Date: 6/22/17
@@ -119,19 +121,89 @@
     <p id="demo"></p>
 
     <form:form class="form-horizontal" method="post" action="/discard/main">
+
+
+
+
+        <%
+            GenericDTO<DiscardModel> dto= (GenericDTO<DiscardModel>) request.getAttribute("dto");
+            if (dto!=null && dto.getState().equals(0))
+            {
+                if (dto.getFilled().getPhoneNumber()==null){
+        %>
+        <div class="form-group">
+            <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
+            <div class="col-sm-5">
+                <input type="text" name="phoneNumber" class="form-control wrong" placeholder="بایستی شماره‌ی موبایل خود را وارد کنید!">
+            </div>
+        </div>
+        <%
+        }else {
+        %>
         <div class="form-group">
             <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
             <div class="col-sm-5">
                 <input type="text" name="phoneNumber" class="form-control" placeholder="۰۹۱۲۱۲۳۴۵۶۷" style="text-align: left; direction: ltr;">
             </div>
         </div>
+        <%
+            }
+        }else{
+        %>
+        <div class="form-group">
+            <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
+            <div class="col-sm-5">
+                <input type="text" name="phoneNumber" class="form-control" placeholder="۰۹۱۲۱۲۳۴۵۶۷" style="text-align: left; direction: ltr;">
+            </div>
+        </div>
+        <%
+            }
+        %>
+
+        <%
+            if (dto!=null && dto.getState().equals(0))
+            {
+                if (dto.getFilled().getPassword()==null){
+        %>
         <div class="form-group">
             <label class="control-label col-sm-2">رمز عبور:</label>
             <div class="col-sm-5">
-                <input id="password" type="password" name="password" class="form-control" placeholder=""
-                       style="text-align: left; direction: ltr;">
+                <input type="text" name="phoneNumber" class="form-control wrong" placeholder="بایستی رمز عبور خود را وارد کنید!">
             </div>
         </div>
+        <%
+        }else {
+        %>
+        <div class="form-group">
+            <label class="control-label col-sm-2">رمز عبور:</label>
+            <div class="col-sm-5">
+                <input ype="password" name="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+            </div>
+        </div>
+        <%
+            }
+        }else if(dto!=null && dto.getState().equals(-1)){
+        %>
+        <div class="form-group">
+            <label class="control-label col-sm-2">رمز عبور:</label>
+            <div class="col-sm-5">
+                <input type="password" name="password" class="form-control" placeholder="رمز عبور وارد شده اشتباه است!" style="text-align: left; direction: ltr;">
+            </div>
+        </div>
+        <%
+            }else{
+        %>
+        <div class="form-group">
+            <label class="control-label col-sm-2">رمز عبور:</label>
+            <div class="col-sm-5">
+                <input ype="password" name="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+            </div>
+        </div>
+        <%
+            }
+        %>
+
+
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-5">
                 <button type="submit" class="btn btn-default" style="background-color: #f2f2f2; color: #777;"
@@ -140,6 +212,29 @@
                 <!-- <div class="g-recaptcha" data-sitekey="6LdbBBsUAAAAAE2H11rzHeFOhrbkjnh9JIZG_HcY"></div> -->
             </div>
         </div>
+
+
+        <%
+        if((dto != null && dto.getState() != 1) || dto == null)
+        {
+        %>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-5">
+                <button type="submit" class="btn btn-default" style="background-color: #f2f2f2; color: #777;"
+                        onclick="sendmessage();" id="sendmsg">لغو همکاری
+                </button>
+            </div>
+        </div>
+        <%
+            }else {
+        %>
+        <h5 class="col-sm-offset-2 col-sm-10" style="color: #41985c; margin-bottom: 18px;">همکاری شما لغو گردید.</h5>
+        <%
+            }
+        %>
+
+
+
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-5" style="min-height: 200px;">
             </div>
