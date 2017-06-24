@@ -16,6 +16,7 @@ public class PeriodicHelpCashModel {
     private String costOfPay;
     private String password;
     private String passwordRepeat;
+    // why student field added?
     private boolean isStudent;
 
     public String getFirstName() {

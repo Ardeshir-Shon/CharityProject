@@ -280,7 +280,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2">دانشکده:</label>
-                            <select name="facultyName" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" id="selector" onchange="shower();">
+                            <select name="facultyName" class="form-control col-sm-2" style="margin-right: 13px;" selected="none" id="selector2" onchange="shower();">
                                 <option disabled value="">-- انتخاب کنید --</option>
                                 <option value="مهندسی برق و کامپیوتر">مهندسی برق و کامپیوتر</option>
                                 <option value="روانشناسی">روانشناسی</option>
