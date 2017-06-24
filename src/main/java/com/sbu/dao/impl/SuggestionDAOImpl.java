@@ -25,9 +25,14 @@ public class SuggestionDAOImpl implements SuggestionDAO {
 
     @Override
     @Transactional
-    public void insertSuggestion(SuggestionEntity suggestionEntity) {
+    public Boolean insertSuggestion(SuggestionEntity suggestionEntity) {
+        try {
             entityManager.persist(suggestionEntity);
-
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
     }
 
     @Override

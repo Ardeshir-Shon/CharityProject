@@ -4,10 +4,12 @@ import com.sbu.dao.DiscardDAO;
 import com.sbu.dao.model.HelperEntity;
 import com.sbu.service.DiscardService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by Mammad on 6/22/2017.
  */
+@Service
 public class DiscardServiceImpl implements DiscardService {
 
     @Autowired
@@ -18,8 +20,8 @@ public class DiscardServiceImpl implements DiscardService {
     String cipherText;
 
     @Override
-    public void dicardHelper(HelperEntity helperEntity) {
-        discardDAO.dicardHelperEntity(helperEntity.getPhoneNumber());
+    public Boolean dicardHelper(HelperEntity helperEntity) {
+        return discardDAO.dicardHelperEntity(helperEntity.getPhoneNumber());
     }
 
     public Boolean validation(String phoneNumber , String passWord){
@@ -27,7 +29,7 @@ public class DiscardServiceImpl implements DiscardService {
         cipherText = helperEntity.getPassword();
         plainText = Encryptor.decrypt(cipherText);
 
-        if(passWord == plainText){
+        if(passWord.equals(plainText)){
             return true;
         }
         else {

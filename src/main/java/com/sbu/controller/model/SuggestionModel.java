@@ -5,8 +5,9 @@ package com.sbu.controller.model;
  */
 public class SuggestionModel {
     private String firstName;
-    private String lastName;
-    private String description;
+    private String title;
+    private String body;
+    private String tendency;
     private String phoneNumber;
     private String email;
 
@@ -18,20 +19,20 @@ public class SuggestionModel {
         this.firstName = firstName;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getTitle() {
+        return title;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+    public String getBody() {
+        return body;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setBody(String body) {
+        this.body = body;
     }
 
     public String getPhoneNumber() {
@@ -48,5 +49,13 @@ public class SuggestionModel {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Boolean getTendency() {
+        return !(tendency==null);
+    }
+
+    public void setTendency(String tendency) {
+        this.tendency = tendency;
     }
 }
