@@ -20,7 +20,7 @@ public class HelperServiceImpl implements HelperService {
 
     @Override
     public  Boolean idExist(HelperEntity helperEntity){
-        return !getByPhoneNumber(helperEntity).equals(null);
+        return !(getByPhoneNumber(helperEntity)==null);
 
     }
 

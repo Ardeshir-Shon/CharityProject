@@ -38,7 +38,7 @@ public class ActiveMemberServiceImpl implements ActiveMemberService {
     @Override
     public Boolean idExist(ActiveMemberEntity activeMemberEntity){
 
-        return !getActiveMemberEntity(activeMemberEntity).equals(null);
+        return !(getActiveMemberEntity(activeMemberEntity)==null);
     }
 
     @Override
