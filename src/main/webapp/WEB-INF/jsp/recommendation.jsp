@@ -1,4 +1,5 @@
-<%@ page import="com.sbu.controller.DTO.RecommendationDTO" %>
+<%@ page import="com.sbu.dao.model.IntroductionEntity" %>
+<%@ page import="com.sbu.controller.DTO.GenericDTO" %>
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
@@ -46,6 +47,31 @@
             }
         }
     </script>
+    <style>
+        .accordion-heading {
+            background-color: #f2f2f2;
+            min-height: 40px;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-family: Gulf-semibold;
+            font-size: 17px;
+        }
+        @font-face {
+            font-family: Gulf;
+            src: url(fonts/Gulf-regular.ttf);
+        }
+        @font-face {
+            font-family: Gulf-semibold;
+            src: url(fonts/Gulf-semibold.ttf);
+        }
+
+    </style>
+    <style>
+        input.wrong::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+            color: #c73f3f;
+        }
+    </style>
     <style>
         @font-face {
             font-family: Gulf;
@@ -129,18 +155,25 @@
 <div class="container" >
     <form:form class="form-horizontal" method="post" action="/recommendation/main">
         <div class="accordion">
-            <div class="accordion-group col-sm-12">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne" style="text-decoration: none; color: inherit;"><div class="accordion-heading col-sm-8">  اطلاعات معرف </div></a>
-                <div style="min-height: 60px;"></div>
-                <div id="collapseOne" class="accordion-body collapse in">
-                    <div class="accordion-inner">
-                        <!--                     <form class="form-horizontal col-sm-offset-1"> -->
+        <div class="accordion-group col-sm-12">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne" style="text-decoration: none; color: inherit;"><div class="accordion-heading col-sm-8">  اطلاعات معرف </div></a>
+            <div style="min-height: 60px;"></div>
+            <div id="collapseOne" class="accordion-body collapse in">
+                <div class="accordion-inner">
                         <%
-                            RecommendationDTO dto = (RecommendationDTO) request.getAttribute("dto");
-                            if(dto!=null && !dto.getState())
+                            GenericDTO<IntroductionEntity> dto= (GenericDTO<IntroductionEntity>) request.getAttribute("dto");
+                            if (dto!=null && dto.getState().equals(0))
                             {
-
-                            }
+                                if (dto.getFilled().getRecommenderName()==null){
+                        %>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">نام معرف:</label>
+                            <div class="col-sm-5">
+                                <input type="text" name="succorFirstName" class="form-control wrong" placeholder="بایستی نام خود را وارد کنید!">
+                            </div>
+                        </div>
+                        <%
+                        }else {
                         %>
                         <div class="form-group">
                             <label class="control-label col-sm-2">نام معرف:</label>
@@ -148,12 +181,55 @@
                                 <input type="text" name="succorFirstName" class="form-control" placeholder="نام خود را وارد کنید">
                             </div>
                         </div>
+                        <%
+                            }
+                        }else{
+                        %>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">نام معرف:</label>
+                            <div class="col-sm-5">
+                                <input type="text" name="succorFirstName" class="form-control" placeholder="نام خود را وارد کنید">
+                            </div>
+                        </div>
+                        <%
+                            }
+                        %>
+
+
+                        <%
+                            if (dto!=null && dto.getState().equals(0))
+                            {
+                                if (dto.getFilled().getRecommenderFamily()==null){
+                        %>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >نام خانوادگی معرف:</label>
+                            <div class="col-sm-5">
+                                <input type="text" name="succorLastName" class="form-control" placeholder="بایستی نام خانوادگی خود را وارد کنید!">
+                            </div>
+                        </div>
+                        <%
+                        }else {
+                        %>
                         <div class="form-group">
                             <label class="control-label col-sm-2" >نام خانوادگی معرف:</label>
                             <div class="col-sm-5">
                                 <input type="text" name="succorLastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
                             </div>
                         </div>
+                        <%
+                            }
+                        }else{
+                        %>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >نام خانوادگی معرف:</label>
+                            <div class="col-sm-5">
+                                <input type="text" name="succorLastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
+                            </div>
+                        </div>
+                        <%
+                            }
+                        %>
+
                         <div class="form-group">
                             <div class="control-label  col-sm-offset-2 col-sm-5" >
                                 <div class="checkbox">
@@ -169,13 +245,41 @@
                                 <input type="text" name="succorStudentNumber" class="form-control" placeholder="شماره‌ی دانشجویی خود را وارد کنید(به عدد)">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-2">شماره‌ی موبایل معرف:</label>
-                            <div class="col-sm-5">
-                                <input type="text" name="succorPhoneNumber" class="form-control" placeholder="۰۹۱۲۱۲۳۴۵۶۷" style="text-align: left; direction: ltr;">
-                            </div>
-                        </div>
 
+
+                    <%
+                        if (dto!=null && dto.getState().equals(0))
+                        {
+                            if (dto.getFilled().getRecommenderPhoneNumber()==null){
+                    %>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
+                        <div class="col-sm-5">
+                            <input type="text" name="phoneNumber" class="form-control wrong" placeholder="بایستی شماره‌ی موبایل خود را وارد کنید!">
+                        </div>
+                    </div>
+                    <%
+                    }else {
+                    %>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">شماره‌ی موبایل معرف:</label>
+                        <div class="col-sm-5">
+                            <input type="text" name="succorPhoneNumber" class="form-control" placeholder="۰۹۱۲۱۲۳۴۵۶۷" style="text-align: left; direction: ltr;">
+                        </div>
+                    </div>
+                    <%
+                        }
+                    }else{
+                    %>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">شماره‌ی موبایل معرف:</label>
+                        <div class="col-sm-5">
+                            <input type="text" name="succorPhoneNumber" class="form-control" placeholder="۰۹۱۲۱۲۳۴۵۶۷" style="text-align: left; direction: ltr;">
+                        </div>
+                    </div>
+                    <%
+                        }
+                    %>
                     </div>
                 </div>
             </div>
@@ -188,18 +292,76 @@
                 <div class="accordion-inner">
                     <h5 style="color: #c73f3f; margin-bottom: 18px;">ثبت تمامی موارد ذیل به جز نام و نام خانوادگی مددجو اختیاری است اما تکمیل کردن اطلاعات امر مدد رسانی را تسهیل می‌نماید.</h5>
                     <!--                     <form class="form-horizontal col-sm-offset-1"> -->
+
+                    <%
+                        if (dto!=null && dto.getState().equals(0))
+                        {
+                            if (dto.getFilled().getNeedyName()==null){
+                    %>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">نام مددجو:</label>
+                        <div class="col-sm-5">
+                            <input type="text" name="needyFirstName" class="form-control wrong" placeholder="بایستی نام مددجو را وارد کنید!">
+                        </div>
+                    </div>
+                    <%
+                    }else {
+                    %>
                     <div class="form-group">
                         <label class="control-label col-sm-2">نام مددجو:</label>
                         <div class="col-sm-5">
                             <input type="text" name="needyFirstName" class="form-control" placeholder="نام مددجو را وارد کنید">
                         </div>
                     </div>
+                    <%
+                        }
+                    }else{
+                    %>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">نام مددجو:</label>
+                        <div class="col-sm-5">
+                            <input type="text" name="needyFirstName" class="form-control" placeholder="نام مددجو را وارد کنید">
+                        </div>
+                    </div>
+                    <%
+                        }
+                    %>
+
+
+                    <%
+                        if (dto!=null && dto.getState().equals(0))
+                        {
+                            if (dto.getFilled().getNeedyName()==null){
+                    %>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" >نام خانوادگی مددجو:</label>
+                        <div class="col-sm-5">
+                            <input type="text" name="needyLastName" class="form-control wrong" placeholder="بایستی نام خانوادگی مددجو را وارد کنید!">
+                        </div>
+                    </div>
+                    <%
+                    }else {
+                    %>
                     <div class="form-group">
                         <label class="control-label col-sm-2" >نام خانوادگی مددجو:</label>
                         <div class="col-sm-5">
                             <input type="text" name="needyLastName" class="form-control" placeholder="نام خانوادگی مددجو را وارد کنید">
                         </div>
                     </div>
+                    <%
+                        }
+                    }else{
+                    %>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" >نام خانوادگی مددجو:</label>
+                        <div class="col-sm-5">
+                            <input type="text" name="needyLastName" class="form-control" placeholder="نام خانوادگی مددجو را وارد کنید">
+                        </div>
+                    </div>
+                    <%
+                        }
+                    %>
+
                     <div class="form-group">
                         <label class="control-label col-sm-2" >شماره‌ی دانشجویی مددجو:</label>
                         <div class="col-sm-5">
@@ -278,12 +440,25 @@
                             <textarea name="awarenessInfo" class="form-control" rows="4" placeholder="در مورد سطح و نوع نیاز مددجو برای ما بنویسید..."></textarea>
                         </div>
                     </div>
+
+                    <%
+                        if((dto != null && dto.getState() != 1) || dto == null)
+                        {
+                    %>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="submit" class="btn btn-default" style="background-color: #f2f2f2; color: #777;">ثــبــت</button>
                             <!-- <div class="g-recaptcha" data-sitekey="6LdbBBsUAAAAAE2H11rzHeFOhrbkjnh9JIZG_HcY"></div> -->
                         </div>
                     </div>
+                    <%
+                    }else {
+                    %>
+                    <h5 class="col-sm-offset-2 col-sm-10" style="color: #41985c; margin-bottom: 18px;">اطلاعات شما با موفقیت ثبت گردیدند.</h5>
+                    <%
+                        }
+                    %>
+
                 </div>
             </div>
         </div>

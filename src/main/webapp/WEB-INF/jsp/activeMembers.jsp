@@ -1,10 +1,5 @@
-<%@ page import="com.sbu.controller.DTO.ActiveMemberDTO" %><%--
-  Created by IntelliJ IDEA.
-  User: HamidReza
-  Date: 6/22/17
-  Time: 12:10 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="com.sbu.controller.DTO.GenericDTO" %>
+<%@ page import="com.sbu.dao.model.ActiveMemberEntity" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -122,7 +117,7 @@
     <h4 style="margin-bottom: 15px;">فرم عضویت به عنوان عضو فعال کانون</h4>
     <form:form class="form-horizontal" method="post" action="/activeMembers/main">
         <%
-            ActiveMemberDTO dto= (ActiveMemberDTO) request.getAttribute("dto");
+            GenericDTO<ActiveMemberEntity> dto= (GenericDTO<ActiveMemberEntity>) request.getAttribute("dto");
             if (dto!=null && dto.getState().equals(0))
             {
                 if (dto.getFilled().getName()==null){
@@ -194,7 +189,8 @@
         <%
             if (dto!=null && dto.getState().equals(0))
             {
-                if (dto.getFilled().getPhoneNumber()==null){
+                if (dto.getFilled().getPhoneNumber()==null)
+                {
         %>
         <div class="form-group">
             <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
@@ -203,17 +199,8 @@
             </div>
         </div>
         <%
-        }else {
-        %>
-        <div class="form-group">
-            <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
-            <div class="col-sm-5">
-                <input type="text" name="phoneNumber" class="form-control" placeholder="۰۹۱۲۱۲۳۴۵۶۷" style="text-align: left; direction: ltr;">
-            </div>
-        </div>
-        <%
-            }
-        }else if(dto!=null && dto.getState().equals(-1)){
+                }else if(dto.getState().equals(-1))
+                {
         %>
         <div class="form-group">
             <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
@@ -222,7 +209,8 @@
             </div>
         </div>
         <%
-            }else{
+                }
+                } else{
         %>
         <div class="form-group">
             <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
@@ -231,11 +219,8 @@
             </div>
         </div>
         <%
-            }
+                }
         %>
-
-
-
 
         <div class="form-group">
             <label class="control-label col-sm-2" >ایمیل(اختیاری):</label>
