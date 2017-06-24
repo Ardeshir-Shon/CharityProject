@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>inbox</title>
+    <title>discard</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/../resources/bootstrap-3.3.7-dist/css/bootstrap.css"
@@ -48,6 +48,9 @@
         @font-face {
             font-family: Gulf-semibold;
             src: url(${pageContext.request.contextPath}/../resources/fonts/Gulf-semibold.ttf);
+        }
+        input.wrong::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+            color: #c73f3f;
         }
     </style>
 
@@ -121,9 +124,6 @@
     <p id="demo"></p>
 
     <form:form class="form-horizontal" method="post" action="/discard/main">
-
-
-
 
         <%
             GenericDTO<DiscardModel> dto= (GenericDTO<DiscardModel>) request.getAttribute("dto");
@@ -203,17 +203,6 @@
             }
         %>
 
-
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-5">
-                <button type="submit" class="btn btn-default" style="background-color: #f2f2f2; color: #777;"
-                        onclick="sendmessage();" id="sendmsg">لغو همکاری
-                </button>
-                <!-- <div class="g-recaptcha" data-sitekey="6LdbBBsUAAAAAE2H11rzHeFOhrbkjnh9JIZG_HcY"></div> -->
-            </div>
-        </div>
-
-
         <%
         if((dto != null && dto.getState() != 1) || dto == null)
         {
@@ -232,8 +221,6 @@
         <%
             }
         %>
-
-
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-5" style="min-height: 200px;">
@@ -300,6 +287,7 @@
         </div>
 
     </div>
+</div>
 
 </body>
 </html>

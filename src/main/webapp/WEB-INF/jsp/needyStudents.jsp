@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.sbu.dao.model.NeedyStudentEntity" %>
+<%@ page import="com.sbu.controller.DTO.GenericDTO" %><%--
   Created by IntelliJ IDEA.
   User: HamidReza
   Date: 6/22/17
@@ -15,7 +16,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>inbox</title>
+    <title>needy student</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/../resources/bootstrap-3.3.7-dist/css/bootstrap.css"
@@ -42,6 +43,9 @@
         @font-face {
             font-family: Gulf-semibold;
             src: url(${pageContext.request.contextPath}/../resources/fonts/Gulf-semibold.ttf);
+        }
+        input.wrong::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+            color: #c73f3f;
         }
     </style>
 
@@ -107,42 +111,170 @@
     <h4 style="margin-bottom: 15px;">فرم عضویت به عنوان دانشجوی تحت پوشش</h4>
     <h5 style="color: #c73f3f; margin-bottom: 18px;">تمامی اطلاعات دریافتی از سوی ما محرمانه در نظر گرفته شده و محفوظ اند.</h5>
     <form:form class="form-horizontal" method="post" action="/needyStudents/main">
+        <%
+            GenericDTO<NeedyStudentEntity> dto= (GenericDTO<NeedyStudentEntity>) request.getAttribute("dto");
+            if (dto!=null && dto.getState().equals(0))
+            {
+                if (dto.getFilled().getName()==null){
+        %>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >نام:</label>
+            <div class="col-sm-5">
+                <input type="text" name="firstName" class="form-control wrong"  placeholder="بایستی نام خود را وارد کنید!">
+            </div>
+        </div>
+        <%
+        }else {
+        %>
         <div class="form-group">
             <label class="control-label col-sm-2" >نام:</label>
             <div class="col-sm-5">
                 <input type="text" name="firstName" class="form-control" placeholder="نام خود را وارد کنید">
             </div>
         </div>
+        <%
+            }
+        }else{
+        %>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >نام:</label>
+            <div class="col-sm-5">
+                <input type="text" name="firstName" class="form-control" placeholder="نام خود را وارد کنید">
+            </div>
+        </div>
+        <%
+            }
+        %>
+
+        <%
+            if (dto!=null && dto.getState().equals(0))
+            {
+                if (dto.getFilled().getFamily()==null){
+        %>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >نام خانوادگی:</label>
+            <div class="col-sm-5">
+                <input type="text" name="lastName" class="form-control wrong" placeholder="بایستی نام خانوادگی خود را وارد کنید!">
+            </div>
+        </div>
+        <%
+        }else {
+        %>
         <div class="form-group">
             <label class="control-label col-sm-2" >نام خانوادگی:</label>
             <div class="col-sm-5">
                 <input type="text" name="lastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
             </div>
         </div>
+        <%
+            }
+        }else {
+        %>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >نام خانوادگی:</label>
+            <div class="col-sm-5">
+                <input type="text" name="lastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
+            </div>
+        </div>
+        <%
+            }
+        %>
+
+        <%
+            if (dto!=null && dto.getState().equals(0))
+            {
+                if (dto.getFilled().getPhoneNumber()==null)
+                {
+        %>
+        <div class="form-group">
+            <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
+            <div class="col-sm-5">
+                <input type="text" name="phoneNumber" class="form-control wrong" placeholder="بایستی شماره‌ی موبایل خود را وارد کنید!">
+            </div>
+        </div>
+        <%
+        }else if(dto.getState().equals(-1))
+        {
+        %>
+        <div class="form-group">
+            <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
+            <div class="col-sm-5">
+                <input type="text" name="phoneNumber" class="form-control wrong" placeholder="این شمار‌ه‌ی موبایل پیش از این در سامانه ثبت شده است!">
+            </div>
+        </div>
+        <%
+            }
+        } else{
+        %>
         <div class="form-group">
             <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
             <div class="col-sm-5">
                 <input type="text" name="phoneNumber" class="form-control" placeholder="۰۹۱۲۱۲۳۴۵۶۷" style="text-align: left; direction: ltr;">
             </div>
         </div>
+        <%
+            }
+        %>
+
+
+        <%
+            if (dto!=null && dto.getState().equals(0))
+            {
+                if (dto.getFilled().getStudentId()==null){
+        %>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >شماره‌ی دانشجویی:</label>
+            <div class="col-sm-5">
+                <input type="text" name="studentNumber" class="form-control wrong" placeholder="بایستی شماره‌ی دانشجویی خود را وارد کنید!">
+            </div>
+        </div>
+        <%
+        }else {
+        %>
         <div class="form-group">
             <label class="control-label col-sm-2" >شماره‌ی دانشجویی:</label>
             <div class="col-sm-5">
                 <input type="text" name="studentNumber" class="form-control" placeholder="شماره‌ی دانشجویی خود را وارد کنید(به عدد)">
             </div>
         </div>
+        <%
+            }
+        }else{
+        %>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >شماره‌ی دانشجویی:</label>
+            <div class="col-sm-5">
+                <input type="text" name="studentNumber" class="form-control" placeholder="شماره‌ی دانشجویی خود را وارد کنید(به عدد)">
+            </div>
+        </div>
+        <%
+            }
+        %>
+
         <div class="form-group">
             <label class="control-label col-sm-2">توضیحات:</label>
             <div class="col-sm-5">
                 <textarea name="description" class="form-control" rows="6" placeholder="در مورد سطح و نوع نیاز خود برای ما بنویسید..."></textarea>
             </div>
         </div>
+
+        <%
+            if((dto != null && dto.getState() != 1) || dto == null)
+            {
+        %>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-default" style="background-color: #f2f2f2; color: #777;">ثــبــت</button>
-                <!-- <div class="g-recaptcha" data-sitekey="6LdbBBsUAAAAAE2H11rzHeFOhrbkjnh9JIZG_HcY"></div> -->
             </div>
         </div>
+        <%
+        }else {
+        %>
+        <h5 class="col-sm-offset-2 col-sm-10" style="color: #41985c; margin-bottom: 18px;">اطلاعات شما با موفقیت ثبت گردیدند، با شما در ارتباط خواهیم بود.</h5>
+        <%
+            }
+        %>
+
     </form:form>
 </div>
 <div class="container">
