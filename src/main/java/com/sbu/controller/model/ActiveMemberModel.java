@@ -10,7 +10,7 @@ public class ActiveMemberModel {
     private String phoneNumber;
     private String mail;
     private String description;
-    private boolean isStudent;
+    private String isStudent;
     private String studentNumber;
 
     public String getFirstName() {
@@ -34,7 +34,7 @@ public class ActiveMemberModel {
     }
 
     public Boolean getStudent() {
-        return isStudent;
+        return !isStudent.isEmpty();
     }
 
     public String getStudentNumber() {
@@ -61,7 +61,7 @@ public class ActiveMemberModel {
         this.description = description;
     }
 
-    public void setStudent(Boolean student) {
+    public void setStudent(String student) {
         isStudent = student;
     }
 
