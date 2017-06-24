@@ -1,7 +1,7 @@
 package com.sbu.controller;
 
+import com.sbu.controller.DTO.GenericDTO;
 import com.sbu.controller.model.PeriodicHelpCashModel;
-import com.sbu.controller.model.PeriodicHelpDTO;
 import com.sbu.dao.model.HelperEntity;
 import com.sbu.service.HelperService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ public class PeriodicHelperController {
     public String periodHelpSubmit(Model model, @ModelAttribute("periodicHelpCashModel")PeriodicHelpCashModel periodicHelpCashModel){
 
         HelperEntity helperEntity=new HelperEntity();
-        PeriodicHelpDTO dto=new PeriodicHelpDTO();
+        GenericDTO<HelperEntity> dto=new GenericDTO<>();
         Integer predicateCount=0;
 
         if (!periodicHelpCashModel.getFirstName().isEmpty())

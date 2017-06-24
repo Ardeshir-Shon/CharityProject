@@ -1,6 +1,5 @@
 package com.sbu.controller;
 
-import com.sbu.controller.DTO.ActiveMemberDTO;
 import com.sbu.controller.DTO.GenericDTO;
 import com.sbu.controller.model.ActiveMemberModel;
 import com.sbu.dao.model.ActiveMemberEntity;

@@ -1,7 +1,6 @@
 package com.sbu.controller;
 
 import com.sbu.controller.DTO.GenericDTO;
-import com.sbu.controller.DTO.RecommendationDTO;
 import com.sbu.controller.model.RecommendationModel;
 import com.sbu.dao.model.IntroductionEntity;
 import com.sbu.service.IntroductionService;
