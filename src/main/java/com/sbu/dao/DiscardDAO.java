@@ -8,6 +8,6 @@ import org.hibernate.boot.model.source.internal.hbm.Helper;
  */
 public interface DiscardDAO {
 
-    public void dicardHelperEntity(String id);
+    public Boolean dicardHelperEntity(String id);
     public HelperEntity getHelper(String id);
 }
