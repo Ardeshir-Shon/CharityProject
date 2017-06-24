@@ -19,8 +19,8 @@ public class HelperServiceImpl implements HelperService {
     String cipherText;
 
     @Override
-    public  Boolean idChekNotNull(HelperEntity helperEntity){
-        if(!helperEntity.getPhoneNumber().isEmpty()){
+    public  Boolean idExist(HelperEntity helperEntity){
+        if(helperEntity.getPhoneNumber() == getByPhoneNumber(helperEntity).getPhoneNumber()){
             return true;
         }
         return false;

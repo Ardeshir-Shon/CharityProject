@@ -22,10 +22,14 @@ public class ActiveMemberServiceImpl implements ActiveMemberService {
         return activeMemberDAO.getActiveMemberEntity(activeMemberEntity.getPhoneNumber());
     }
 
-    @Override
-    public Boolean idChekNotNull(ActiveMemberEntity activeMemberEntity){
+    //public Boolean validation(ActiveMemberEntity activeMemberEntity){
 
-        if(!activeMemberEntity.getPhoneNumber().isEmpty()){
+    //}
+
+    @Override
+    public Boolean idExist(ActiveMemberEntity activeMemberEntity){
+
+        if(activeMemberEntity.getPhoneNumber() == getActiveMemberEntity(activeMemberEntity).getPhoneNumber()){
             return true;
         }
         return false;

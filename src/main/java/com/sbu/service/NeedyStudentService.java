@@ -8,7 +8,7 @@ import com.sbu.dao.model.NeedyStudentEntity;
 public interface NeedyStudentService {
 
 
-    public Boolean idCheckNotNull(NeedyStudentEntity needyStudentEntity);
+    public Boolean idExist(NeedyStudentEntity needyStudentEntity);
     public void insertNeedyStudent(NeedyStudentEntity needyStudentEntity);
 
     public NeedyStudentEntity getByStudentId(NeedyStudentEntity needyStudentEntity);
