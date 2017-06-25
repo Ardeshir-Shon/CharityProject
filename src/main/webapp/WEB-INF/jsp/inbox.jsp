@@ -53,7 +53,10 @@
             font-family: Gulf-semibold;
             src: url(${pageContext.request.contextPath}/../resources/fonts/Gulf-semibold.ttf);
         }
-        input.wrong::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+        textarea.wrong::-webkit-input-placeholder {
+            color: #c73f3f;
+        }
+        input.wrong::-webkit-input-placeholder {
             color: #c73f3f;
         }
     </style>
@@ -205,7 +208,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2">متن پیام:</label>
             <div class="col-sm-5">
-                <textarea class="form-control" name="body" rows="6" id="comment1" placeholder="بایستی متن پیام خود را وارد کنید!"></textarea>
+                <textarea class="form-control wrong" name="body" rows="6" id="comment1" placeholder="بایستی متن پیام خود را وارد کنید!"></textarea>
             </div>
         </div>
         <%
@@ -230,7 +233,39 @@
         <%
             }
         %>
+        ${dto.state}
 
+        <%
+            if (dto!=null && dto.getState().equals(2))
+            {
+        %>
+        <div class="form-group">
+            <div class="control-label  col-sm-offset-2 col-sm-5">
+                <div class="checkbox">
+                    <div style="text-align: right; margin-right: 21px; margin-top: -5px;">
+                        <input type="checkbox" name="tendency" value="on" checked id="checkbox" onchange="hider();">مایلم در صورت
+                        نیاز
+                        به پیامم پاسخ داده شود</input>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" id="phone">
+            <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
+            <div class="col-sm-5">
+                <input type="text" name="phoneNumber"  class="form-control wrong" placeholder="بایستی شماره‌ی موبایل خود را وارد کنید!">
+            </div>
+        </div>
+        <div class="form-group" id="email" style="display: block;">
+            <label class="control-label col-sm-2">ایمیل:</label>
+            <div class="col-sm-5">
+                <input type="text" name="email" class="form-control" placeholder="someone@example.com"
+                       style="text-align: left; direction: ltr;">
+            </div>
+        </div>
+        <%
+        }else{
+        %>
         <div class="form-group">
             <div class="control-label  col-sm-offset-2 col-sm-5">
                 <div class="checkbox">
@@ -242,20 +277,6 @@
                 </div>
             </div>
         </div>
-
-        <%
-            if (dto!=null && dto.getState().equals(2))
-            {
-        %>
-        <div class="form-group">
-            <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
-            <div class="col-sm-5">
-                <input type="text" name="phoneNumber" class="form-control wrong" placeholder="بایستی شماره‌ی موبایل خود را وارد کنید!">
-            </div>
-        </div>
-        <%
-        }else{
-        %>
         <div class="form-group" id="phone" style="display: none;">
             <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
             <div class="col-sm-5">
@@ -263,17 +284,17 @@
                        style="text-align: left; direction: ltr;">
             </div>
         </div>
-        <%
-            }
-        %>
-
         <div class="form-group" id="email" style="display: none;">
-            <label class="control-label col-sm-2">ایمیل(اختیاری):</label>
+            <label class="control-label col-sm-2">ایمیل:</label>
             <div class="col-sm-5">
                 <input type="text" name="email" class="form-control" placeholder="someone@example.com"
                        style="text-align: left; direction: ltr;">
             </div>
         </div>
+        <%
+            }
+        %>
+
 
 
         <%
@@ -290,7 +311,7 @@
         <%
         }else {
         %>
-        <h5 class="col-sm-offset-2 col-sm-10" style="color: #41985c; margin-bottom: 18px;">پیام شما با موفقیت ثبت گردیدند.</h5>
+        <h5 class="col-sm-offset-2 col-sm-10" style="color: #41985c; margin-bottom: 18px;">پیام شما با موفقیت ثبت گردید.</h5>
         <%
             }
         %>

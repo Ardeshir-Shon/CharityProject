@@ -233,6 +233,30 @@
                 <textarea name="description" class="form-control" rows="6" placeholder=""></textarea>
             </div>
         </div>
+
+        <%
+            if (dto!=null && dto.getState().equals(2))
+            {
+        %>
+        <div class="form-group">
+            <div class="control-label  col-sm-offset-2 col-sm-5" >
+                <div class="checkbox">
+                    <div style="text-align: right; margin-right: 21px; margin-top: -5px;">
+                        <input type="checkbox" name="isStudent" checked value="on" id="checkbox" onchange="hider();">دانشجوی دانشگاه شهید بهشتی هستم</input>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" id="stNumber" style="display: block;">
+            <label class="control-label col-sm-2" >شماره‌ی دانشجویی:</label>
+            <div class="col-sm-5">
+                <input type="text" name="studentNumber" class="form-control wrong" placeholder="بایستی شماره‌ی دانشجویی خود را وارد کنید!">
+            </div>
+        </div>
+        <%
+        }else{
+        %>
         <div class="form-group">
             <div class="control-label  col-sm-offset-2 col-sm-5" >
                 <div class="checkbox">
@@ -243,20 +267,6 @@
             </div>
         </div>
 
-
-        <%
-            if (dto!=null && dto.getState().equals(2))
-            {
-        %>
-        <div class="form-group" id="stNumber" style="display: none;">
-            <label class="control-label col-sm-2" >شماره‌ی دانشجویی:</label>
-            <div class="col-sm-5">
-                <input type="text" name="studentNumber" class="form-control wrong" placeholder="بایستی شماره‌ی دانشجویی خود را وارد کنید!">
-            </div>
-        </div>
-        <%
-            }else{
-        %>
         <div class="form-group" id="stNumber" style="display: none;">
             <label class="control-label col-sm-2" >شماره‌ی دانشجویی:</label>
             <div class="col-sm-5">
