@@ -45,7 +45,7 @@
 
         }
         function sendmessage() {
-            document.getElementById("sendmsg").innerHTML = "sdhjfvkjhw";
+            document.getElementById("sendmsg").innerHTML = "ثبت شد!";
         }
 
     </script>
@@ -58,6 +58,12 @@
         @font-face {
             font-family: Gulf-semibold;
             src: url(${pageContext.request.contextPath}/../resources/fonts/Gulf-semibold.ttf);
+        }
+        textarea.wrong::-webkit-input-placeholder {
+            color: #c73f3f;
+        }
+        input.wrong::-webkit-input-placeholder {
+            color: #c73f3f;
         }
     </style>
 
@@ -210,7 +216,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2">متن پیشنهاد:</label>
             <div class="col-sm-5">
-                <textarea class="form-control" name="body" rows="6" id="comment" placeholder="بایستی متن پیشنهاد خود را وارد کنید!"></textarea>
+                <textarea class="form-control wrong" name="body" rows="6" id="comment" placeholder="بایستی متن پیشنهاد خود را وارد کنید!"></textarea>
             </div>
         </div>
         <%
@@ -270,7 +276,7 @@
             }
         %>
         <div class="form-group" id="email" style="display: none;">
-            <label class="control-label col-sm-2" >ایمیل(اختیاری):</label>
+            <label class="control-label col-sm-2" >ایمیل:</label>
             <div class="col-sm-5">
                 <input type="text" name="email" class="form-control" placeholder="someone@example.com" style="text-align: left; direction: ltr;">
             </div>

@@ -31,7 +31,7 @@
     <script src="https://use.fontawesome.com/5881fd899f.js"></script>
     <script>
         function sendmessage() {
-            document.getElementById("sendmsg").innerHTML = "sdhjfvkjhw";
+            document.getElementById("sendmsg").innerHTML = "ثبت شد!";
         }
     </script>
     <style>
@@ -182,7 +182,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2">رمز عبور:</label>
             <div class="col-sm-5">
-                <input type="password" name="password" class="form-control" placeholder="رمز عبور وارد شده اشتباه است!" style="text-align: left; direction: ltr;">
+                <input type="password" name="password" class="form-control wrong" placeholder="رمز عبور وارد شده اشتباه است!" style="text-align: left; direction: ltr;">
             </div>
         </div>
         <%

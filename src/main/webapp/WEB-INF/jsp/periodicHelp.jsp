@@ -64,6 +64,17 @@
             color: #c73f3f;
         }
     </style>
+    <style>
+        .accordion-heading {
+            background-color: #f2f2f2;
+            min-height: 40px;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-family: Gulf-semibold;
+            font-size: 17px;
+        }
+    </style>
 
 </head>
 
