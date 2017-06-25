@@ -22,7 +22,8 @@ public class DiscardDAOImpl implements DiscardDAO {
     @Transactional
     public Boolean dicardHelperEntity(String id)  {
         try {
-            entityManager.remove(id);
+            HelperEntity helperEntity=(HelperEntity) entityManager.find(HelperEntity.class,id);
+            entityManager.remove(helperEntity);
             return true;
         }
         catch (Exception e){
