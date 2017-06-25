@@ -26,7 +26,7 @@ public class WelcomeController {
         model.addAttribute("today", today);
         // Return view welcome. Via resolver the view
         // will be mapped to /WEB-INF/jsp/welcome.jsp
-        return "welcome";
+        return "home";
     }
 
     @RequestMapping(value = "welcome2", method = RequestMethod.GET)

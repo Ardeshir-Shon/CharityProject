@@ -84,10 +84,10 @@ public class PeriodicHelperController {
                 model.addAttribute("dto",dto);
                 return "periodicHelp";
             }
-            if (helperService.idExist(helperEntity)){
+            if (helperService.validation(helperEntity) || helperService.idExist(helperEntity)){
                 dto.setState(-1);
             }
-            else {
+            else if (dto.getState()==1){
                 boolean insert=helperService.insertPeriodicHelp(helperEntity);
                 if (!insert)
                     dto.setState(-1);

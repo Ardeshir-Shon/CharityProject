@@ -50,10 +50,10 @@ public class NeedyStudentController {
         }
         else{
             dto.setState(1); // ok input
-            if (needyStudentService.idExist(needyStudent)){
+            if (needyStudentService.validation(needyStudent) || needyStudentService.idExist(needyStudent)){
                 dto.setState(-1);
             }
-            else {
+            else if (dto.getState()==1){
                 boolean insert=needyStudentService.insertNeedyStudent(needyStudent);
                 if (!insert)
                     dto.setState(-1); // invalid inputs / id is repetitive
