@@ -26,6 +26,8 @@ public class DiscardServiceImpl implements DiscardService {
 
     public Boolean validation(String phoneNumber , String passWord){
         helperEntity = discardDAO.getHelper(phoneNumber);
+        if (helperEntity==null)
+            return false;
         cipherText = helperEntity.getPassword();
         plainText = Encryptor.decrypt(cipherText);
 

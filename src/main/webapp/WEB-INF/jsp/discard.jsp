@@ -172,7 +172,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2">رمز عبور:</label>
             <div class="col-sm-5">
-                <input ype="password" name="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+                <input type="password" name="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
             </div>
         </div>
         <%
@@ -191,7 +191,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2">رمز عبور:</label>
             <div class="col-sm-5">
-                <input ype="password" name="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+                <input type="password" name="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
             </div>
         </div>
         <%
