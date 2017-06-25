@@ -43,6 +43,6 @@ public class NeedyStudentServiceImpl implements NeedyStudentService{
 
     @Override
     public NeedyStudentEntity getByPhoneNumber(NeedyStudentEntity needyStudent) {
-        return needyStudentDAO.getByStudentId(needyStudent.getPhoneNumber());
+        return needyStudentDAO.getByPhoneNumber(needyStudent.getPhoneNumber());
     }
 }

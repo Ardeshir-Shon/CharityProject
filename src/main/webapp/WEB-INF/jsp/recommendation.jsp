@@ -241,7 +241,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
                         <div class="col-sm-5">
-                            <input type="text" name="phoneNumber" class="form-control wrong" placeholder="بایستی شماره‌ی موبایل خود را وارد کنید!">
+                            <input type="text" name="succorPhoneNumber" class="form-control wrong" placeholder="بایستی شماره‌ی موبایل خود را وارد کنید!">
                         </div>
                     </div>
                     <%

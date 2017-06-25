@@ -79,7 +79,7 @@
 
                             <li><a href="/recommendation">معرفی دانشجوی‌ مددجو</a></li>
 
-                            <li><a href="/needyStudents">درمیان‌گذاری نیازمندی با کانون</a></li>
+                            <li><a href="/needyStudent">درمیان‌گذاری نیازمندی با کانون</a></li>
                         </ul>
                     </li>
                     <li>
@@ -106,7 +106,7 @@
 <div class="container" style="font-family: Gulf;">
     <h4 style="margin-bottom: 15px;">فرم عضویت به عنوان دانشجوی تحت پوشش</h4>
     <h5 style="color: #c73f3f; margin-bottom: 18px;">تمامی اطلاعات دریافتی از سوی ما محرمانه در نظر گرفته شده و محفوظ اند.</h5>
-    <form:form class="form-horizontal" method="post" action="/needyStudents/main">
+    <form:form class="form-horizontal" method="post" action="/needyStudent/main">
         <%
             GenericDTO<NeedyStudentEntity> dto= (GenericDTO<NeedyStudentEntity>) request.getAttribute("dto");
             if (dto!=null && dto.getState().equals(0))
@@ -279,7 +279,7 @@
         <div class="col-sm-4" style="text-align: center; font-size: 20px;">
             <span class="fa fa-envelope-o" aria-hidden="true" style="font-size: 25px; vertical-align: middle"></span><span style="vertical-align: middle"> &nbsp خبرنامه امید نو  </span>
             <div style="margin-top: 15px;">
-                <form:form method="post" action="/needyStudents/newsLetter">
+                <form:form method="post" action="/needyStudent/newsLetter">
                     <div class="input-group">
                         <input type="text" name="newsLetterEmail" class="form-control" placeholder="ایمیل خود را وارد کنید" style="text-align: center; direction: ltr;">
                         <div class="input-group-btn">

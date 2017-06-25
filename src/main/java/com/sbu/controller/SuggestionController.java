@@ -57,22 +57,25 @@ public class SuggestionController {
         }
         else {
             dto.setState(1);
-            if (suggestionModel.getTendency() && (!suggestionModel.getPhoneNumber().isEmpty()
-                    || !suggestionModel.getEmail().isEmpty())){// ok
-                if (!suggestionModel.getPhoneNumber().isEmpty())
-                    suggestionEntity.setPhoneNumber(suggestionModel.getPhoneNumber());
-                if (!suggestionModel.getEmail().isEmpty())
-                    suggestionEntity.setEmail(suggestionModel.getEmail());
-            }
-            else {
-                dto.setState(2); // tendency but not more contact
-                dto.setFilled(suggestionEntity);
-                model.addAttribute("dto",dto);
+            if (suggestionModel.getTendency()){
+                if (!suggestionModel.getPhoneNumber().isEmpty() || !suggestionModel.getEmail().isEmpty()){// ok
+                    if (!suggestionModel.getPhoneNumber().isEmpty())
+                        suggestionEntity.setPhoneNumber(suggestionModel.getPhoneNumber());
+                    if (!suggestionModel.getEmail().isEmpty())
+                        suggestionEntity.setEmail(suggestionModel.getEmail());
+                }
+                else {
+                    dto.setState(2); // tendency but not more contact
+                    dto.setFilled(suggestionEntity);
+                    model.addAttribute("dto",dto);
+                    return "suggestion";
+                }
             }
             insert= suggestionService.insertSuggestion(suggestionEntity);
             if (!insert)
                 dto.setState(-1);
         }
+        dto.setFilled(suggestionEntity);
         model.addAttribute("dto",dto);
         return "suggestion";
     }
