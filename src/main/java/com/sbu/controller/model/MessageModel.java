@@ -4,7 +4,7 @@ package com.sbu.controller.model;
  * Created by user on 6/21/2017.
  */
 public class MessageModel {
-    private String name;
+    private String firstName;
     private String title;
     private String body;
     private String tendency;
@@ -28,8 +28,8 @@ public class MessageModel {
         this.email = email;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
     public String getTitle() {
@@ -56,8 +56,8 @@ public class MessageModel {
         this.tendency = tendency;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String name) {
+        this.firstName = name;
     }
 
     public void setTitle(String title) {

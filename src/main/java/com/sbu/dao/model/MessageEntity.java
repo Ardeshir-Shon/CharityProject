@@ -22,7 +22,7 @@ public class MessageEntity {
     @Column( length=500)
     private String text;
 
-    @Column(length=50 , unique = true)
+    @Column(length=50)
     private String phoneNumber;
     @Column( length=50 )
     private String Email;

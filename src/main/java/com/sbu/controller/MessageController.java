@@ -33,8 +33,8 @@ public class MessageController {
         GenericDTO<MessageEntity> dto = new GenericDTO<>();
         MessageEntity messageEntity=new MessageEntity();
 
-        if (!messageModel.getName().isEmpty() && !messageModel.getTitle().isEmpty() && !messageModel.getBody().isEmpty()){
-            messageEntity.setName(messageModel.getName());
+        if (!messageModel.getFirstName().isEmpty() && !messageModel.getTitle().isEmpty() && !messageModel.getBody().isEmpty()){
+            messageEntity.setName(messageModel.getFirstName());
             messageEntity.setSubject(messageModel.getTitle());
             messageEntity.setText(messageModel.getBody());
             dto.setState(1); // ok required inputs.
@@ -57,7 +57,7 @@ public class MessageController {
         if (dto.getState()==1) {
             insert=messageService.insertMessage(messageEntity);
         }
-        if (!insert)
+        if (dto.getState()==1 && !insert)
             dto.setState(-1);
         dto.setFilled(messageEntity);
         model.addAttribute("dto",dto);
