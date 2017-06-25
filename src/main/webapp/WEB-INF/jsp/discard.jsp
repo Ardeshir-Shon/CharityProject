@@ -120,16 +120,14 @@
 <div class="container" style="font-family: Gulf;">
     <h4 style="margin-bottom: 15px;">اعلام لغو همکاری</h4>
     <p id="demo"></p>
-
     <form:form class="form-horizontal" method="post" action="/discard/main">
 
         <%
             GenericDTO<DiscardModel> dto= (GenericDTO<DiscardModel>) request.getAttribute("dto");
-            if (dto!=null && dto.getState().equals(0))
+            if (dto!=null && dto.getState().equals(0) )
             {
-                if (dto.getFilled().getPhoneNumber()==null){
+                if(dto.getFilled().getPhoneNumber().isEmpty()){
         %>
-        phone1!
         <div class="form-group">
             <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
             <div class="col-sm-5">
@@ -137,9 +135,8 @@
             </div>
         </div>
         <%
-        }else {
+        }else{
         %>
-        phone2!
         <div class="form-group">
             <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
             <div class="col-sm-5">
@@ -150,7 +147,6 @@
             }
         }else{
         %>
-        phone3!
         <div class="form-group">
             <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
             <div class="col-sm-5">
@@ -164,7 +160,7 @@
         <%
             if (dto!=null && dto.getState().equals(0))
             {
-                if (dto.getFilled().getPassword()==null){
+                if (dto.getFilled().getPassword().isEmpty()){
         %>
         <div class="form-group">
             <label class="control-label col-sm-2">رمز عبور:</label>
@@ -183,12 +179,15 @@
         </div>
         <%
             }
+        %>
+
+        <%
         }else if(dto!=null && dto.getState().equals(-1)){
         %>
         <div class="form-group">
             <label class="control-label col-sm-2">رمز عبور:</label>
             <div class="col-sm-5">
-                <input type="password" name="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
+                <input type="password" name="password" class="form-control wrong" placeholder="" style="text-align: left; direction: ltr;">
             </div>
         </div>
         <%
@@ -222,6 +221,11 @@
         <%
             }
         %>
+        <%
+            if (dto!=null && dto.getState()==-1){
+        %>
+        <h5 class="col-sm-offset-2 col-sm-10" style="color: #c73f3f; margin-bottom: 18px;">تلفن و یا رمز عبور را اشتباه وارد کرده اید.</h5>
+        <%}%>
 
         ${dto.state}
 

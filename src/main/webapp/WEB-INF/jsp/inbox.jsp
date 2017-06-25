@@ -19,7 +19,6 @@
     <script src="${pageContext.request.contextPath}/../resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"
             type="text/javascript">
     </script>
-    <!-- Load Bootstrap RTL theme from RawGit -->
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/../resources/bootstrap-rtl-master/dist/css/bootstrap-rtl.css"
           type="text/css">
@@ -235,7 +234,6 @@
         <%
             }
         %>
-        ${dto.state}
 
         <%
             if (dto!=null && dto.getState().equals(2))

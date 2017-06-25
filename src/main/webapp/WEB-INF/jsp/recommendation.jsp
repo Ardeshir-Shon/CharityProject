@@ -14,18 +14,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/../resources/bootstrap-3.3.7-dist/css/bootstrap.css"
           type="text/css">
-    <script src="/https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript">
     </script>
     <script src="${pageContext.request.contextPath}/../resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"
             type="text/javascript">
     </script>
-    <script type="text/javascript" src="javascript.js">
-    </script><!-- Load Bootstrap RTL theme from RawGit -->
+    <!-- Load Bootstrap RTL theme from RawGit -->
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/../resources/bootstrap-rtl-master/dist/css/bootstrap-rtl.css"
           type="text/css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/../resources/style.css" type="text/css">
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <script src="https://use.fontawesome.com/5881fd899f.js"></script>
     <script>
         function hider(){
