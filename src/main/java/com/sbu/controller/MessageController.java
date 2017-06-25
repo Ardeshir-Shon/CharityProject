@@ -50,6 +50,9 @@ public class MessageController {
         }
         else{// fill necessary incorrect
             dto.setState(0); // incomplete required input.
+            dto.setFilled(messageEntity);
+            model.addAttribute("dto",dto);
+            return "inbox";
         }
         if(dto.getState()==1 && messageModel.isTendency()){// want to contribute and filled top true
             if (!messageModel.getPhoneNumber().isEmpty() || !messageModel.getEmail().isEmpty()){// correct
@@ -65,8 +68,10 @@ public class MessageController {
         boolean insert=false;
         if (messageService.validation(messageEntity) && dto.getState()==1) {
             insert=messageService.insertMessage(messageEntity);
+            if (!insert)
+                dto.setState(-1);
         }
-        if (dto.getState()==1 && !insert && !messageService.validation(messageEntity))
+        else
             dto.setState(-1);
         dto.setFilled(messageEntity);
         model.addAttribute("dto",dto);

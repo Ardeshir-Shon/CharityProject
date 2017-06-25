@@ -274,7 +274,7 @@
         <%
             }
         %>
-
+        ${dto.state}
     </form:form>
 </div>
 <div class="container">

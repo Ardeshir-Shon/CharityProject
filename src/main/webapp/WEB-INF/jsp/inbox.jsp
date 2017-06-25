@@ -310,7 +310,7 @@
             </div>
         </div>
         <%
-        }else {
+            }else {
         %>
         <h5 class="col-sm-offset-2 col-sm-10" style="color: #41985c; margin-bottom: 18px;">پیام شما با موفقیت ثبت گردید.</h5>
         <%
