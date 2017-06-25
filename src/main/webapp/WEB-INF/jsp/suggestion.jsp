@@ -1,11 +1,5 @@
 <%@ page import="com.sbu.dao.model.SuggestionEntity" %>
-<%@ page import="com.sbu.controller.DTO.GenericDTO" %><%--
-  Created by IntelliJ IDEA.
-  User: HamidReza
-  Date: 6/22/17
-  Time: 3:06 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="com.sbu.controller.DTO.GenericDTO" %>
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
@@ -16,8 +10,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>suggestion</title>
+    <title>پیشنهادات</title>
     <meta charset="utf-8">
+    <link><link rel="icon" href="${pageContext.request.contextPath}/../resources/DF-logo.png" type="image/gif" sizes="40x40">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/../resources/bootstrap-3.3.7-dist/css/bootstrap.css"
           type="text/css">
@@ -26,7 +21,6 @@
     <script src="${pageContext.request.contextPath}/../resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"
             type="text/javascript">
     </script>
-    <!-- Load Bootstrap RTL theme from RawGit -->
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/../resources/bootstrap-rtl-master/dist/css/bootstrap-rtl.css"
           type="text/css">

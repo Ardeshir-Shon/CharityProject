@@ -11,8 +11,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>needy student</title>
+    <title>درمیان‌گذاری نیازمندی</title>
     <meta charset="utf-8">
+    <link><link rel="icon" href="${pageContext.request.contextPath}/../resources/DF-logo.png" type="image/gif" sizes="40x40">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/../resources/bootstrap-3.3.7-dist/css/bootstrap.css"
           type="text/css">
