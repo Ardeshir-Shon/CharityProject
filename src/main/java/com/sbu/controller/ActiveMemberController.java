@@ -59,7 +59,7 @@ public class ActiveMemberController  {
                 model.addAttribute("dto",dto);
                 return "activeMembers";
             }
-            if (activeMemberService.idExist(activeMember)){
+            if (!activeMemberService.validation(activeMember) || activeMemberService.idExist(activeMember) ){
                 dto.setState(-1);
             }
             else {

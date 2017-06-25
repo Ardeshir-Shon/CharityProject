@@ -15,23 +15,19 @@ public class DiscardServiceImpl implements DiscardService {
     @Autowired
     DiscardDAO discardDAO;
 
-    HelperEntity helperEntity;
-    String plainText;
-    String cipherText;
-
     @Override
     public Boolean dicardHelper(HelperEntity helperEntity) {
         return discardDAO.dicardHelperEntity(helperEntity.getPhoneNumber());
     }
 
     public Boolean validation(String phoneNumber , String passWord){
-        helperEntity = discardDAO.getHelper(phoneNumber);
+        HelperEntity helperEntity = discardDAO.getHelper(phoneNumber);
         if (helperEntity==null)
             return false;
-        cipherText = helperEntity.getPassword();
-        plainText = Encryptor.decrypt(cipherText);
+        String cipherText = helperEntity.getPassword();
+        String decrypt=Encryptor.decrypt(cipherText);
 
-        if(passWord.equals(plainText)){
+        if(passWord.equals(Encryptor.decrypt(cipherText))){
             return true;
         }
         else {
