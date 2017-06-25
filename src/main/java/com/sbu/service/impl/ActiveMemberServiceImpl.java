@@ -24,9 +24,9 @@ public class ActiveMemberServiceImpl implements ActiveMemberService {
 
     @Override
     public Boolean validation(ActiveMemberEntity activeMemberEntity){
-        if(Validate.validateNumer(activeMemberEntity.getPhoneNumber())){
-            if(Validate.validateNumer(activeMemberEntity.getStudentId())){
-                if(Validate.validateEmail(activeMemberEntity.getEmail())){
+        if(activeMemberEntity.getPhoneNumber()!=null && Validate.validateNumer(activeMemberEntity.getPhoneNumber())){
+            if(activeMemberEntity.getStudentId()!=null &&Validate.validateNumer(activeMemberEntity.getStudentId())){
+                if(activeMemberEntity.getEmail()!=null && Validate.validateEmail(activeMemberEntity.getEmail())){
                     return true;
                 }
             }

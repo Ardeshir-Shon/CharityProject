@@ -33,10 +33,19 @@ public class MessageController {
         GenericDTO<MessageEntity> dto = new GenericDTO<>();
         MessageEntity messageEntity=new MessageEntity();
 
-        if (!messageModel.getFirstName().isEmpty() && !messageModel.getTitle().isEmpty() && !messageModel.getBody().isEmpty()){
+        if (!messageModel.getFirstName().isEmpty()){
             messageEntity.setName(messageModel.getFirstName());
+        }
+
+        if (!messageModel.getTitle().isEmpty()){
             messageEntity.setSubject(messageModel.getTitle());
+        }
+
+        if (!messageModel.getBody().isEmpty()){
             messageEntity.setText(messageModel.getBody());
+        }
+
+        if (!messageModel.getFirstName().isEmpty() && !messageModel.getTitle().isEmpty() && !messageModel.getBody().isEmpty()){
             dto.setState(1); // ok required inputs.
         }
         else{// fill necessary incorrect
