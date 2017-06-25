@@ -63,10 +63,10 @@ public class MessageController {
             }
         }
         boolean insert=false;
-        if (dto.getState()==1) {
+        if (messageService.validation(messageEntity) && dto.getState()==1) {
             insert=messageService.insertMessage(messageEntity);
         }
-        if (dto.getState()==1 && !insert)
+        if (dto.getState()==1 && !insert && !messageService.validation(messageEntity))
             dto.setState(-1);
         dto.setFilled(messageEntity);
         model.addAttribute("dto",dto);
