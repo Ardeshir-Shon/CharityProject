@@ -43,7 +43,9 @@
         }
     </style>
     <style>
-        input.wrong::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+        textarea.wrong::-webkit-input-placeholder {
+            color: #c73f3f;
+        input.wrong::-webkit-input-placeholder {
             color: #c73f3f;
         }
     </style>
@@ -185,11 +187,11 @@
         %>
 
 
+
         <%
             if (dto!=null && dto.getState().equals(0))
             {
-                if (dto.getFilled().getPhoneNumber()==null)
-                {
+                if (dto.getFilled().getName()==null){
         %>
         <div class="form-group">
             <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
@@ -198,18 +200,7 @@
             </div>
         </div>
         <%
-                }else if(dto.getState().equals(-1))
-                {
-        %>
-        <div class="form-group">
-            <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
-            <div class="col-sm-5">
-                <input type="text" name="phoneNumber" class="form-control wrong" placeholder="این شمار‌ه‌ی موبایل پیش از این در سامانه ثبت شده است!">
-            </div>
-        </div>
-        <%
-                }
-                } else{
+        }else {
         %>
         <div class="form-group">
             <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
@@ -218,7 +209,17 @@
             </div>
         </div>
         <%
-                }
+            }
+        }else{
+        %>
+        <div class="form-group">
+            <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
+            <div class="col-sm-5">
+                <input type="text" name="phoneNumber" class="form-control" placeholder="۰۹۱۲۱۲۳۴۵۶۷" style="text-align: left; direction: ltr;">
+            </div>
+        </div>
+        <%
+            }
         %>
 
         <div class="form-group">
@@ -233,6 +234,30 @@
                 <textarea name="description" class="form-control" rows="6" placeholder=""></textarea>
             </div>
         </div>
+
+        <%
+            if (dto!=null && dto.getState().equals(2))
+            {
+        %>
+        <div class="form-group">
+            <div class="control-label  col-sm-offset-2 col-sm-5" >
+                <div class="checkbox">
+                    <div style="text-align: right; margin-right: 21px; margin-top: -5px;">
+                        <input type="checkbox" name="isStudent" checked value="on" id="checkbox" onchange="hider();">دانشجوی دانشگاه شهید بهشتی هستم</input>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" id="stNumber" style="display: block;">
+            <label class="control-label col-sm-2" >شماره‌ی دانشجویی:</label>
+            <div class="col-sm-5">
+                <input type="text" name="studentNumber" class="form-control wrong" placeholder="بایستی شماره‌ی دانشجویی خود را وارد کنید!">
+            </div>
+        </div>
+        <%
+        }else{
+        %>
         <div class="form-group">
             <div class="control-label  col-sm-offset-2 col-sm-5" >
                 <div class="checkbox">
@@ -243,20 +268,6 @@
             </div>
         </div>
 
-
-        <%
-            if (dto!=null && dto.getState().equals(2))
-            {
-        %>
-        <div class="form-group" id="stNumber" style="display: none;">
-            <label class="control-label col-sm-2" >شماره‌ی دانشجویی:</label>
-            <div class="col-sm-5">
-                <input type="text" name="studentNumber" class="form-control wrong" placeholder="بایستی شماره‌ی دانشجویی خود را وارد کنید!">
-            </div>
-        </div>
-        <%
-            }else{
-        %>
         <div class="form-group" id="stNumber" style="display: none;">
             <label class="control-label col-sm-2" >شماره‌ی دانشجویی:</label>
             <div class="col-sm-5">
@@ -274,16 +285,21 @@
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-default" style="background-color: #f2f2f2; color: #777;">ثــبــت</button>
-                <!-- <div class="g-recaptcha" data-sitekey="6LdbBBsUAAAAAE2H11rzHeFOhrbkjnh9JIZG_HcY"></div> -->
             </div>
         </div>
         <%
-            }else {
-                %>
+            }else if(dto.getState().equals(-1))
+            {
+        %>
+        <h5 class="col-sm-offset-2 col-sm-10" style="color: #41985c; margin-bottom: 18px;">ورودی‌های خود را چک کنید!</h5>
+        <%
+            }else{
+        %>
         <h5 class="col-sm-offset-2 col-sm-10" style="color: #41985c; margin-bottom: 18px;">اطلاعات شما با موفقیت ثبت گردیدند.</h5>
         <%
             }
         %>
+
     </form:form>
 </div>
 <div class="container">

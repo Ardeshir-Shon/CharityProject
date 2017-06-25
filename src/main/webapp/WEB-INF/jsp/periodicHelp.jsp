@@ -60,6 +60,11 @@
             font-family: Gulf-semibold;
             src: url(${pageContext.request.contextPath}/../resources/fonts/Gulf-semibold.ttf);
         }
+    </style>
+    <style>
+        textarea.wrong::-webkit-input-placeholder {
+            color: #c73f3f;
+        }
         input.wrong::-webkit-input-placeholder {
             color: #c73f3f;
         }
@@ -223,7 +228,6 @@
                                 <%
                                     }
                                 %>
-
 
                                 <%
                                     if (dto!=null && dto.getState().equals(0))
@@ -1189,4 +1193,4 @@
 </div>
 </div>
 </body>
-</html>f
+</html>

@@ -126,6 +126,7 @@
             {
                 if (dto.getFilled().getPhoneNumber()==null){
         %>
+        phone1!
         <div class="form-group">
             <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
             <div class="col-sm-5">
@@ -135,6 +136,7 @@
         <%
         }else {
         %>
+        phone2!
         <div class="form-group">
             <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
             <div class="col-sm-5">
@@ -145,6 +147,7 @@
             }
         }else{
         %>
+        phone3!
         <div class="form-group">
             <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
             <div class="col-sm-5">
@@ -182,7 +185,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2">رمز عبور:</label>
             <div class="col-sm-5">
-                <input type="password" name="password" class="form-control wrong" placeholder="رمز عبور وارد شده اشتباه است!" style="text-align: left; direction: ltr;">
+                <input type="password" name="password" class="form-control" placeholder="" style="text-align: left; direction: ltr;">
             </div>
         </div>
         <%
@@ -216,6 +219,8 @@
         <%
             }
         %>
+
+        ${dto.state}
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-5" style="min-height: 200px;">
