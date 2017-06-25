@@ -22,9 +22,9 @@ public class IntroductionServiceImpl implements IntroductionService {
 
     @Override
     public Boolean validation(IntroductionEntity introductionEntity){
-        if(Validate.validateNumer(introductionEntity.getNeedyStudentId())){
-            if(Validate.validateNumer(introductionEntity.getRecommenderPhoneNumber())){
-                if(Validate.validateNumer(introductionEntity.getRecommenderStudentId())){
+        if(introductionEntity.getNeedyStudentId() != null && Validate.validateNumer(introductionEntity.getNeedyStudentId())){
+            if(introductionEntity.getRecommenderPhoneNumber() != null && Validate.validateNumer(introductionEntity.getRecommenderPhoneNumber())){
+                if(introductionEntity.getRecommenderStudentId() != null && Validate.validateNumer(introductionEntity.getRecommenderStudentId())){
                     return true;
                 }
             }

@@ -18,8 +18,8 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public Boolean validation(MessageEntity messageEntity){
-        if(Validate.validateNumer(messageEntity.getPhoneNumber())){
-            if(Validate.validateEmail(messageEntity.getEmail())){
+        if(messageEntity.getPhoneNumber() != null && Validate.validateNumer(messageEntity.getPhoneNumber())){
+            if(messageEntity.getEmail() != null && Validate.validateEmail(messageEntity.getEmail())){
                     return true;
                 }
         }

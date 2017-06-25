@@ -21,8 +21,8 @@ public class SuggestionServiceImpl implements SuggestionService {
 
     @Override
     public Boolean validation(SuggestionEntity suggestionEntity){
-        if(Validate.validateNumer(suggestionEntity.getPhoneNumber())){
-            if(Validate.validateEmail(suggestionEntity.getEmail())){
+        if(suggestionEntity.getPhoneNumber() != null && Validate.validateNumer(suggestionEntity.getPhoneNumber())){
+            if(suggestionEntity.getEmail() != null && Validate.validateEmail(suggestionEntity.getEmail())){
                 return true;
             }
         }
