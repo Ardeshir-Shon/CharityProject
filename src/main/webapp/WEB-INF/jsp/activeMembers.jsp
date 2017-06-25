@@ -8,18 +8,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>active members</title>
+    <<meta charset="utf-8">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/../resources/bootstrap-3.3.7-dist/css/bootstrap.css"
+          type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript">
     </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript">
+    <script src="${pageContext.request.contextPath}/../resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"
+            type="text/javascript">
     </script>
-    <script type="text/javascript" src="javascript.js">
-    </script><!-- Load Bootstrap RTL theme from RawGit -->
-    <link rel="stylesheet" href="https://cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css" type="text/css">
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <!-- Load Bootstrap RTL theme from RawGit -->
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/../resources/bootstrap-rtl-master/dist/css/bootstrap-rtl.css"
+          type="text/css">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <script src="https://use.fontawesome.com/5881fd899f.js"></script>
     <script>
         function hider(){
@@ -45,6 +48,7 @@
     <style>
         textarea.wrong::-webkit-input-placeholder {
             color: #c73f3f;
+        }
         input.wrong::-webkit-input-placeholder {
             color: #c73f3f;
         }
@@ -135,9 +139,10 @@
             <div class="form-group">
                 <label class="control-label col-sm-2" >نام:</label>
                 <div class="col-sm-5">
-                    <input type="text" name="firstName" class="form-control" placeholder="نام خود را وارد کنید">
+                    <input type="text" name="firstName" class="form-control" value="${dto.filled.name}">
                 </div>
             </div>
+        <%--${dto.filled.name}--%>
         <%
                 }
             }else{
@@ -169,7 +174,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2" >نام خانوادگی:</label>
             <div class="col-sm-5">
-                <input type="text" name="lastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
+                <input type="text" name="lastName" class="form-control" value="${dto.filled.family}>
             </div>
         </div>
         <%
@@ -205,7 +210,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2">شماره‌ی موبایل:</label>
             <div class="col-sm-5">
-                <input type="text" name="phoneNumber" class="form-control" placeholder="۰۹۱۲۱۲۳۴۵۶۷" style="text-align: left; direction: ltr;">
+                <input type="text" name="phoneNumber" class="form-control" value="${dto.filled.phoneNumber} style="text-align: left; direction: ltr;">
             </div>
         </div>
         <%
@@ -221,6 +226,41 @@
         <%
             }
         %>
+
+        <%
+            if (dto!=null && dto.getState().equals(0))
+            {
+                if (dto.getFilled().getEmail()!=null){
+        %>
+            <div class="form-group">
+                <label class="control-label col-sm-2" >نام خانوادگی:</label>
+                <div class="col-sm-5">
+                    <input type="text" name="lastName" class="form-control wrong" placeholder="بایستی نام خانوادگی خود را وارد کنید!">
+                </div>
+            </div>
+        <%
+        }else {
+        %>
+            <div class="form-group">
+                <label class="control-label col-sm-2" >نام خانوادگی:</label>
+                <div class="col-sm-5">
+                    <input type="text" name="lastName" class="form-control" value="${dto.filled.family}>
+            </div>
+        </div>
+        <%
+            }
+        }else {
+        %>
+        <div class="form-group">
+                    <label class="control-label col-sm-2" >نام خانوادگی:</label>
+                    <div class="col-sm-5">
+                        <input type="text" name="lastName" class="form-control" placeholder="نام خانوادگی خود را وارد کنید">
+                    </div>
+                </div>
+                <%
+                    }
+                %>
+
 
         <div class="form-group">
             <label class="control-label col-sm-2" >ایمیل(اختیاری):</label>
@@ -279,7 +319,12 @@
         %>
 
         <%
-            if((dto != null && dto.getState() != 1) || dto == null)
+            if(dto != null && dto.getState().equals(-1))
+            {
+        %>
+        <h5 class="col-sm-offset-2 col-sm-10" style="color: #c73f3f; margin-bottom: 18px;">ورودی‌های خود را چک کنید!</h5>
+        <%
+            }else if((dto != null && dto.getState() != 1) || dto == null)
             {
         %>
         <div class="form-group">
@@ -287,11 +332,6 @@
                 <button type="submit" class="btn btn-default" style="background-color: #f2f2f2; color: #777;">ثــبــت</button>
             </div>
         </div>
-        <%
-            }else if(dto.getState().equals(-1))
-            {
-        %>
-        <h5 class="col-sm-offset-2 col-sm-10" style="color: #41985c; margin-bottom: 18px;">ورودی‌های خود را چک کنید!</h5>
         <%
             }else{
         %>

@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: HamidReza
-  Date: 6/23/17
-  Time: 7:08 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
@@ -13,18 +6,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>inbox</title>
+    <title>خانه</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/../resources/bootstrap-3.3.7-dist/css/bootstrap.css"
+          type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript">
     </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript">
+    <script src="${pageContext.request.contextPath}/../resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"
+            type="text/javascript">
     </script>
-    <script type="text/javascript" src="javascript.js">
-    </script><!-- Load Bootstrap RTL theme from RawGit -->
-    <link rel="stylesheet" href="https://cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css" type="text/css">
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <!-- Load Bootstrap RTL theme from RawGit -->
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/../resources/bootstrap-rtl-master/dist/css/bootstrap-rtl.css"
+          type="text/css">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <script src="https://use.fontawesome.com/5881fd899f.js"></script>
 
     <style>
@@ -42,7 +38,8 @@
 </head>
 
 <body>
-<div class="container" style="min-height: 10px"></div>
+<div class="container" style="min-height: 10px">
+</div>
 <div class="container" style="padding: 0px">
     <nav class="navbar navbar-inverse" style="font-family: Gulf;">
         <div class="container-fluid">
@@ -115,7 +112,7 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img src="images/~text.png" alt="First slide">
+                        <img src="${pageContext.request.contextPath}/../resources/images/~text.png" alt="First slide">
                         <div class="carousel-caption">
                             <h3>اسلاید اول</h3>
 
@@ -123,7 +120,7 @@
                         </div>
                     </div>
                     <div class="item">
-                        <img src="images/~text 2.png" alt="Second slide">
+                        <img src="${pageContext.request.contextPath}/../resources/images/~text 2.png" alt="Second slide">
                         <div class="carousel-caption">
                             <h3>اسلاید دوم</h3>
 
@@ -131,7 +128,7 @@
                         </div>
                     </div>
                     <div class="item">
-                        <img src="images/~text 3.png" alt="Third slide">
+                        <img src="${pageContext.request.contextPath}/../resources/images/~text 3.png" alt="Third slide">
                         <div class="carousel-caption">
                             <h3>اسلاید سوم</h3>
 
@@ -150,17 +147,17 @@
 <div class="container">
     <div class="row" style="font-family:Gulf; color: #777; text-align: justify">
         <div class="col-sm-4">
-            <div><img src="img_chania.jpg" class="img-rounded" width="100%" style="margin: 20px 0px 10px 0px; background-color: gray;"></div>ستون اول<br>
+            <div><img src="${pageContext.request.contextPath}/../resources/img_chania.jpg" class="img-rounded" width="100%" style="margin: 20px 0px 10px 0px; background-color: gray;"></div>ستون اول<br>
             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
         </div>
 
         <div class="col-sm-4">
-            <div><img src="img_chania.jpg" class="img-rounded" width="100%" style="margin: 20px 0px 10px 0px; background-color: gray;"></div>ستون دوم<br>
+            <div><img src="${pageContext.request.contextPath}/../resources/img_chania.jpg" class="img-rounded" width="100%" style="margin: 20px 0px 10px 0px; background-color: gray;"></div>ستون دوم<br>
             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
         </div>
 
         <div class="col-sm-4">
-            <div><img src="img_chania.jpg" class="img-rounded" width="100%" style="margin: 20px 0px 10px 0px; background-color: gray;"></div>ستون سوم<br>
+            <div><img src="${pageContext.request.contextPath}/../resources/img_chania.jpg" class="img-rounded" width="100%" style="margin: 20px 0px 10px 0px; background-color: gray;"></div>ستون سوم<br>
             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
         </div>
     </div>
@@ -172,7 +169,7 @@
         </div>
 
         <div class="col-sm-8">
-            <div><img src="img_chania.jpg" class="img-rounded" width="100%" style="margin: 5px 5px 5px 5px; background-color: #1e9a88"></div>
+            <div><img src="${pageContext.request.contextPath}/../resources/img_chania.jpg" class="img-rounded" width="100%" style="margin: 5px 5px 5px 5px; background-color: #1e9a88"></div>
         </div>
     </div>
 </div>
