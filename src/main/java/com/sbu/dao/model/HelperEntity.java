@@ -77,7 +77,7 @@ public class HelperEntity {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phone_number) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
