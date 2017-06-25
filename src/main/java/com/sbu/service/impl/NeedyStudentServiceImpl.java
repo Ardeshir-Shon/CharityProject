@@ -18,8 +18,8 @@ public class NeedyStudentServiceImpl implements NeedyStudentService{
 
     @Override
     public Boolean validation(NeedyStudentEntity needyStudentEntity){
-        if(Validate.validateNumer(needyStudentEntity.getPhoneNumber())){
-            if(Validate.validateNumer(needyStudentEntity.getStudentId())){
+        if(needyStudentEntity.getPhoneNumber() != null && Validate.validateNumer(needyStudentEntity.getPhoneNumber())){
+            if(needyStudentEntity.getStudentId() != null && Validate.validateNumer(needyStudentEntity.getStudentId())){
                 return true;
             }
         }

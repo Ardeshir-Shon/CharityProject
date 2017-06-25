@@ -26,9 +26,9 @@ public class HelperServiceImpl implements HelperService {
 
     @Override
     public Boolean validation(HelperEntity helperEntity){
-        if(Validate.validateEmail(helperEntity.getEmail())){
-            if(Validate.validateNumer(helperEntity.getPhoneNumber())){
-                if(Validate.validateNumer(helperEntity.getCostOfPay())){
+        if(helperEntity.getEmail() != null && Validate.validateEmail(helperEntity.getEmail())){
+            if(helperEntity.getPhoneNumber() != null && Validate.validateNumer(helperEntity.getPhoneNumber())){
+                if(helperEntity.getCostOfPay() != null && Validate.validateNumer(helperEntity.getCostOfPay())){
                     return true;
                 }
             }
