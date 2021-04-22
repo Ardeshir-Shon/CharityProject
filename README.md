@@ -1,2 +1,2 @@
 # CharityProject
-website for a charity that leads by students of shahid beheshti university called "Omid e No".
+A website for a charity called Omid e No which leads by Shahid Beheshti University students.
